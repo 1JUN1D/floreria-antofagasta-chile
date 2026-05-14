@@ -1,0 +1,282 @@
+<style>
+.contact-info-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.contact-info-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #0D0D0D;
+    margin-bottom: 1rem;
+}
+
+.contact-header p {
+    font-size: 1.125rem;
+    color: #666;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.contact-info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-card {
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid #40353E;
+}
+
+.contact-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 24px rgba(64, 53, 62, 0.15);
+}
+
+.contact-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #40353E 0%, #8C748B 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(64, 53, 62, 0.3);
+}
+
+.contact-card-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #0D0D0D;
+}
+
+.contact-card-content {
+    color: #666;
+    line-height: 1.8;
+}
+
+.contact-card-content a {
+    color: #40353E;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-card-content a:hover {
+    color: #BF9FBD;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.contact-btn {
+    flex: 1;
+    padding: 0.875rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-btn-primary {
+    background: linear-gradient(135deg, #40353E 0%, #8C748B 100%);
+    color: white;
+}
+
+.contact-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(64, 53, 62, 0.3);
+}
+
+.contact-btn-whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.contact-btn-whatsapp:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+}
+
+.map-container {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    height: 100%;
+    min-height: 500px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.map-overlay h4 {
+    font-weight: 600;
+    color: #40353E;
+    margin-bottom: 0.25rem;
+}
+
+.map-overlay p {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+@media (max-width: 1024px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .map-container {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-header h2 {
+        font-size: 2.25rem;
+    }
+
+    .contact-actions {
+        flex-direction: column;
+    }
+
+    .contact-btn {
+        width: 100%;
+    }
+}
+</style>
+
+<section id="contacto" class="contact-info-section">
+    <div class="contact-info-container">
+        <div class="contact-header">
+            <h2>Contáctanos</h2>
+            <p>Estamos disponibles para ayudarte a concretar el regalo floral que tienes en mente</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info-cards">
+                <div class="contact-card">
+                    <div class="contact-card-header">
+                        <div class="contact-icon">📍</div>
+                        <h3>Ubicación</h3>
+                    </div>
+                    <div class="contact-card-content">
+                        <p><strong>Colo Colo 1774, Antofagasta</strong></p>
+                        <p>Antofagasta, Región de Antofagasta</p>
+                        <p>Chile</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-card-header">
+                        <div class="contact-icon">📞</div>
+                        <h3>Teléfono</h3>
+                    </div>
+                    <div class="contact-card-content">
+                        <p>
+                            <a href="tel:+56922437256">9 2243 7256</a>
+                        </p>
+                        <p>Atención de Lunes a Domingo</p>
+                        <p>Horario: 8:00 AM - 6:00 PM</p>
+                    </div>
+                    <div class="contact-actions">
+                        <a href="tel:+56922437256" class="contact-btn contact-btn-primary">
+                            📞 Llamar Ahora
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-card-header">
+                        <div class="contact-icon">💬</div>
+                        <h3>WhatsApp</h3>
+                    </div>
+                    <div class="contact-card-content">
+                        <p>Conversa con nosotros al instante por WhatsApp</p>
+                        <p>Atención rápida y personalizada para tu pedido</p>
+                        <p>Comparte fotos y recibe cotizaciones en minutos</p>
+                    </div>
+                    <div class="contact-actions">
+                        <a href="https://wa.me/56922437256?text=Hola,%20necesito%20información%20sobre%20sus%20flores"
+                           class="contact-btn contact-btn-whatsapp"
+                           target="_blank"
+                           onclick="trackWhatsAppClick('contact-section')">
+                            💬 Abrir WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-card-header">
+                        <div class="contact-icon">🌐</div>
+                        <h3>Web & Redes</h3>
+                    </div>
+                    <div class="contact-card-content">
+                        <p>
+                            <strong>Web:</strong>
+                            <a href="http://ansofagastafloreria.dondeseria.com">ansofagastafloreria.dondeseria.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d432.5478853656521!2d-70.4000!3d-23.6500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cddff9a5417535%3A0x256e6682b5b1b559!2sFloreria%20Antofagasta%20America!5e0!3m2!1ses!2sco!4v1775753442140!5m2!1ses!2sco"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Mapa de ubicación Full Petalos en Colo Colo 1774, Antofagasta">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
