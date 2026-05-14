@@ -20,14 +20,15 @@ img { max-width: 100%; height: auto; display: block; }
     padding: 0 20px;
 }
 
-/* --- HEADER --- */
+/* --- HEADER (Landing pages - blanco con texto negro) --- */
 .header {
-    background: #0D0D0D;
+    background: #ffffff;
     padding: 12px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid #ececec;
 }
 .header .container,
 .header-content {
@@ -52,10 +53,14 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-link {
     font-size: .92rem;
     font-weight: 500;
-    color: #ffffff;
+    color: #0D0D0D;
     transition: color .2s;
 }
 .nav-link:hover { color: #25D366; }
+.header .contact-header,
+.header .contact-header * {
+    color: #0D0D0D;
+}
 .contact-header {
     display: flex;
     align-items: center;
@@ -101,7 +106,7 @@ img { max-width: 100%; height: auto; display: block; }
 .whatsapp-number { font-weight: 600; }
 .phone-icon { margin-right: 4px; }
 
-/* --- HERO --- */
+/* --- HERO (Landing pages - background floral) --- */
 .hero {
     position: relative;
     min-height: 55vh;
@@ -110,7 +115,11 @@ img { max-width: 100%; height: auto; display: block; }
     justify-content: center;
     text-align: center;
     color: #fff;
-    background: #2d6a4f;
+    background-color: #2d6a4f;
+    background-image: url('https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     overflow: hidden;
 }
 .hero-overlay {
