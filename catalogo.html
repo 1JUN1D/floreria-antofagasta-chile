@@ -67,6 +67,103 @@
             margin-right: 4px;
             font-weight: 700;
         }
+        .original-price {
+            font-size: 0.95rem;
+            color: #999;
+            text-decoration: line-through;
+            font-weight: 500;
+            margin-top: 0.15rem;
+        }
+        .discount-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #d32f2f 0%, #ff5252 100%);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 0.2rem 0.55rem;
+            border-radius: 50px;
+            margin-left: 0.35rem;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 2px 6px rgba(211, 47, 47, 0.35);
+            animation: pulseBadge 1.8s infinite;
+        }
+        @keyframes pulseBadge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        /* Nota flotante de descuento fúnebres */
+        .funeral-discount-note {
+            position: fixed;
+            bottom: 95px;
+            left: 20px;
+            z-index: 998;
+            max-width: 280px;
+            background: linear-gradient(135deg, #ffffff 0%, #fff8f8 100%);
+            border: 2px solid #d32f2f;
+            border-radius: 14px;
+            padding: 0.9rem 2.2rem 0.9rem 1rem;
+            box-shadow: 0 8px 24px rgba(211, 47, 47, 0.25);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            color: #40353E;
+            line-height: 1.35;
+            animation: slideInLeft 0.6s ease-out, gentleFloat 3s ease-in-out infinite 0.6s;
+        }
+        .funeral-discount-note strong {
+            display: block;
+            color: #d32f2f;
+            font-weight: 700;
+            font-size: 0.92rem;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.3px;
+        }
+        .funeral-discount-note .note-icon {
+            display: inline-block;
+            margin-right: 4px;
+            font-size: 1rem;
+        }
+        .funeral-discount-note .note-close {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 1.3rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .funeral-discount-note .note-close:hover {
+            color: #d32f2f;
+        }
+        .funeral-discount-note.hidden {
+            display: none;
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-110%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        @media (max-width: 600px) {
+            .funeral-discount-note {
+                bottom: 85px;
+                left: 12px;
+                right: 12px;
+                max-width: none;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -116,7 +213,7 @@
     <!-- Results Counter -->
     <div class="results-counter">
         <div class="container">
-            Mostrando <strong id="results-count">62</strong> productos
+            Mostrando <strong id="results-count">63</strong> productos
         </div>
     </div>
 
@@ -145,6 +242,13 @@
                 <p id="lightbox-price"></p>
             </div>
         </div>
+    </div>
+
+    <!-- Nota flotante: descuento en arreglos fúnebres -->
+    <div class="funeral-discount-note" id="funeralDiscountNote" role="status" aria-live="polite">
+        <button class="note-close" id="funeralNoteClose" aria-label="Cerrar aviso">&times;</button>
+        <strong><span class="note-icon">🤍</span> Arreglos Fúnebres en Descuento</strong>
+        Acompañamos tu duelo con precios especiales en nuestros arreglos fúnebres por tiempo limitado.
     </div>
 
     <!-- Scroll to Top -->
@@ -208,7 +312,8 @@ const products = [
     {
         id: 6, code: "006",
         name: "Arreglo Fúnebre Oval Rosas Blancas",
-        price: 38990,
+        price: 37488,
+        originalPrice: 42000,
         image: "assets/foto6.webp",
         description: "Arreglo ovalado de condolencias con rosas blancas, follaje verde y gypsophila sobre tarjeta de respeto. Ideal para acompañar momentos solemnes con elegancia.",
         categories: ["funebres", "precio-medio"]
@@ -216,7 +321,8 @@ const products = [
     {
         id: 7, code: "007",
         name: "Cofre Rosas Blancas y Margaritas",
-        price: 51990,
+        price: 46238,
+        originalPrice: 55000,
         image: "assets/foto7.webp",
         description: "Cofre de madera con torre de rosas blancas en la parte superior y base de margaritas blancas con follaje fresco. Estilo natural y sofisticado para ocasiones especiales.",
         categories: ["cajas", "rosas", "precio-medio"]
@@ -320,7 +426,8 @@ const products = [
     {
         id: 20, code: "020",
         name: "Corona Fúnebre Blanca con Banda Pésame",
-        price: 49990,
+        price: 74988,
+        originalPrice: 84000,
         image: "assets/foto20.webp",
         description: "Corona fúnebre con crisantemos, rosas blancas y lilies acompañada por una banda con dedicatoria personalizada. Ideal para honrar a un ser querido con elegancia.",
         categories: ["funebres", "precio-medio"]
@@ -660,6 +767,14 @@ const products = [
         image: "assets/foto62.webp",
         description: "Ramo romántico de lirios rosados y blancos con paniculata y follaje verde, acompañado de globo metálico en forma de corazón con la leyenda Te Amo y envoltura lila con moño rosa. Una declaración de amor lista para sorprender.",
         categories: ["ramos", "especiales", "precio-medio"]
+    },
+    {
+        id: 63, code: "063",
+        name: "Arreglo Fúnebre Piramidal Rosas Blancas",
+        price: 23625,
+        image: "assets/foto63.webp",
+        description: "Arreglo fúnebre piramidal compuesto por rosas blancas, gypsophila y abundante follaje de helecho verde sobre fondo neutro. Una pieza serena y delicada que transmite respeto, paz y consuelo en momentos de despedida.",
+        categories: ["funebres", "precio-bajo"]
     }
 ];
         // Normalizar texto (quitar tildes y minúsculas)
@@ -774,11 +889,13 @@ const products = [
                     </div>
                     <div class="product-info">
                         <span class="product-code">Cód. ${product.code}</span>
+                        ${product.originalPrice ? `<span class="discount-badge">¡OFERTA!</span>` : ''}
                         <h3 class="product-name">${product.name}</h3>
                         <div class="product-description">${product.description}</div>
                         <div class="product-footer">
                             <div>
                                 <span class="price-label">Desde</span>
+                                ${product.originalPrice ? `<div class="original-price">${formatPrice(product.originalPrice)}</div>` : ''}
                                 <div class="product-price">${formatPrice(product.price)}</div>
                             </div>
                             <a href="https://wa.me/56922437256?text=Hola,%20me%20interesa%20el%20producto%20${product.code}:%20${encodeURIComponent(product.name)}%20-%20${formatPrice(product.price)}"
@@ -872,6 +989,15 @@ const products = [
         scrollTop.addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Nota flotante de descuento fúnebres
+        const funeralNote = document.getElementById('funeralDiscountNote');
+        const funeralNoteClose = document.getElementById('funeralNoteClose');
+        if (funeralNoteClose && funeralNote) {
+            funeralNoteClose.addEventListener('click', function() {
+                funeralNote.classList.add('hidden');
+            });
+        }
 
         // Inicializar
         renderProducts();
