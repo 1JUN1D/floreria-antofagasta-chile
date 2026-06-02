@@ -67,6 +67,63 @@
             margin-right: 4px;
             font-weight: 700;
         }
+        /* Carousel para productos con variaciones */
+        .product-image-container.has-carousel {
+            position: relative;
+        }
+        .product-image-container.has-carousel .carousel-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.7s ease-in-out;
+            z-index: 1;
+        }
+        .product-image-container.has-carousel .carousel-img.active {
+            opacity: 1;
+            z-index: 2;
+        }
+        .carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            z-index: 5;
+        }
+        .carousel-dot {
+            width: 9px;
+            height: 9px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1.5px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.25s ease, transform 0.25s ease;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+        .carousel-dot.active {
+            background: #fff;
+            transform: scale(1.25);
+        }
+        .carousel-counter {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.55rem;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            z-index: 5;
+            backdrop-filter: blur(4px);
+        }
         .original-price {
             font-size: 0.95rem;
             color: #999;
@@ -213,7 +270,7 @@
     <!-- Results Counter -->
     <div class="results-counter">
         <div class="container">
-            Mostrando <strong id="results-count">65</strong> productos
+            Mostrando <strong id="results-count">69</strong> productos
         </div>
     </div>
 
@@ -791,6 +848,45 @@ const products = [
         image: "assets/foto65.webp",
         description: "Cartera floral en papel cream con asa dorada, rellena de rosas rosadas, alstroemerias, claveles rosados, follaje verde fresco y caja de Ferrero Rocher, rematada con envoltura lila y moño rosa. Un regalo tierno y sofisticado, ideal para sorprender a mamá, parejas o en cumpleaños femeninos.",
         categories: ["canastas", "rosas", "especiales", "precio-medio"]
+    },
+    {
+        id: 66, code: "066",
+        name: "Florero Clásico Docena Rosas Rojas con Tarjeta",
+        price: 53738,
+        image: "assets/foto66.webp",
+        description: "Florero de vidrio con docena de rosas rojas, gypsophila y follaje verde, coronado con tarjeta blanca y moño rojo en el cuello. Pieza atemporal y elegante para declaraciones románticas, aniversarios y San Valentín.",
+        categories: ["especiales", "rosas", "precio-medio"]
+    },
+    {
+        id: 67, code: "067",
+        name: "Ramo Multicolor de Gerberas con Mariposa",
+        price: 37488,
+        image: "assets/foto67.webp",
+        description: "Ramo en papel rosa pastel con gerberas rosadas, gerberas amarillas, gypsophila blanca y mariposa decorativa lila. Composición vibrante y alegre, perfecta para cumpleaños, agradecimientos y momentos felices.",
+        categories: ["ramos", "especiales", "precio-medio"]
+    },
+    {
+        id: 68, code: "068",
+        name: "Florero Primaveral Girasol y Rosas Mix",
+        price: 43738,
+        image: "assets/foto68.webp",
+        description: "Florero de vidrio texturizado con girasol central, rosas blancas y amarillas, gypsophila, helecho y mariposa rosa decorativa, rematado con moño amarillo. Pieza fresca y luminosa que combina romance y alegría para sorprender en cualquier ocasión especial.",
+        categories: ["especiales", "girasoles", "rosas", "precio-medio"]
+    },
+    {
+        id: 69, code: "069",
+        name: "Corona Fúnebre Corazón con Tributo Personalizado",
+        price: 75000,
+        image: "assets/foto69_1.webp",
+        variations: [
+            "assets/foto69_1.webp",
+            "assets/foto69_2.webp",
+            "assets/foto69_3.webp",
+            "assets/foto69_4.webp",
+            "assets/foto69_5.webp"
+        ],
+        description: "Corona fúnebre en forma de corazón sobre atril, elaborada con flores frescas y banda con dedicatoria personalizada del ser querido. Disponible en cinco variaciones cromáticas (rojo, blanco-amarillo, azul y combinaciones) para honrar con respeto y elegancia.",
+        categories: ["funebres", "precio-medio"]
     }
 ];
         // Normalizar texto (quitar tildes y minúsculas)
@@ -890,10 +986,23 @@ const products = [
                 filteredProducts = [...interleaved, ...funebres];
             }
 
-            grid.innerHTML = filteredProducts.map(product => `
+            grid.innerHTML = filteredProducts.map(product => {
+                const hasVariations = Array.isArray(product.variations) && product.variations.length > 1;
+                const imagesHtml = hasVariations
+                    ? product.variations.map((src, i) => `<img src="${src}" alt="${product.name} variante ${i+1}" class="product-image carousel-img${i===0?' active':''}" data-index="${i}" loading="lazy">`).join('')
+                    : `<img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">`;
+                const dotsHtml = hasVariations
+                    ? `<div class="carousel-dots">${product.variations.map((_, i) => `<span class="carousel-dot${i===0?' active':''}" data-index="${i}"></span>`).join('')}</div>
+                       <span class="carousel-counter"><span class="carousel-current">1</span>/${product.variations.length}</span>`
+                    : '';
+                const lightboxHandler = hasVariations
+                    ? `openCarouselLightbox('${product.code}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')`
+                    : `openLightbox('${product.image}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')`;
+                return `
                 <div class="product-card" data-categories="${product.categories.join(' ')}" data-code="${product.code}">
-                    <div class="product-image-container" onclick="openLightbox('${product.image}', '${product.name}', '${formatPrice(product.price)}')">
-                        <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
+                    <div class="product-image-container ${hasVariations ? 'has-carousel' : ''}" data-code="${product.code}" onclick="${lightboxHandler}">
+                        ${imagesHtml}
+                        ${dotsHtml}
                         <div class="zoom-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="11" cy="11" r="8"/>
@@ -926,7 +1035,49 @@ const products = [
                         </div>
                     </div>
                 </div>
-            `).join('');
+            `;
+            }).join('');
+
+            initCarousels();
+        }
+
+        // Carousel handling para productos con variaciones
+        let carouselTimers = [];
+        function initCarousels() {
+            // Limpiar timers anteriores
+            carouselTimers.forEach(t => clearInterval(t));
+            carouselTimers = [];
+            document.querySelectorAll('.product-image-container.has-carousel').forEach(carousel => {
+                const imgs = carousel.querySelectorAll('.carousel-img');
+                const dots = carousel.querySelectorAll('.carousel-dot');
+                const counter = carousel.querySelector('.carousel-current');
+                if (imgs.length <= 1) return;
+                let current = 0;
+                const setActive = (idx) => {
+                    imgs[current].classList.remove('active');
+                    if (dots[current]) dots[current].classList.remove('active');
+                    current = (idx + imgs.length) % imgs.length;
+                    imgs[current].classList.add('active');
+                    if (dots[current]) dots[current].classList.add('active');
+                    if (counter) counter.textContent = current + 1;
+                };
+                const timer = setInterval(() => setActive(current + 1), 3000);
+                carouselTimers.push(timer);
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        setActive(i);
+                    });
+                });
+            });
+        }
+
+        // Lightbox para productos con carousel (muestra la imagen activa)
+        function openCarouselLightbox(code, name, price) {
+            const card = document.querySelector(`.product-image-container.has-carousel[data-code="${code}"]`);
+            if (!card) return;
+            const activeImg = card.querySelector('.carousel-img.active') || card.querySelector('.carousel-img');
+            if (activeImg) openLightbox(activeImg.src, name, price);
         }
 
         // Formatear precio en pesos chilenos

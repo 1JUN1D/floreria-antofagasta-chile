@@ -69,7 +69,11 @@ const products = [
     { id: 62, code: "062", name: "Ramo de Lirios con Globo Corazón Te Amo", price: 56240, image: "../assets/foto62.webp", description: "Ramo romántico de lirios rosados y blancos con paniculata y follaje verde, acompañado de globo metálico en forma de corazón con la leyenda Te Amo y envoltura lila con moño rosa. Una declaración de amor lista para sorprender.", categories: ["ramos", "especiales", "precio-medio"] },
     { id: 63, code: "063", name: "Arreglo Fúnebre Piramidal Rosas Blancas", price: 23625, image: "../assets/foto63.webp", description: "Arreglo fúnebre piramidal compuesto por rosas blancas, gypsophila y abundante follaje de helecho verde sobre fondo neutro. Una pieza serena y delicada que transmite respeto, paz y consuelo en momentos de despedida.", categories: ["funebres", "coronas-funebres", "precio-bajo"] },
     { id: 64, code: "064", name: "Bouquet Sol Girasol con Rosas Amarillas y Mariposas", price: 28740, image: "../assets/foto64.webp", description: "Ramo radiante con girasol central, rosas amarillas y blancas, paniculata y mariposas doradas decorativas, envuelto en papel celeste pastel con bordes dorados y moño a juego. Una composición luminosa y alegre, perfecta para cumpleaños, gracias y momentos de pura felicidad.", categories: ["ramos", "girasoles", "rosas", "especiales", "precio-bajo"] },
-    { id: 65, code: "065", name: "Cartera Floral Rosa con Rosas, Alstroemerias y Ferrero", price: 41237, image: "../assets/foto65.webp", description: "Cartera floral en papel cream con asa dorada, rellena de rosas rosadas, alstroemerias, claveles rosados, follaje verde fresco y caja de Ferrero Rocher, rematada con envoltura lila y moño rosa. Un regalo tierno y sofisticado, ideal para sorprender a mamá, parejas o en cumpleaños femeninos.", categories: ["cajas", "rosas", "especiales", "precio-medio"] }
+    { id: 65, code: "065", name: "Cartera Floral Rosa con Rosas, Alstroemerias y Ferrero", price: 41237, image: "../assets/foto65.webp", description: "Cartera floral en papel cream con asa dorada, rellena de rosas rosadas, alstroemerias, claveles rosados, follaje verde fresco y caja de Ferrero Rocher, rematada con envoltura lila y moño rosa. Un regalo tierno y sofisticado, ideal para sorprender a mamá, parejas o en cumpleaños femeninos.", categories: ["cajas", "rosas", "especiales", "precio-medio"] },
+    { id: 66, code: "066", name: "Florero Clásico Docena Rosas Rojas con Tarjeta", price: 53738, image: "../assets/foto66.webp", description: "Florero de vidrio con docena de rosas rojas, gypsophila y follaje verde, coronado con tarjeta blanca y moño rojo en el cuello. Pieza atemporal y elegante para declaraciones románticas, aniversarios y San Valentín.", categories: ["especiales", "rosas", "precio-medio"] },
+    { id: 67, code: "067", name: "Ramo Multicolor de Gerberas con Mariposa", price: 37488, image: "../assets/foto67.webp", description: "Ramo en papel rosa pastel con gerberas rosadas, gerberas amarillas, gypsophila blanca y mariposa decorativa lila. Composición vibrante y alegre, perfecta para cumpleaños, agradecimientos y momentos felices.", categories: ["ramos", "especiales", "precio-medio"] },
+    { id: 68, code: "068", name: "Florero Primaveral Girasol y Rosas Mix", price: 43738, image: "../assets/foto68.webp", description: "Florero de vidrio texturizado con girasol central, rosas blancas y amarillas, gypsophila, helecho y mariposa rosa decorativa, rematado con moño amarillo. Pieza fresca y luminosa que combina romance y alegría para sorprender en cualquier ocasión especial.", categories: ["especiales", "girasoles", "rosas", "precio-medio"] },
+    { id: 69, code: "069", name: "Corona Fúnebre Corazón con Tributo Personalizado", price: 75000, image: "../assets/foto69_1.webp", variations: ["../assets/foto69_1.webp","../assets/foto69_2.webp","../assets/foto69_3.webp","../assets/foto69_4.webp","../assets/foto69_5.webp"], description: "Corona fúnebre en forma de corazón sobre atril, elaborada con flores frescas y banda con dedicatoria personalizada del ser querido. Disponible en cinco variaciones cromáticas (rojo, blanco-amarillo, azul y combinaciones) para honrar con respeto y elegancia.", categories: ["funebres", "coronas-funebres", "precio-medio"] }
 ];
 
 // --- VARIABLES GLOBALES ---
@@ -155,11 +159,21 @@ function renderProducts(filters = [], limit = null) {
     container.innerHTML = '';
     productsToDisplay.forEach(product => {
         const escapedName = product.name.replace(/'/g, "\\'");
+        const hasVariations = Array.isArray(product.variations) && product.variations.length > 1;
+        const imageHTML = hasVariations
+            ? `<div class="product-image has-carousel" data-code="${product.code}">
+                  ${product.variations.map((src, i) => `<img src="${src}" alt="${product.name} variante ${i+1}" class="carousel-img${i===0?' active':''}" data-index="${i}" loading="lazy">`).join('')}
+                  <div class="carousel-dots">
+                      ${product.variations.map((_, i) => `<span class="carousel-dot${i===0?' active':''}" data-index="${i}"></span>`).join('')}
+                  </div>
+                  <span class="carousel-counter"><span class="carousel-current">1</span>/${product.variations.length}</span>
+              </div>`
+            : `<div class="product-image">
+                  <img src="${product.image}" alt="${product.name} - Flores a domicilio Antofagasta" loading="lazy">
+              </div>`;
         const productHTML = `
             <div class="product-item" data-code="${product.code}">
-                <div class="product-image">
-                    <img src="${product.image}" alt="${product.name} - Flores a domicilio Antofagasta" loading="lazy">
-                </div>
+                ${imageHTML}
                 <div class="product-info">
                     <span class="product-code">Cód. ${product.code}</span>
                     <h3>${product.name}</h3>
@@ -174,6 +188,38 @@ function renderProducts(filters = [], limit = null) {
             </div>
         `;
         container.innerHTML += productHTML;
+    });
+
+    initLandingCarousels();
+}
+
+// --- CAROUSEL para variaciones de producto ---
+let landingCarouselTimers = [];
+function initLandingCarousels() {
+    landingCarouselTimers.forEach(t => clearInterval(t));
+    landingCarouselTimers = [];
+    document.querySelectorAll('.product-image.has-carousel').forEach(carousel => {
+        const imgs = carousel.querySelectorAll('.carousel-img');
+        const dots = carousel.querySelectorAll('.carousel-dot');
+        const counter = carousel.querySelector('.carousel-current');
+        if (imgs.length <= 1) return;
+        let current = 0;
+        const setActive = (idx) => {
+            imgs[current].classList.remove('active');
+            if (dots[current]) dots[current].classList.remove('active');
+            current = (idx + imgs.length) % imgs.length;
+            imgs[current].classList.add('active');
+            if (dots[current]) dots[current].classList.add('active');
+            if (counter) counter.textContent = current + 1;
+        };
+        const timer = setInterval(() => setActive(current + 1), 3000);
+        landingCarouselTimers.push(timer);
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                setActive(i);
+            });
+        });
     });
 }
 
