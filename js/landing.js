@@ -73,7 +73,12 @@ const products = [
     { id: 66, code: "066", name: "Florero Clásico Docena Rosas Rojas con Tarjeta", price: 53738, image: "../assets/foto66.webp", description: "Florero de vidrio con docena de rosas rojas, gypsophila y follaje verde, coronado con tarjeta blanca y moño rojo en el cuello. Pieza atemporal y elegante para declaraciones románticas, aniversarios y San Valentín.", categories: ["especiales", "rosas", "precio-medio"] },
     { id: 67, code: "067", name: "Ramo Multicolor de Gerberas con Mariposa", price: 37488, image: "../assets/foto67.webp", description: "Ramo en papel rosa pastel con gerberas rosadas, gerberas amarillas, gypsophila blanca y mariposa decorativa lila. Composición vibrante y alegre, perfecta para cumpleaños, agradecimientos y momentos felices.", categories: ["ramos", "especiales", "precio-medio"] },
     { id: 68, code: "068", name: "Florero Primaveral Girasol y Rosas Mix", price: 43738, image: "../assets/foto68.webp", description: "Florero de vidrio texturizado con girasol central, rosas blancas y amarillas, gypsophila, helecho y mariposa rosa decorativa, rematado con moño amarillo. Pieza fresca y luminosa que combina romance y alegría para sorprender en cualquier ocasión especial.", categories: ["especiales", "girasoles", "rosas", "precio-medio"] },
-    { id: 69, code: "069", name: "Corona Fúnebre Corazón con Tributo Personalizado", price: 75000, image: "../assets/foto69_1.webp", variations: ["../assets/foto69_1.webp","../assets/foto69_2.webp","../assets/foto69_3.webp","../assets/foto69_4.webp","../assets/foto69_5.webp"], description: "Corona fúnebre en forma de corazón sobre atril, elaborada con flores frescas y banda con dedicatoria personalizada del ser querido. Disponible en cinco variaciones cromáticas (rojo, blanco-amarillo, azul y combinaciones) para honrar con respeto y elegancia.", categories: ["funebres", "coronas-funebres", "precio-medio"] }
+    { id: 69, code: "069", name: "Corona Fúnebre Corazón con Tributo Personalizado", price: 75000, image: "../assets/foto69_1.webp", variations: ["../assets/foto69_1.webp","../assets/foto69_2.webp","../assets/foto69_3.webp","../assets/foto69_4.webp","../assets/foto69_5.webp"], description: "Corona fúnebre en forma de corazón sobre atril, elaborada con flores frescas y banda con dedicatoria personalizada del ser querido. Disponible en cinco variaciones cromáticas (rojo, blanco-amarillo, azul y combinaciones) para honrar con respeto y elegancia.", categories: ["funebres", "coronas-funebres", "precio-medio"] },
+    { id: 70, code: "070", name: "Buqué Premium Mix Rosas Rojas y Blancas con Mariposas Doradas", price: 56238, originalPrice: 67485, image: "../assets/foto70.webp", description: "Ramo abundante con rosas rojas y blancas combinadas, envuelto en papel negro con borde dorado y rematado con tres mariposas filigrana doradas. Diseño imponente y elegante, perfecto para aniversarios y declaraciones románticas inolvidables.", categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"], promo: true },
+    { id: 71, code: "071", name: "Buqué Realeza Rosas Rojas con Corona, Ferrero y Mariposas", price: 73738, originalPrice: 88485, image: "../assets/foto71.webp", description: "Composición circular monumental de rosas rojas con corona dorada, chocolates Ferrero Rocher y mariposas filigrana, envuelto en papel blanco con bordes dorados. Una pieza majestuosa para sorprender en grande y conquistar con elegancia y lujo.", categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"], promo: true },
+    { id: 72, code: "072", name: "Mega Bouquet Rosas Rojas y Rosadas en Papel Translúcido", price: 62488, originalPrice: 74985, image: "../assets/foto72.webp", description: "Bouquet voluminoso con rosas rojas y rosa pastel alternadas, envuelto en papel translúcido rosa que realza su delicadeza. Un regalo romántico y abundante, ideal para aniversarios, cumpleaños y declaraciones de amor.", categories: ["ramos", "rosas", "premium", "precio-medio"], promo: true },
+    { id: 73, code: "073", name: "Buqué Clásico 12 Rosas Rojas con Tarjeta y Moño", price: 31238, originalPrice: 37485, image: "../assets/foto73.webp", description: "Ramo compacto con docena de rosas rojas, envuelto en papel blanco con líneas doradas, tarjeta personalizable y moño rojo. Clásico atemporal para San Valentín, aniversarios y gestos románticos.", categories: ["ramos", "rosas", "precio-medio"], promo: true },
+    { id: 74, code: "074", name: "Buqué Elegante Rosas Rojas con Mariposas Doradas", price: 37488, originalPrice: 44985, image: "../assets/foto74.webp", description: "Ramo de rosas rojas con follaje fresco, envoltura blanca con borde dorado y dos mariposas filigrana doradas en la parte superior. Una propuesta sobria y elegante para sorprender con clase en momentos especiales.", categories: ["ramos", "rosas", "especiales", "precio-medio"], promo: true }
 ];
 
 // --- VARIABLES GLOBALES ---
@@ -150,6 +155,11 @@ function renderProducts(filters = [], limit = null) {
         });
     }
 
+    // Separar productos en promoción y ponerlos siempre arriba
+    const promoProducts = productsToDisplay.filter(p => p.promo);
+    const nonPromoProducts = productsToDisplay.filter(p => !p.promo);
+    productsToDisplay = [...promoProducts, ...nonPromoProducts];
+
     if (limit) {
         productsToDisplay = productsToDisplay.slice(0, limit);
     }
@@ -171,15 +181,26 @@ function renderProducts(filters = [], limit = null) {
             : `<div class="product-image">
                   <img src="${product.image}" alt="${product.name} - Flores a domicilio Antofagasta" loading="lazy">
               </div>`;
+        const promoOverlay = product.promo ? `
+            <div class="promo-ribbon"><span class="promo-spark">✦</span> OFERTA <span class="promo-spark">✦</span></div>
+            <div class="promo-savings">-${Math.round((1 - product.price/product.originalPrice)*100)}%</div>
+        ` : '';
+        const priceHTML = product.promo
+            ? `<div class="price-block">
+                   <span class="old-price">${formatCLP(product.originalPrice)}</span>
+                   <span class="price promo-price">${formatCLP(product.price)}</span>
+               </div>`
+            : `<span class="price">${formatCLP(product.price)}</span>`;
         const productHTML = `
-            <div class="product-item" data-code="${product.code}">
+            <div class="product-item ${product.promo ? 'promo-card' : ''}" data-code="${product.code}">
+                ${promoOverlay}
                 ${imageHTML}
                 <div class="product-info">
                     <span class="product-code">Cód. ${product.code}</span>
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>
                     <div class="product-footer">
-                        <span class="price">${formatCLP(product.price)}</span>
+                        ${priceHTML}
                         <button class="btn-order" onclick="orderWA('${escapedName}', '${product.price}', '${product.code}')">
                             Pedir por WhatsApp
                         </button>
@@ -191,6 +212,72 @@ function renderProducts(filters = [], limit = null) {
     });
 
     initLandingCarousels();
+}
+
+// --- FLYER FLOTANTE DE PROMOCIONES ---
+function initPromoFlyer() {
+    if (document.getElementById('promoFlyerOverlay')) return;
+    const promos = products.filter(p => p.promo);
+    if (promos.length === 0) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'promo-flyer-overlay';
+    overlay.id = 'promoFlyerOverlay';
+    overlay.innerHTML = `
+        <div class="promo-flyer">
+            <button class="promo-flyer-close" id="promoFlyerClose" aria-label="Cerrar">&times;</button>
+            <div class="promo-flyer-header">
+                <h2><span class="gold-spark">✦</span>¡Ofertas Especiales!<span class="gold-spark">✦</span></h2>
+                <p>Ramos premium con descuento por tiempo limitado</p>
+            </div>
+            <div class="promo-flyer-carousel" id="promoFlyerCarousel">
+                ${promos.map((p, i) => `
+                    <div class="promo-flyer-slide${i === 0 ? ' active' : ''}" data-index="${i}">
+                        <div class="slide-img" style="background-image: url('${p.image}');"></div>
+                        <div class="slide-text">
+                            <span class="slide-code">Cód. ${p.code}</span>
+                            <h3>${p.name}</h3>
+                            <div class="slide-prices">
+                                <span class="slide-old">${formatCLP(p.originalPrice)}</span>
+                                <span class="slide-new">${formatCLP(p.price)}</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="promo-flyer-progress"></div>
+            <div class="promo-flyer-footer">
+                Pedidos por <strong>WhatsApp +56 9 2243 7256</strong> · Despacho a domicilio
+            </div>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const closeBtn = document.getElementById('promoFlyerClose');
+    const slides = overlay.querySelectorAll('.promo-flyer-slide');
+    let currentSlide = 0;
+    let slideTimer = null;
+    let autoCloseTimer = null;
+    const slideInterval = Math.max(900, Math.floor(5000 / promos.length));
+
+    function showSlide(idx) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (idx + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    function closeFlyer() {
+        overlay.classList.remove('active');
+        if (slideTimer) { clearInterval(slideTimer); slideTimer = null; }
+        if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
+    }
+    closeBtn.addEventListener('click', closeFlyer);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeFlyer(); });
+
+    setTimeout(() => {
+        overlay.classList.add('active');
+        slideTimer = setInterval(() => showSlide(currentSlide + 1), slideInterval);
+        autoCloseTimer = setTimeout(closeFlyer, 5000);
+    }, 600);
 }
 
 // --- CAROUSEL para variaciones de producto ---
@@ -281,14 +368,12 @@ function filterProducts(tag) {
 // --- INICIALIZAR CATÁLOGO COMPLETO ---
 function initCatalog() {
     window._catalogInitialized = true;
-    // Filtros
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             filterProducts(this.getAttribute('data-filter'));
         });
     });
 
-    // Búsqueda
     const searchInput = document.getElementById('search-input');
     const searchClear = document.getElementById('search-clear');
     if (searchInput) {
@@ -315,11 +400,11 @@ function initCatalog() {
         });
     }
 
-    // Render inicial con todos los productos
     renderProducts();
+    initPromoFlyer();
 }
 
-// Inicializar automáticamente si no se define LANDING_PRIORITY_TAG manualmente
+// Inicializar automáticamente
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() {
         if (!window._catalogInitialized) {

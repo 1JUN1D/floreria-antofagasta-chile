@@ -67,6 +67,294 @@
             margin-right: 4px;
             font-weight: 700;
         }
+        /* Tarjetas de promoción destacadas */
+        .product-card.promo-card {
+            position: relative;
+            border: 3px solid #d32f2f;
+            box-shadow: 0 8px 28px rgba(211, 47, 47, 0.28), 0 0 0 4px rgba(255, 215, 0, 0.18);
+            transform: translateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: visible !important;
+        }
+        .product-card.promo-card::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: inherit;
+            padding: 3px;
+            background: linear-gradient(135deg, #ffd700 0%, #d32f2f 50%, #ffd700 100%);
+            background-size: 300% 300%;
+            animation: promoGlow 4s ease-in-out infinite;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 1;
+        }
+        @keyframes promoGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .product-card.promo-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 38px rgba(211, 47, 47, 0.38), 0 0 0 4px rgba(255, 215, 0, 0.28);
+        }
+        .promo-ribbon {
+            position: absolute;
+            top: 12px;
+            left: -8px;
+            background: linear-gradient(135deg, #d32f2f 0%, #ff1744 100%);
+            color: #fff;
+            padding: 0.4rem 1rem 0.4rem 1.2rem;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.5);
+            z-index: 10;
+            clip-path: polygon(0 0, 100% 0, 92% 50%, 100% 100%, 0 100%, 8% 50%);
+        }
+        .promo-ribbon::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            border-top: 6px solid #8b0000;
+            border-left: 8px solid transparent;
+        }
+        .promo-spark {
+            color: #ffd700;
+            font-size: 0.7rem;
+        }
+        .promo-savings {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%);
+            color: #40353E;
+            font-weight: 900;
+            font-size: 0.95rem;
+            padding: 0.4rem 0.7rem;
+            border-radius: 50%;
+            min-width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.5);
+            z-index: 10;
+            animation: savingsBounce 2.2s infinite;
+            border: 2px solid #fff;
+        }
+        @keyframes savingsBounce {
+            0%, 100% { transform: scale(1) rotate(-8deg); }
+            50% { transform: scale(1.1) rotate(8deg); }
+        }
+        .product-card.promo-card .product-price {
+            color: #d32f2f;
+            font-weight: 800;
+        }
+
+        /* Flyer flotante de promociones (popup inicial) */
+        .promo-flyer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(20, 10, 20, 0.78);
+            backdrop-filter: blur(6px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            padding: 20px;
+        }
+        .promo-flyer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .promo-flyer {
+            background: linear-gradient(135deg, #fff8f8 0%, #ffffff 100%);
+            border: 4px solid transparent;
+            border-radius: 24px;
+            max-width: 560px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            transform: scale(0.7) rotate(-3deg);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            overflow: hidden;
+            background-clip: padding-box;
+        }
+        .promo-flyer::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, #d32f2f, #ffd700, #d32f2f, #ffd700);
+            background-size: 400% 400%;
+            animation: promoGlow 3s ease-in-out infinite;
+            z-index: -1;
+        }
+        .promo-flyer-overlay.active .promo-flyer {
+            transform: scale(1) rotate(0deg);
+        }
+        .promo-flyer-header {
+            background: linear-gradient(135deg, #d32f2f 0%, #ff1744 100%);
+            color: #fff;
+            text-align: center;
+            padding: 1.2rem 1rem 1rem;
+            position: relative;
+        }
+        .promo-flyer-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin: 0 0 0.3rem;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+        }
+        .promo-flyer-header p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+        }
+        .promo-flyer-header .gold-spark {
+            color: #ffd700;
+            font-size: 1.3rem;
+            margin: 0 8px;
+            display: inline-block;
+            animation: spark 1.5s infinite;
+        }
+        @keyframes spark {
+            0%, 100% { transform: scale(1) rotate(0); opacity: 1; }
+            50% { transform: scale(1.4) rotate(180deg); opacity: 0.6; }
+        }
+        .promo-flyer-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.9);
+            color: #d32f2f;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, background 0.2s ease;
+            z-index: 5;
+        }
+        .promo-flyer-close:hover {
+            background: #fff;
+            transform: rotate(90deg) scale(1.1);
+        }
+        .promo-flyer-carousel {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 11;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+        .promo-flyer-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+            display: flex;
+            background: #fff;
+        }
+        .promo-flyer-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+        .promo-flyer-slide .slide-img {
+            flex: 1.1;
+            background-size: cover;
+            background-position: center;
+        }
+        .promo-flyer-slide .slide-text {
+            flex: 1;
+            padding: 1.2rem 1.1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #fff;
+        }
+        .promo-flyer-slide .slide-code {
+            display: inline-block;
+            background: linear-gradient(135deg, #40353E 0%, #8C748B 100%);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 0.2rem 0.55rem;
+            border-radius: 50px;
+            margin-bottom: 0.5rem;
+            align-self: flex-start;
+        }
+        .promo-flyer-slide h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            color: #40353E;
+            margin: 0 0 0.5rem;
+            line-height: 1.2;
+        }
+        .promo-flyer-slide .slide-prices {
+            margin-top: 0.4rem;
+        }
+        .promo-flyer-slide .slide-old {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.85rem;
+        }
+        .promo-flyer-slide .slide-new {
+            color: #d32f2f;
+            font-size: 1.4rem;
+            font-weight: 800;
+            display: block;
+            margin-top: 0.1rem;
+        }
+        .promo-flyer-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d32f2f, #ffd700);
+            width: 0%;
+            z-index: 10;
+        }
+        .promo-flyer-overlay.active .promo-flyer-progress {
+            animation: progressFill 5s linear forwards;
+        }
+        @keyframes progressFill {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+        .promo-flyer-footer {
+            background: #fafafa;
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            font-family: 'Poppins', sans-serif;
+        }
+        .promo-flyer-footer strong {
+            color: #d32f2f;
+        }
+        @media (max-width: 600px) {
+            .promo-flyer-slide { flex-direction: column; }
+            .promo-flyer-slide .slide-img { aspect-ratio: 16/9; flex: none; }
+            .promo-flyer-carousel { aspect-ratio: auto; }
+            .promo-flyer-slide .slide-text { padding: 0.8rem; }
+            .promo-flyer-header h2 { font-size: 1.4rem; }
+        }
+
         /* Carousel para productos con variaciones */
         .product-image-container.has-carousel {
             position: relative;
@@ -270,7 +558,7 @@
     <!-- Results Counter -->
     <div class="results-counter">
         <div class="container">
-            Mostrando <strong id="results-count">69</strong> productos
+            Mostrando <strong id="results-count">74</strong> productos
         </div>
     </div>
 
@@ -297,6 +585,22 @@
             <div class="lightbox-info">
                 <h3 id="lightbox-title"></h3>
                 <p id="lightbox-price"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flyer flotante de promociones (popup inicial) -->
+    <div class="promo-flyer-overlay" id="promoFlyerOverlay">
+        <div class="promo-flyer">
+            <button class="promo-flyer-close" id="promoFlyerClose" aria-label="Cerrar">&times;</button>
+            <div class="promo-flyer-header">
+                <h2><span class="gold-spark">✦</span>¡Ofertas Especiales!<span class="gold-spark">✦</span></h2>
+                <p>Ramos premium con descuento por tiempo limitado</p>
+            </div>
+            <div class="promo-flyer-carousel" id="promoFlyerCarousel"></div>
+            <div class="promo-flyer-progress"></div>
+            <div class="promo-flyer-footer">
+                Pedidos por <strong>WhatsApp +56 9 2243 7256</strong> · Despacho a domicilio
             </div>
         </div>
     </div>
@@ -887,6 +1191,56 @@ const products = [
         ],
         description: "Corona fúnebre en forma de corazón sobre atril, elaborada con flores frescas y banda con dedicatoria personalizada del ser querido. Disponible en cinco variaciones cromáticas (rojo, blanco-amarillo, azul y combinaciones) para honrar con respeto y elegancia.",
         categories: ["funebres", "precio-medio"]
+    },
+    {
+        id: 70, code: "070",
+        name: "Buqué Premium Mix Rosas Rojas y Blancas con Mariposas Doradas",
+        price: 56238,
+        originalPrice: 67485,
+        image: "assets/foto70.webp",
+        description: "Ramo abundante con rosas rojas y blancas combinadas, envuelto en papel negro con borde dorado y rematado con tres mariposas filigrana doradas. Diseño imponente y elegante, perfecto para aniversarios y declaraciones románticas inolvidables.",
+        categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"],
+        promo: true
+    },
+    {
+        id: 71, code: "071",
+        name: "Buqué Realeza Rosas Rojas con Corona, Ferrero y Mariposas",
+        price: 73738,
+        originalPrice: 88485,
+        image: "assets/foto71.webp",
+        description: "Composición circular monumental de rosas rojas con corona dorada, chocolates Ferrero Rocher y mariposas filigrana, envuelto en papel blanco con bordes dorados. Una pieza majestuosa para sorprender en grande y conquistar con elegancia y lujo.",
+        categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"],
+        promo: true
+    },
+    {
+        id: 72, code: "072",
+        name: "Mega Bouquet Rosas Rojas y Rosadas en Papel Translúcido",
+        price: 62488,
+        originalPrice: 74985,
+        image: "assets/foto72.webp",
+        description: "Bouquet voluminoso con rosas rojas y rosa pastel alternadas, envuelto en papel translúcido rosa que realza su delicadeza. Un regalo romántico y abundante, ideal para aniversarios, cumpleaños y declaraciones de amor.",
+        categories: ["ramos", "rosas", "premium", "precio-medio"],
+        promo: true
+    },
+    {
+        id: 73, code: "073",
+        name: "Buqué Clásico 12 Rosas Rojas con Tarjeta y Moño",
+        price: 31238,
+        originalPrice: 37485,
+        image: "assets/foto73.webp",
+        description: "Ramo compacto con docena de rosas rojas, envuelto en papel blanco con líneas doradas, tarjeta personalizable y moño rojo. Clásico atemporal para San Valentín, aniversarios y gestos románticos.",
+        categories: ["ramos", "rosas", "precio-medio"],
+        promo: true
+    },
+    {
+        id: 74, code: "074",
+        name: "Buqué Elegante Rosas Rojas con Mariposas Doradas",
+        price: 37488,
+        originalPrice: 44985,
+        image: "assets/foto74.webp",
+        description: "Ramo de rosas rojas con follaje fresco, envoltura blanca con borde dorado y dos mariposas filigrana doradas en la parte superior. Una propuesta sobria y elegante para sorprender con clase en momentos especiales.",
+        categories: ["ramos", "rosas", "especiales", "precio-medio"],
+        promo: true
     }
 ];
         // Normalizar texto (quitar tildes y minúsculas)
@@ -909,14 +1263,12 @@ const products = [
 
             let filteredProducts = products;
 
-            // Aplicar filtro de categoría
             if (currentFilter !== 'todos') {
                 filteredProducts = filteredProducts.filter(product =>
                     product.categories.includes(currentFilter)
                 );
             }
 
-            // Aplicar búsqueda de texto (incluye código)
             if (currentSearch.trim() !== '') {
                 const searchNorm = normalize(currentSearch.trim());
                 const searchWords = searchNorm.split(/\s+/);
@@ -942,10 +1294,13 @@ const products = [
             emptyState.classList.remove('active');
             resultsCount.textContent = filteredProducts.length;
 
-            // Intercalar productos para variedad visual cuando se muestran todos
+            // Separar productos en promoción (siempre primero)
+            const promos = filteredProducts.filter(p => p.promo);
+            const noPromos = filteredProducts.filter(p => !p.promo);
+
             if (currentFilter === 'todos' && currentSearch.trim() === '') {
-                const funebres = filteredProducts.filter(p => p.categories.includes('funebres'));
-                const noFunebres = filteredProducts.filter(p => !p.categories.includes('funebres'));
+                const funebres = noPromos.filter(p => p.categories.includes('funebres'));
+                const noFunebres = noPromos.filter(p => !p.categories.includes('funebres'));
 
                 const categoryGroups = {};
                 const categoryOrder = ['ramos', 'cajas', 'corazones', 'canastas', 'especiales', 'premium'];
@@ -974,7 +1329,7 @@ const products = [
                 const activeCats = categoryOrder.filter(c => categoryGroups[c] && categoryGroups[c].length > 0);
                 if (categoryGroups['otros'] && categoryGroups['otros'].length > 0) activeCats.push('otros');
 
-                let maxLen = Math.max(...activeCats.map(c => categoryGroups[c].length));
+                let maxLen = activeCats.length > 0 ? Math.max(...activeCats.map(c => categoryGroups[c].length)) : 0;
                 for (let i = 0; i < maxLen; i++) {
                     for (const cat of activeCats) {
                         if (categoryGroups[cat] && i < categoryGroups[cat].length) {
@@ -983,7 +1338,9 @@ const products = [
                     }
                 }
 
-                filteredProducts = [...interleaved, ...funebres];
+                filteredProducts = [...promos, ...interleaved, ...funebres];
+            } else {
+                filteredProducts = [...promos, ...noPromos];
             }
 
             grid.innerHTML = filteredProducts.map(product => {
@@ -999,7 +1356,13 @@ const products = [
                     ? `openCarouselLightbox('${product.code}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')`
                     : `openLightbox('${product.image}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')`;
                 return `
-                <div class="product-card" data-categories="${product.categories.join(' ')}" data-code="${product.code}">
+                <div class="product-card ${product.promo ? 'promo-card' : ''}" data-categories="${product.categories.join(' ')}" data-code="${product.code}">
+                    ${product.promo ? `
+                        <div class="promo-ribbon">
+                            <span class="promo-spark">✦</span> OFERTA <span class="promo-spark">✦</span>
+                        </div>
+                        <div class="promo-savings">-${Math.round((1 - product.price/product.originalPrice)*100)}%</div>
+                    ` : ''}
                     <div class="product-image-container ${hasVariations ? 'has-carousel' : ''}" data-code="${product.code}" onclick="${lightboxHandler}">
                         ${imagesHtml}
                         ${dotsHtml}
@@ -1041,10 +1404,9 @@ const products = [
             initCarousels();
         }
 
-        // Carousel handling para productos con variaciones
+        // Carousel para productos con variaciones
         let carouselTimers = [];
         function initCarousels() {
-            // Limpiar timers anteriores
             carouselTimers.forEach(t => clearInterval(t));
             carouselTimers = [];
             document.querySelectorAll('.product-image-container.has-carousel').forEach(carousel => {
@@ -1072,7 +1434,6 @@ const products = [
             });
         }
 
-        // Lightbox para productos con carousel (muestra la imagen activa)
         function openCarouselLightbox(code, name, price) {
             const card = document.querySelector(`.product-image-container.has-carousel[data-code="${code}"]`);
             if (!card) return;
@@ -1080,7 +1441,6 @@ const products = [
             if (activeImg) openLightbox(activeImg.src, name, price);
         }
 
-        // Formatear precio en pesos chilenos
         function formatPrice(price) {
             if (price === 0) return 'Cotización';
             return '$' + price.toLocaleString('es-CL');
@@ -1100,7 +1460,6 @@ const products = [
         const searchInput = document.getElementById('search-input');
         const searchClear = document.getElementById('search-clear');
         let searchTimeout;
-
         searchInput.addEventListener('input', function() {
             clearTimeout(searchTimeout);
             const val = this.value;
@@ -1109,7 +1468,6 @@ const products = [
                 renderProducts(undefined, val);
             }, 250);
         });
-
         searchClear.addEventListener('click', function() {
             searchInput.value = '';
             searchClear.classList.remove('visible');
@@ -1120,24 +1478,17 @@ const products = [
         // Lightbox
         function openLightbox(image, name, price) {
             const lightbox = document.getElementById('lightbox');
-            const lightboxImage = document.getElementById('lightbox-image');
-            const lightboxTitle = document.getElementById('lightbox-title');
-            const lightboxPrice = document.getElementById('lightbox-price');
-
-            lightboxImage.src = image;
-            lightboxImage.alt = name;
-            lightboxTitle.textContent = name;
-            lightboxPrice.textContent = price;
+            document.getElementById('lightbox-image').src = image;
+            document.getElementById('lightbox-image').alt = name;
+            document.getElementById('lightbox-title').textContent = name;
+            document.getElementById('lightbox-price').textContent = price;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
+            document.getElementById('lightbox').classList.remove('active');
             document.body.style.overflow = '';
         }
-
         document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
         document.getElementById('lightbox').addEventListener('click', function(e) {
             if (e.target === this) closeLightbox();
@@ -1146,13 +1497,9 @@ const products = [
         // Scroll to top
         const scrollTop = document.getElementById('scroll-top');
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 500) {
-                scrollTop.classList.add('visible');
-            } else {
-                scrollTop.classList.remove('visible');
-            }
+            if (window.scrollY > 500) scrollTop.classList.add('visible');
+            else scrollTop.classList.remove('visible');
         });
-
         scrollTop.addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
@@ -1165,6 +1512,56 @@ const products = [
                 funeralNote.classList.add('hidden');
             });
         }
+
+        // ===== Flyer flotante de promociones =====
+        (function initPromoFlyer() {
+            const overlay = document.getElementById('promoFlyerOverlay');
+            const carouselEl = document.getElementById('promoFlyerCarousel');
+            const closeBtn = document.getElementById('promoFlyerClose');
+            if (!overlay || !carouselEl) return;
+
+            const promos = products.filter(p => p.promo);
+            if (promos.length === 0) return;
+
+            carouselEl.innerHTML = promos.map((p, i) => `
+                <div class="promo-flyer-slide${i === 0 ? ' active' : ''}" data-index="${i}">
+                    <div class="slide-img" style="background-image: url('${p.image}');"></div>
+                    <div class="slide-text">
+                        <span class="slide-code">Cód. ${p.code}</span>
+                        <h3>${p.name}</h3>
+                        <div class="slide-prices">
+                            <span class="slide-old">${formatPrice(p.originalPrice)}</span>
+                            <span class="slide-new">${formatPrice(p.price)}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            const slides = carouselEl.querySelectorAll('.promo-flyer-slide');
+            let currentSlide = 0;
+            let slideTimer = null;
+            let autoCloseTimer = null;
+            const slideInterval = Math.max(900, Math.floor(5000 / promos.length));
+
+            function showSlide(idx) {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (idx + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            function closeFlyer() {
+                overlay.classList.remove('active');
+                if (slideTimer) { clearInterval(slideTimer); slideTimer = null; }
+                if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
+            }
+            closeBtn.addEventListener('click', closeFlyer);
+            overlay.addEventListener('click', (e) => { if (e.target === overlay) closeFlyer(); });
+
+            setTimeout(() => {
+                overlay.classList.add('active');
+                slideTimer = setInterval(() => showSlide(currentSlide + 1), slideInterval);
+                autoCloseTimer = setTimeout(closeFlyer, 5000);
+            }, 600);
+        })();
 
         // Inicializar
         renderProducts();
