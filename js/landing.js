@@ -74,12 +74,180 @@ const products = [
     { id: 67, code: "067", name: "Ramo Multicolor de Gerberas con Mariposa", price: 37488, image: "../assets/foto67.webp", description: "Ramo en papel rosa pastel con gerberas rosadas, gerberas amarillas, gypsophila blanca y mariposa decorativa lila. Composición vibrante y alegre, perfecta para cumpleaños, agradecimientos y momentos felices.", categories: ["ramos", "especiales", "precio-medio"] },
     { id: 68, code: "068", name: "Florero Primaveral Girasol y Rosas Mix", price: 43738, image: "../assets/foto68.webp", description: "Florero de vidrio texturizado con girasol central, rosas blancas y amarillas, gypsophila, helecho y mariposa rosa decorativa, rematado con moño amarillo. Pieza fresca y luminosa que combina romance y alegría para sorprender en cualquier ocasión especial.", categories: ["especiales", "girasoles", "rosas", "precio-medio"] },
     { id: 69, code: "069", name: "Corona Fúnebre Corazón con Tributo Personalizado", price: 75000, image: "../assets/foto69_1.webp", variations: ["../assets/foto69_1.webp","../assets/foto69_2.webp","../assets/foto69_3.webp","../assets/foto69_4.webp","../assets/foto69_5.webp"], description: "Corona fúnebre en forma de corazón sobre atril, elaborada con flores frescas y banda con dedicatoria personalizada del ser querido. Disponible en cinco variaciones cromáticas (rojo, blanco-amarillo, azul y combinaciones) para honrar con respeto y elegancia.", categories: ["funebres", "coronas-funebres", "precio-medio"] },
-    { id: 70, code: "070", name: "Buqué Premium Mix Rosas Rojas y Blancas con Mariposas Doradas", price: 56238, originalPrice: 67485, image: "../assets/foto70.webp", description: "Ramo abundante con rosas rojas y blancas combinadas, envuelto en papel negro con borde dorado y rematado con tres mariposas filigrana doradas. Diseño imponente y elegante, perfecto para aniversarios y declaraciones románticas inolvidables.", categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"], promo: true },
-    { id: 71, code: "071", name: "Buqué Realeza Rosas Rojas con Corona, Ferrero y Mariposas", price: 73738, originalPrice: 88485, image: "../assets/foto71.webp", description: "Composición circular monumental de rosas rojas con corona dorada, chocolates Ferrero Rocher y mariposas filigrana, envuelto en papel blanco con bordes dorados. Una pieza majestuosa para sorprender en grande y conquistar con elegancia y lujo.", categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"], promo: true },
-    { id: 72, code: "072", name: "Mega Bouquet Rosas Rojas y Rosadas en Papel Translúcido", price: 62488, originalPrice: 74985, image: "../assets/foto72.webp", description: "Bouquet voluminoso con rosas rojas y rosa pastel alternadas, envuelto en papel translúcido rosa que realza su delicadeza. Un regalo romántico y abundante, ideal para aniversarios, cumpleaños y declaraciones de amor.", categories: ["ramos", "rosas", "premium", "precio-medio"], promo: true },
-    { id: 73, code: "073", name: "Buqué Clásico 12 Rosas Rojas con Tarjeta y Moño", price: 31238, originalPrice: 37485, image: "../assets/foto73.webp", description: "Ramo compacto con docena de rosas rojas, envuelto en papel blanco con líneas doradas, tarjeta personalizable y moño rojo. Clásico atemporal para San Valentín, aniversarios y gestos románticos.", categories: ["ramos", "rosas", "precio-medio"], promo: true },
-    { id: 74, code: "074", name: "Buqué Elegante Rosas Rojas con Mariposas Doradas", price: 37488, originalPrice: 44985, image: "../assets/foto74.webp", description: "Ramo de rosas rojas con follaje fresco, envoltura blanca con borde dorado y dos mariposas filigrana doradas en la parte superior. Una propuesta sobria y elegante para sorprender con clase en momentos especiales.", categories: ["ramos", "rosas", "especiales", "precio-medio"], promo: true }
+    { id: 70, code: "070", name: "Buqué Premium Mix Rosas Rojas y Blancas con Mariposas Doradas", price: 56238, originalPrice: 67485, image: "../assets/foto70.webp", description: "Ramo abundante con rosas rojas y blancas combinadas, envuelto en papel negro con borde dorado y rematado con tres mariposas filigrana doradas. Diseño imponente y elegante, perfecto para aniversarios y declaraciones románticas inolvidables.", categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"] },
+    { id: 71, code: "071", name: "Buqué Realeza Rosas Rojas con Corona, Ferrero y Mariposas", price: 73738, originalPrice: 88485, image: "../assets/foto71.webp", description: "Composición circular monumental de rosas rojas con corona dorada, chocolates Ferrero Rocher y mariposas filigrana, envuelto en papel blanco con bordes dorados. Una pieza majestuosa para sorprender en grande y conquistar con elegancia y lujo.", categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"] },
+    { id: 72, code: "072", name: "Mega Bouquet Rosas Rojas y Rosadas en Papel Translúcido", price: 62488, originalPrice: 74985, image: "../assets/foto72.webp", description: "Bouquet voluminoso con rosas rojas y rosa pastel alternadas, envuelto en papel translúcido rosa que realza su delicadeza. Un regalo romántico y abundante, ideal para aniversarios, cumpleaños y declaraciones de amor.", categories: ["ramos", "rosas", "premium", "precio-medio"] },
+    { id: 73, code: "073", name: "Buqué Clásico 12 Rosas Rojas con Tarjeta y Moño", price: 31238, originalPrice: 37485, image: "../assets/foto73.webp", description: "Ramo compacto con docena de rosas rojas, envuelto en papel blanco con líneas doradas, tarjeta personalizable y moño rojo. Clásico atemporal para San Valentín, aniversarios y gestos románticos.", categories: ["ramos", "rosas", "precio-medio"] },
+    { id: 74, code: "074", name: "Buqué Elegante Rosas Rojas con Mariposas Doradas", price: 37488, originalPrice: 44985, image: "../assets/foto74.webp", description: "Ramo de rosas rojas con follaje fresco, envoltura blanca con borde dorado y dos mariposas filigrana doradas en la parte superior. Una propuesta sobria y elegante para sorprender con clase en momentos especiales.", categories: ["ramos", "rosas", "especiales", "precio-medio"] }
+,
+    { id: 75, code: "075", name: "Buqué Ternura Infinita — Margaritas Fucsia y Blancas", price: 37500, originalPrice: 48000, image: "../assets/foto75.webp", description: "Cúpula abundante de margaritas fucsia y blancas abierta como flor de loto, envuelta en papel lila con filo dorado. Es el ramo que ella deja en el centro de la mesa para que todos pregunten quién se lo regaló. Alegría pura, sin necesidad de explicar nada.", categories: ["ramos", "novia", "especiales", "precio-medio"], novia: true },
+    { id: 76, code: "076", name: "Buqué Primer Amor — Claveles Rosados", price: 31250, originalPrice: 40000, image: "../assets/foto76.webp", description: "Claveles rosados de pétalos aterciopelados con follaje fresco y flores silvestres blancas, envueltos en papel translúcido con amarre de rafia natural. Delicado como el primer “sí” y de los que siguen frescos más de dos semanas: cada mañana ella vuelve a recordar por qué la elegiste.", categories: ["ramos", "novia", "precio-medio"], novia: true },
+    { id: 77, code: "077", name: "Buqué Reina por un Día — Lilium con Corona de Cristales", price: 56250, originalPrice: 72000, image: "../assets/foto77.webp", description: "Lilium rosados abiertos, gerberas, claveles y gypsophila coronados por una tiara de cristales, sobre papel rosa con vetas doradas. Este no es un ramo: es la prueba física de que ella es la reina. El que se elige cuando quieres que ese día no se le olvide nunca.", categories: ["ramos", "novia", "especiales", "premium", "precio-medio"], novia: true },
+    { id: 78, code: "078", name: "Buqué Mi Sol — Girasoles con Ferrero Rocher", price: 48750, originalPrice: 62400, image: "../assets/foto78.webp", description: "Girasoles de gran porte con follaje fresco, caja de Ferrero Rocher y una mariposa azul, envueltos en papel kraft con borde satinado. Para la novia que te alegra los días grises: flores que buscan el sol y chocolate que se derrite mientras ella te agradece.", categories: ["ramos", "novia", "girasoles", "especiales", "precio-medio"], novia: true },
+    { id: 79, code: "079", name: "Buqué Latido — Gerberas con Mariposa de Corazones", price: 27500, originalPrice: 35200, image: "../assets/foto79.webp", description: "Tres gerberas en fucsia, rosa y coral con nube de gypsophila y una mariposa plateada tallada en corazones, sobre papel lila con moño de raso. El detalle exacto para un “pensé en ti” sin motivo: pequeño en tamaño, enorme en intención.", categories: ["ramos", "novia", "especiales", "precio-bajo"], novia: true },
+    { id: 80, code: "080", name: "Buqué Sonrisa — Margaritas Amarillas", price: 31250, originalPrice: 40000, image: "../assets/foto80.webp", description: "Brazada generosa de margaritas amarillas envuelta en papel crema estampado con moño a juego. El amarillo es el color que el cerebro lee como felicidad antes de alcanzar a pensarlo: llega y le cambia el ánimo del día entero, aunque afuera esté nublado.", categories: ["ramos", "novia", "precio-medio"], novia: true },
+    { id: 81, code: "081", name: "Buqué Clásico Eterno — 5 Rosas Rojas con Eucalipto", price: 25000, originalPrice: 32000, image: "../assets/foto81.webp", description: "Cinco rosas rojas de tallo largo con eucalipto plateado y gypsophila, envueltas en papel negro translúcido. El rojo sobre negro es el contraste más deseado del mundo por una razón: cuando no sabes qué regalar, esto nunca falla.", categories: ["ramos", "novia", "rosas", "precio-bajo"], novia: true }
 ];
+
+
+/* ============================================================
+   CAMPAÑA DÍA DE LA NOVIA — 1 de agosto
+   Contador, banner de sección y flyer flotante.
+   Todo el movimiento se hace con transform/opacity, así el
+   navegador lo resuelve en la GPU y no re-calcula el layout.
+   ============================================================ */
+var NOVIA_DEADLINE = new Date(2026, 7, 2, 0, 0, 0).getTime(); // fin del 1 de agosto de 2026
+var NOVIA_WA = 'https://wa.me/56922437256?text=' + encodeURIComponent('Hola, quiero aprovechar las ofertas del Día de la Novia. ¿Me cuentan más?');
+var noviaCdTimer = null;
+
+function noviaTimeLeft() {
+    var diff = NOVIA_DEADLINE - Date.now();
+    if (diff <= 0) return null;
+    return {
+        d: Math.floor(diff / 86400000),
+        h: Math.floor(diff / 3600000) % 24,
+        m: Math.floor(diff / 60000) % 60,
+        s: Math.floor(diff / 1000) % 60
+    };
+}
+
+function noviaCountdownHTML(compact) {
+    var labels = { d: 'días', h: 'hrs', m: 'min', s: 'seg' };
+    var units = ['d', 'h', 'm', 's'].map(function (u) {
+        return '<div class="novia-cd-unit"><span class="novia-cd-num" data-cd="' + u + '">--</span>' +
+               '<span class="novia-cd-lbl">' + labels[u] + '</span></div>';
+    }).join('');
+    return '<div class="novia-countdown' + (compact ? ' novia-flyer-cd' : '') + '" data-novia-cd>' + units + '</div>';
+}
+
+function startNoviaCountdown() {
+    if (noviaCdTimer) { clearInterval(noviaCdTimer); noviaCdTimer = null; }
+    function tick() {
+        var t = noviaTimeLeft();
+        var boxes = document.querySelectorAll('[data-novia-cd]');
+        if (!boxes.length) return;
+        for (var i = 0; i < boxes.length; i++) {
+            if (!t) { boxes[i].innerHTML = '<div class="novia-cd-unit"><span class="novia-cd-num">¡HOY!</span><span class="novia-cd-lbl">último día</span></div>'; continue; }
+            var nums = boxes[i].querySelectorAll('[data-cd]');
+            for (var j = 0; j < nums.length; j++) {
+                var v = t[nums[j].getAttribute('data-cd')];
+                var txt = v < 10 ? '0' + v : '' + v;
+                if (nums[j].textContent !== txt) nums[j].textContent = txt;
+            }
+        }
+        if (!t && noviaCdTimer) { clearInterval(noviaCdTimer); noviaCdTimer = null; }
+    }
+    tick();
+    noviaCdTimer = setInterval(tick, 1000);
+}
+
+function noviaBannerHTML(count) {
+    return '<div class="novia-banner">' +
+             '<div class="novia-banner-text">' +
+               '<h2><span class="novia-crown">👑</span>Especiales <span class="novia-gold">Día de la Novia</span></h2>' +
+               '<p>' + count + ' arreglos seleccionados con hasta <strong>22% de descuento</strong> · Solo hasta el 1 de agosto</p>' +
+             '</div>' +
+             noviaCountdownHTML(false) +
+           '</div>';
+}
+
+function noviaCardOverlay(product) {
+    if (!product.novia) return '';
+    var off = Math.round((1 - product.price / product.originalPrice) * 100);
+    return '<div class="novia-ribbon"><span class="novia-spark">✦</span> DÍA DE LA NOVIA <span class="novia-spark">✦</span></div>' +
+           '<div class="novia-savings">-' + off + '%<small>DCTO</small></div>';
+}
+
+/* --- Flyer flotante con carrusel de los 7 arreglos --- */
+function initNoviaFlyer(items, fmt) {
+    if (!items || !items.length) return;
+    if (document.getElementById('noviaFlyerOverlay')) return;
+    try { if (sessionStorage.getItem('noviaFlyerSeen') === '1') return; } catch (e) {}
+
+    var slides = items.map(function (p, i) {
+        return '<div class="promo-flyer-slide' + (i === 0 ? ' active' : '') + '" data-index="' + i + '">' +
+                 '<div class="slide-img" style="background-image:url(\'' + p.image + '\')"></div>' +
+                 '<div class="slide-text">' +
+                   '<span class="slide-code">Cód. ' + p.code + '</span>' +
+                   '<h3>' + p.name + '</h3>' +
+                   '<div class="slide-prices">' +
+                     '<span class="slide-old">' + fmt(p.originalPrice) + '</span>' +
+                     '<span class="slide-new">' + fmt(p.price) + '</span>' +
+                   '</div>' +
+                 '</div>' +
+               '</div>';
+    }).join('');
+
+    var dots = items.map(function (_, i) {
+        return '<span class="' + (i === 0 ? 'active' : '') + '" data-index="' + i + '"></span>';
+    }).join('');
+
+    var overlay = document.createElement('div');
+    overlay.className = 'promo-flyer-overlay novia-flyer-mode';
+    overlay.id = 'noviaFlyerOverlay';
+    overlay.innerHTML =
+        '<div class="promo-flyer" role="dialog" aria-label="Ofertas Día de la Novia">' +
+          '<button class="promo-flyer-close" id="noviaFlyerClose" aria-label="Cerrar">&times;</button>' +
+          '<div class="promo-flyer-header">' +
+            '<h2><span class="gold-spark">✦</span> Día de la Novia <span class="gold-spark">✦</span></h2>' +
+            '<p>' + items.length + ' arreglos seleccionados con hasta 22% de descuento · Solo hasta el 1 de agosto</p>' +
+            noviaCountdownHTML(true) +
+          '</div>' +
+          '<div class="promo-flyer-carousel" id="noviaFlyerCarousel">' +
+            slides +
+            '<button class="novia-nav prev" aria-label="Anterior">&#8249;</button>' +
+            '<button class="novia-nav next" aria-label="Siguiente">&#8250;</button>' +
+            '<div class="novia-flyer-dots">' + dots + '</div>' +
+          '</div>' +
+          '<div class="promo-flyer-footer">' +
+            'Pedidos por <strong>WhatsApp +56 9 2243 7256</strong> · Despacho a domicilio en Antofagasta<br>' +
+            '<a class="novia-flyer-cta" href="' + NOVIA_WA + '" target="_blank" rel="noopener">Quiero mi arreglo con descuento</a>' +
+          '</div>' +
+        '</div>';
+    document.body.appendChild(overlay);
+
+    var slideEls = overlay.querySelectorAll('.promo-flyer-slide');
+    var dotEls = overlay.querySelectorAll('.novia-flyer-dots span');
+    var current = 0;
+    var timer = null;
+
+    function show(idx) {
+        slideEls[current].classList.remove('active');
+        if (dotEls[current]) dotEls[current].classList.remove('active');
+        current = (idx + slideEls.length) % slideEls.length;
+        slideEls[current].classList.add('active');
+        if (dotEls[current]) dotEls[current].classList.add('active');
+    }
+    function play() { if (!timer) timer = setInterval(function () { show(current + 1); }, 3200); }
+    function pause() { if (timer) { clearInterval(timer); timer = null; } }
+    function close() {
+        pause();
+        overlay.classList.remove('active');
+        document.removeEventListener('keydown', onKey);
+        setTimeout(function () { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); }, 450);
+    }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+
+    overlay.querySelector('#noviaFlyerClose').addEventListener('click', close);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+    overlay.querySelector('.novia-nav.prev').addEventListener('click', function () { pause(); show(current - 1); play(); });
+    overlay.querySelector('.novia-nav.next').addEventListener('click', function () { pause(); show(current + 1); play(); });
+    for (var i = 0; i < dotEls.length; i++) {
+        (function (k) {
+            dotEls[k].addEventListener('click', function () { pause(); show(k); play(); });
+        })(i);
+    }
+    overlay.querySelector('.promo-flyer').addEventListener('mouseenter', pause);
+    overlay.querySelector('.promo-flyer').addEventListener('mouseleave', play);
+    document.addEventListener('keydown', onKey);
+
+    setTimeout(function () {
+        overlay.classList.add('active');
+        startNoviaCountdown();
+        play();
+        try { sessionStorage.setItem('noviaFlyerSeen', '1'); } catch (e) {}
+    }, 700);
+}
 
 // --- VARIABLES GLOBALES ---
 let currentLandingFilter = 'todos';
@@ -155,10 +323,11 @@ function renderProducts(filters = [], limit = null) {
         });
     }
 
-    // Separar productos en promoción y ponerlos siempre arriba
-    const promoProducts = productsToDisplay.filter(p => p.promo);
-    const nonPromoProducts = productsToDisplay.filter(p => !p.promo);
-    productsToDisplay = [...promoProducts, ...nonPromoProducts];
+    // Día de la Novia primero, después el resto de promociones
+    const noviaProducts = productsToDisplay.filter(p => p.novia).sort((a, b) => a.id - b.id);
+    const promoProducts = productsToDisplay.filter(p => p.promo && !p.novia);
+    const nonPromoProducts = productsToDisplay.filter(p => !p.promo && !p.novia);
+    productsToDisplay = [...noviaProducts, ...promoProducts, ...nonPromoProducts];
 
     if (limit) {
         productsToDisplay = productsToDisplay.slice(0, limit);
@@ -166,7 +335,8 @@ function renderProducts(filters = [], limit = null) {
 
     updateResultsCount(productsToDisplay.length);
 
-    container.innerHTML = '';
+    const htmlParts = [];
+    if (noviaProducts.length) htmlParts.push(noviaBannerHTML(noviaProducts.length));
     productsToDisplay.forEach(product => {
         const escapedName = product.name.replace(/'/g, "\\'");
         const hasVariations = Array.isArray(product.variations) && product.variations.length > 1;
@@ -181,18 +351,18 @@ function renderProducts(filters = [], limit = null) {
             : `<div class="product-image">
                   <img src="${product.image}" alt="${product.name} - Flores a domicilio Antofagasta" loading="lazy">
               </div>`;
-        const promoOverlay = product.promo ? `
+        const promoOverlay = product.novia ? noviaCardOverlay(product) : (product.promo ? `
             <div class="promo-ribbon"><span class="promo-spark">✦</span> OFERTA <span class="promo-spark">✦</span></div>
             <div class="promo-savings">-${Math.round((1 - product.price/product.originalPrice)*100)}%</div>
-        ` : '';
-        const priceHTML = product.promo
+        ` : '');
+        const priceHTML = product.originalPrice
             ? `<div class="price-block">
                    <span class="old-price">${formatCLP(product.originalPrice)}</span>
                    <span class="price promo-price">${formatCLP(product.price)}</span>
                </div>`
             : `<span class="price">${formatCLP(product.price)}</span>`;
         const productHTML = `
-            <div class="product-item ${product.promo ? 'promo-card' : ''}" data-code="${product.code}">
+            <div class="product-item ${product.novia ? 'novia-card' : (product.promo ? 'promo-card' : '')}" data-code="${product.code}">
                 ${promoOverlay}
                 ${imageHTML}
                 <div class="product-info">
@@ -208,76 +378,17 @@ function renderProducts(filters = [], limit = null) {
                 </div>
             </div>
         `;
-        container.innerHTML += productHTML;
+        htmlParts.push(productHTML);
     });
+    container.innerHTML = htmlParts.join('');
 
+    if (noviaProducts.length) startNoviaCountdown();
     initLandingCarousels();
 }
 
-// --- FLYER FLOTANTE DE PROMOCIONES ---
+// --- FLYER FLOTANTE DÍA DE LA NOVIA ---
 function initPromoFlyer() {
-    if (document.getElementById('promoFlyerOverlay')) return;
-    const promos = products.filter(p => p.promo);
-    if (promos.length === 0) return;
-
-    const overlay = document.createElement('div');
-    overlay.className = 'promo-flyer-overlay';
-    overlay.id = 'promoFlyerOverlay';
-    overlay.innerHTML = `
-        <div class="promo-flyer">
-            <button class="promo-flyer-close" id="promoFlyerClose" aria-label="Cerrar">&times;</button>
-            <div class="promo-flyer-header">
-                <h2><span class="gold-spark">✦</span>¡Ofertas Especiales!<span class="gold-spark">✦</span></h2>
-                <p>Ramos premium con descuento por tiempo limitado</p>
-            </div>
-            <div class="promo-flyer-carousel" id="promoFlyerCarousel">
-                ${promos.map((p, i) => `
-                    <div class="promo-flyer-slide${i === 0 ? ' active' : ''}" data-index="${i}">
-                        <div class="slide-img" style="background-image: url('${p.image}');"></div>
-                        <div class="slide-text">
-                            <span class="slide-code">Cód. ${p.code}</span>
-                            <h3>${p.name}</h3>
-                            <div class="slide-prices">
-                                <span class="slide-old">${formatCLP(p.originalPrice)}</span>
-                                <span class="slide-new">${formatCLP(p.price)}</span>
-                            </div>
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-            <div class="promo-flyer-progress"></div>
-            <div class="promo-flyer-footer">
-                Pedidos por <strong>WhatsApp +56 9 2243 7256</strong> · Despacho a domicilio
-            </div>
-        </div>
-    `;
-    document.body.appendChild(overlay);
-
-    const closeBtn = document.getElementById('promoFlyerClose');
-    const slides = overlay.querySelectorAll('.promo-flyer-slide');
-    let currentSlide = 0;
-    let slideTimer = null;
-    let autoCloseTimer = null;
-    const slideInterval = Math.max(900, Math.floor(5000 / promos.length));
-
-    function showSlide(idx) {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (idx + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-    function closeFlyer() {
-        overlay.classList.remove('active');
-        if (slideTimer) { clearInterval(slideTimer); slideTimer = null; }
-        if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
-    }
-    closeBtn.addEventListener('click', closeFlyer);
-    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeFlyer(); });
-
-    setTimeout(() => {
-        overlay.classList.add('active');
-        slideTimer = setInterval(() => showSlide(currentSlide + 1), slideInterval);
-        autoCloseTimer = setTimeout(closeFlyer, 5000);
-    }, 600);
+    initNoviaFlyer(products.filter(p => p.novia), formatCLP);
 }
 
 // --- CAROUSEL para variaciones de producto ---
@@ -366,8 +477,22 @@ function filterProducts(tag) {
 }
 
 // --- INICIALIZAR CATÁLOGO COMPLETO ---
+function injectNoviaFilterChip() {
+    const bar = document.querySelector('.filters-container');
+    if (!bar || bar.querySelector('[data-filter="novia"]')) return;
+    if (!products.some(p => p.novia)) return;
+    const chip = document.createElement('button');
+    chip.className = 'filter-btn novia-filter';
+    chip.setAttribute('data-filter', 'novia');
+    chip.textContent = '✦ Día de la Novia';
+    const todos = bar.querySelector('[data-filter="todos"]');
+    if (todos && todos.nextSibling) bar.insertBefore(chip, todos.nextSibling);
+    else bar.appendChild(chip);
+}
+
 function initCatalog() {
     window._catalogInitialized = true;
+    injectNoviaFilterChip();
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             filterProducts(this.getAttribute('data-filter'));

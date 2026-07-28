@@ -355,6 +355,334 @@
             .promo-flyer-header h2 { font-size: 1.4rem; }
         }
 
+
+        /* ============================================================
+           CAMPAÑA DÍA DE LA NOVIA — 1 de agosto
+           Animaciones sólo con transform/opacity (compuestas por GPU)
+           para no penalizar el rendimiento de la página.
+           ============================================================ */
+
+        /* --- Banner que encabeza los 7 destacados --- */
+        .novia-banner {
+            grid-column: 1 / -1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            padding: 1.05rem 1.3rem;
+            background: linear-gradient(120deg, #6d0f37 0%, #ad1457 42%, #e91e63 68%, #8e0f45 100%);
+            color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.9rem;
+            box-shadow: 0 10px 30px rgba(173, 20, 87, 0.3);
+            border: 2px solid rgba(255, 215, 128, 0.55);
+            contain: paint;
+        }
+        .novia-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translate3d(-160%, 0, 0) skewX(-18deg);
+            animation: noviaSheen 5.5s ease-in-out infinite;
+            pointer-events: none;
+            will-change: transform;
+        }
+        @keyframes noviaSheen {
+            0%   { transform: translate3d(-160%, 0, 0) skewX(-18deg); }
+            55%, 100% { transform: translate3d(330%, 0, 0) skewX(-18deg); }
+        }
+        .novia-banner-text { position: relative; z-index: 2; min-width: 240px; }
+        .novia-banner-text h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.45rem;
+            line-height: 1.15;
+            margin: 0 0 0.25rem;
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+        }
+        .novia-banner-text p {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.86rem;
+            opacity: 0.94;
+            letter-spacing: 0.2px;
+        }
+        .novia-banner .novia-gold { color: #ffd88a; }
+        .novia-crown {
+            display: inline-block;
+            margin-right: 6px;
+            animation: noviaTwinkle 2.4s ease-in-out infinite;
+        }
+        @keyframes noviaTwinkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            50%      { transform: scale(1.25) rotate(12deg); opacity: 0.75; }
+        }
+
+        /* --- Contador regresivo --- */
+        .novia-countdown {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .novia-cd-unit {
+            background: rgba(255, 255, 255, 0.16);
+            border: 1px solid rgba(255, 216, 138, 0.6);
+            border-radius: 10px;
+            padding: 0.35rem 0.5rem;
+            min-width: 50px;
+            text-align: center;
+            backdrop-filter: blur(3px);
+        }
+        .novia-cd-num {
+            display: block;
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1;
+            color: #fff;
+            font-variant-numeric: tabular-nums;
+        }
+        .novia-cd-lbl {
+            display: block;
+            font-size: 0.58rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+        .novia-cd-sep { font-weight: 800; opacity: 0.55; }
+
+        /* --- Tarjetas destacadas --- */
+        .product-card.novia-card,
+        .product-item.novia-card {
+            position: relative;
+            border: 3px solid transparent;
+            background-image: linear-gradient(#fff, #fff),
+                              linear-gradient(135deg, #d4af37 0%, #e91e63 35%, #ff80ab 60%, #d4af37 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.22), 0 0 0 4px rgba(212, 175, 55, 0.16);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: visible !important;
+        }
+        .product-card.novia-card:hover,
+        .product-item.novia-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 42px rgba(233, 30, 99, 0.34), 0 0 0 5px rgba(212, 175, 55, 0.26);
+        }
+
+        /* Cinta esquina superior izquierda */
+        .novia-ribbon {
+            position: absolute;
+            top: 14px;
+            left: -8px;
+            background: linear-gradient(135deg, #ad1457 0%, #e91e63 55%, #ff4081 100%);
+            color: #fff;
+            padding: 0.4rem 0.95rem 0.4rem 1.15rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(173, 20, 87, 0.55);
+            z-index: 10;
+            clip-path: polygon(0 0, 100% 0, 93% 50%, 100% 100%, 0 100%, 7% 50%);
+            animation: noviaRibbon 3s ease-in-out infinite;
+            will-change: transform;
+        }
+        @keyframes noviaRibbon {
+            0%, 100% { transform: scale(1); }
+            50%      { transform: scale(1.045); }
+        }
+        .novia-ribbon .novia-spark {
+            color: #ffd88a;
+            display: inline-block;
+            animation: noviaTwinkle 2.2s ease-in-out infinite;
+        }
+
+        /* Sello de descuento superior derecha */
+        .novia-savings {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: linear-gradient(140deg, #ffd88a 0%, #d4af37 55%, #b8860b 100%);
+            color: #5c0b2e;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 0.95rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            border: 2px solid #fff;
+            box-shadow: 0 5px 16px rgba(184, 134, 11, 0.55);
+            z-index: 10;
+            animation: noviaSeal 2.6s ease-in-out infinite;
+            will-change: transform;
+        }
+        .novia-savings small {
+            font-size: 0.44rem;
+            letter-spacing: 0.6px;
+            font-weight: 700;
+            margin-top: 2px;
+            opacity: 0.85;
+        }
+        @keyframes noviaSeal {
+            0%, 100% { transform: scale(1) rotate(-7deg); }
+            50%      { transform: scale(1.1) rotate(7deg); }
+        }
+
+        .product-card.novia-card .product-price,
+        .product-item.novia-card .price,
+        .product-item.novia-card .price-block .promo-price {
+            color: #c2185b;
+            font-weight: 800;
+        }
+
+        /* ============================================================
+           FLYER FLOTANTE — variante Día de la Novia
+           ============================================================ */
+        .promo-flyer-overlay.novia-flyer-mode .promo-flyer::before {
+            background: linear-gradient(135deg, #d4af37, #e91e63, #ff80ab, #d4af37);
+        }
+        .promo-flyer-overlay.novia-flyer-mode .promo-flyer-header {
+            background: linear-gradient(125deg, #6d0f37 0%, #ad1457 45%, #e91e63 100%);
+        }
+        .promo-flyer-overlay.novia-flyer-mode .promo-flyer-close { color: #c2185b; }
+        .promo-flyer-overlay.novia-flyer-mode .slide-new,
+        .promo-flyer-overlay.novia-flyer-mode .promo-flyer-footer strong { color: #c2185b; }
+        .promo-flyer-overlay.novia-flyer-mode .promo-flyer-progress { display: none; }
+
+        .novia-flyer-cd {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            margin-top: 0.6rem;
+        }
+        .novia-flyer-cd .novia-cd-unit { padding: 0.28rem 0.45rem; min-width: 46px; }
+        .novia-flyer-cd .novia-cd-num { font-size: 1rem; }
+
+        /* Flechas del carrusel */
+        .novia-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.88);
+            color: #c2185b;
+            font-size: 1.25rem;
+            font-weight: 800;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .novia-nav:hover { background: #fff; transform: translateY(-50%) scale(1.12); }
+        .novia-nav.prev { left: 8px; }
+        .novia-nav.next { right: 8px; }
+
+        /* Puntos del carrusel */
+        .novia-flyer-dots {
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            z-index: 8;
+        }
+        .novia-flyer-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.65);
+            border: 1.5px solid rgba(194, 24, 91, 0.7);
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .novia-flyer-dots span.active { background: #e91e63; transform: scale(1.3); }
+
+        /* Botón WhatsApp del flyer */
+        .novia-flyer-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 0.5rem;
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: #fff !important;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            box-shadow: 0 6px 18px rgba(18, 140, 126, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .novia-flyer-cta:hover { transform: translateY(-2px); box-shadow: 0 9px 24px rgba(18, 140, 126, 0.5); }
+
+        /* Chip de filtro Día de la Novia */
+        .filter-btn.novia-filter {
+            background: linear-gradient(135deg, #ad1457 0%, #e91e63 100%) !important;
+            color: #fff !important;
+            border-color: #e91e63 !important;
+            font-weight: 700;
+        }
+        .filter-btn.novia-filter:hover,
+        .filter-btn.novia-filter.active {
+            background: linear-gradient(135deg, #6d0f37 0%, #c2185b 100%) !important;
+            color: #fff !important;
+        }
+
+        @media (max-width: 640px) {
+            .novia-banner { padding: 0.9rem 1rem; justify-content: center; text-align: center; }
+            .novia-banner-text { min-width: 0; }
+            .novia-banner-text h2 { font-size: 1.15rem; }
+            .novia-banner-text p { font-size: 0.78rem; }
+            .novia-cd-unit { min-width: 44px; padding: 0.3rem 0.4rem; }
+            .novia-cd-num { font-size: 1rem; }
+            .novia-savings { width: 46px; height: 46px; font-size: 0.82rem; }
+            .novia-ribbon { font-size: 0.62rem; padding: 0.35rem 0.75rem 0.35rem 0.95rem; }
+        }
+
+        /* Respeta la preferencia de menos movimiento del sistema */
+        @media (prefers-reduced-motion: reduce) {
+            .novia-banner::after,
+            .novia-crown,
+            .novia-ribbon,
+            .novia-ribbon .novia-spark,
+            .novia-savings { animation: none !important; }
+        }
+
+        /* Arreglo del carrusel del flyer en móvil (antes quedaba sin alto) */
+        @media (max-width: 600px) {
+            .promo-flyer-carousel { aspect-ratio: auto !important; height: 56vh; min-height: 320px; max-height: 430px; }
+            .promo-flyer-slide .slide-img { aspect-ratio: auto !important; flex: 1 1 55% !important; }
+            .promo-flyer-slide .slide-text { flex: 1 1 45%; }
+        }
+
         /* Carousel para productos con variaciones */
         .product-image-container.has-carousel {
             position: relative;
@@ -538,6 +866,7 @@
             <div class="filters-container">
                 <span class="filter-label">Filtrar por:</span>
                 <button class="filter-btn active" data-filter="todos" data-code="000"><span class="filter-code">[000]</span> Todos</button>
+                <button class="filter-btn novia-filter" data-filter="novia" data-code="075"><span class="filter-code">[075]</span> ✦ Día de la Novia</button>
                 <button class="filter-btn" data-filter="ramos" data-code="100"><span class="filter-code">[100]</span> Ramos</button>
                 <button class="filter-btn" data-filter="cajas" data-code="200"><span class="filter-code">[200]</span> Cajas y Cofres</button>
                 <button class="filter-btn" data-filter="corazones" data-code="300"><span class="filter-code">[300]</span> Corazones</button>
@@ -589,21 +918,7 @@
         </div>
     </div>
 
-    <!-- Flyer flotante de promociones (popup inicial) -->
-    <div class="promo-flyer-overlay" id="promoFlyerOverlay">
-        <div class="promo-flyer">
-            <button class="promo-flyer-close" id="promoFlyerClose" aria-label="Cerrar">&times;</button>
-            <div class="promo-flyer-header">
-                <h2><span class="gold-spark">✦</span>¡Ofertas Especiales!<span class="gold-spark">✦</span></h2>
-                <p>Ramos premium con descuento por tiempo limitado</p>
-            </div>
-            <div class="promo-flyer-carousel" id="promoFlyerCarousel"></div>
-            <div class="promo-flyer-progress"></div>
-            <div class="promo-flyer-footer">
-                Pedidos por <strong>WhatsApp +56 9 2243 7256</strong> · Despacho a domicilio
-            </div>
-        </div>
-    </div>
+    <!-- El flyer flotante del Día de la Novia se genera desde JS (initNoviaFlyer) -->
 
     <!-- Nota flotante: descuento en arreglos fúnebres -->
     <div class="funeral-discount-note" id="funeralDiscountNote" role="status" aria-live="polite">
@@ -1132,7 +1447,7 @@ const products = [
     {
         id: 63, code: "063",
         name: "Arreglo Fúnebre Piramidal Rosas Blancas",
-        price: 23625,
+        price: 26990,
         image: "assets/foto63.webp",
         description: "Arreglo fúnebre piramidal compuesto por rosas blancas, gypsophila y abundante follaje de helecho verde sobre fondo neutro. Una pieza serena y delicada que transmite respeto, paz y consuelo en momentos de despedida.",
         categories: ["funebres", "precio-bajo"]
@@ -1199,8 +1514,7 @@ const products = [
         originalPrice: 67485,
         image: "assets/foto70.webp",
         description: "Ramo abundante con rosas rojas y blancas combinadas, envuelto en papel negro con borde dorado y rematado con tres mariposas filigrana doradas. Diseño imponente y elegante, perfecto para aniversarios y declaraciones románticas inolvidables.",
-        categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"],
-        promo: true
+        categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"]
     },
     {
         id: 71, code: "071",
@@ -1209,8 +1523,7 @@ const products = [
         originalPrice: 88485,
         image: "assets/foto71.webp",
         description: "Composición circular monumental de rosas rojas con corona dorada, chocolates Ferrero Rocher y mariposas filigrana, envuelto en papel blanco con bordes dorados. Una pieza majestuosa para sorprender en grande y conquistar con elegancia y lujo.",
-        categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"],
-        promo: true
+        categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"]
     },
     {
         id: 72, code: "072",
@@ -1219,8 +1532,7 @@ const products = [
         originalPrice: 74985,
         image: "assets/foto72.webp",
         description: "Bouquet voluminoso con rosas rojas y rosa pastel alternadas, envuelto en papel translúcido rosa que realza su delicadeza. Un regalo romántico y abundante, ideal para aniversarios, cumpleaños y declaraciones de amor.",
-        categories: ["ramos", "rosas", "premium", "precio-medio"],
-        promo: true
+        categories: ["ramos", "rosas", "premium", "precio-medio"]
     },
     {
         id: 73, code: "073",
@@ -1229,8 +1541,7 @@ const products = [
         originalPrice: 37485,
         image: "assets/foto73.webp",
         description: "Ramo compacto con docena de rosas rojas, envuelto en papel blanco con líneas doradas, tarjeta personalizable y moño rojo. Clásico atemporal para San Valentín, aniversarios y gestos románticos.",
-        categories: ["ramos", "rosas", "precio-medio"],
-        promo: true
+        categories: ["ramos", "rosas", "precio-medio"]
     },
     {
         id: 74, code: "074",
@@ -1239,10 +1550,240 @@ const products = [
         originalPrice: 44985,
         image: "assets/foto74.webp",
         description: "Ramo de rosas rojas con follaje fresco, envoltura blanca con borde dorado y dos mariposas filigrana doradas en la parte superior. Una propuesta sobria y elegante para sorprender con clase en momentos especiales.",
-        categories: ["ramos", "rosas", "especiales", "precio-medio"],
-        promo: true
+        categories: ["ramos", "rosas", "especiales", "precio-medio"]
+    }
+,
+    {
+        id: 75, code: "075",
+        name: "Buqué Ternura Infinita — Margaritas Fucsia y Blancas",
+        price: 37500,
+        originalPrice: 48000,
+        image: "assets/foto75.webp",
+        description: "Cúpula abundante de margaritas fucsia y blancas abierta como flor de loto, envuelta en papel lila con filo dorado. Es el ramo que ella deja en el centro de la mesa para que todos pregunten quién se lo regaló. Alegría pura, sin necesidad de explicar nada.",
+        categories: ["ramos", "novia", "especiales", "precio-medio"],
+        novia: true
+    },
+    {
+        id: 76, code: "076",
+        name: "Buqué Primer Amor — Claveles Rosados",
+        price: 31250,
+        originalPrice: 40000,
+        image: "assets/foto76.webp",
+        description: "Claveles rosados de pétalos aterciopelados con follaje fresco y flores silvestres blancas, envueltos en papel translúcido con amarre de rafia natural. Delicado como el primer “sí” y de los que siguen frescos más de dos semanas: cada mañana ella vuelve a recordar por qué la elegiste.",
+        categories: ["ramos", "novia", "precio-medio"],
+        novia: true
+    },
+    {
+        id: 77, code: "077",
+        name: "Buqué Reina por un Día — Lilium con Corona de Cristales",
+        price: 56250,
+        originalPrice: 72000,
+        image: "assets/foto77.webp",
+        description: "Lilium rosados abiertos, gerberas, claveles y gypsophila coronados por una tiara de cristales, sobre papel rosa con vetas doradas. Este no es un ramo: es la prueba física de que ella es la reina. El que se elige cuando quieres que ese día no se le olvide nunca.",
+        categories: ["ramos", "novia", "especiales", "premium", "precio-medio"],
+        novia: true
+    },
+    {
+        id: 78, code: "078",
+        name: "Buqué Mi Sol — Girasoles con Ferrero Rocher",
+        price: 48750,
+        originalPrice: 62400,
+        image: "assets/foto78.webp",
+        description: "Girasoles de gran porte con follaje fresco, caja de Ferrero Rocher y una mariposa azul, envueltos en papel kraft con borde satinado. Para la novia que te alegra los días grises: flores que buscan el sol y chocolate que se derrite mientras ella te agradece.",
+        categories: ["ramos", "novia", "girasoles", "especiales", "precio-medio"],
+        novia: true
+    },
+    {
+        id: 79, code: "079",
+        name: "Buqué Latido — Gerberas con Mariposa de Corazones",
+        price: 27500,
+        originalPrice: 35200,
+        image: "assets/foto79.webp",
+        description: "Tres gerberas en fucsia, rosa y coral con nube de gypsophila y una mariposa plateada tallada en corazones, sobre papel lila con moño de raso. El detalle exacto para un “pensé en ti” sin motivo: pequeño en tamaño, enorme en intención.",
+        categories: ["ramos", "novia", "especiales", "precio-bajo"],
+        novia: true
+    },
+    {
+        id: 80, code: "080",
+        name: "Buqué Sonrisa — Margaritas Amarillas",
+        price: 31250,
+        originalPrice: 40000,
+        image: "assets/foto80.webp",
+        description: "Brazada generosa de margaritas amarillas envuelta en papel crema estampado con moño a juego. El amarillo es el color que el cerebro lee como felicidad antes de alcanzar a pensarlo: llega y le cambia el ánimo del día entero, aunque afuera esté nublado.",
+        categories: ["ramos", "novia", "precio-medio"],
+        novia: true
+    },
+    {
+        id: 81, code: "081",
+        name: "Buqué Clásico Eterno — 5 Rosas Rojas con Eucalipto",
+        price: 25000,
+        originalPrice: 32000,
+        image: "assets/foto81.webp",
+        description: "Cinco rosas rojas de tallo largo con eucalipto plateado y gypsophila, envueltas en papel negro translúcido. El rojo sobre negro es el contraste más deseado del mundo por una razón: cuando no sabes qué regalar, esto nunca falla.",
+        categories: ["ramos", "novia", "rosas", "precio-bajo"],
+        novia: true
     }
 ];
+
+/* ============================================================
+   CAMPAÑA DÍA DE LA NOVIA — 1 de agosto
+   Contador, banner de sección y flyer flotante.
+   Todo el movimiento se hace con transform/opacity, así el
+   navegador lo resuelve en la GPU y no re-calcula el layout.
+   ============================================================ */
+var NOVIA_DEADLINE = new Date(2026, 7, 2, 0, 0, 0).getTime(); // fin del 1 de agosto de 2026
+var NOVIA_WA = 'https://wa.me/56922437256?text=' + encodeURIComponent('Hola, quiero aprovechar las ofertas del Día de la Novia. ¿Me cuentan más?');
+var noviaCdTimer = null;
+
+function noviaTimeLeft() {
+    var diff = NOVIA_DEADLINE - Date.now();
+    if (diff <= 0) return null;
+    return {
+        d: Math.floor(diff / 86400000),
+        h: Math.floor(diff / 3600000) % 24,
+        m: Math.floor(diff / 60000) % 60,
+        s: Math.floor(diff / 1000) % 60
+    };
+}
+
+function noviaCountdownHTML(compact) {
+    var labels = { d: 'días', h: 'hrs', m: 'min', s: 'seg' };
+    var units = ['d', 'h', 'm', 's'].map(function (u) {
+        return '<div class="novia-cd-unit"><span class="novia-cd-num" data-cd="' + u + '">--</span>' +
+               '<span class="novia-cd-lbl">' + labels[u] + '</span></div>';
+    }).join('');
+    return '<div class="novia-countdown' + (compact ? ' novia-flyer-cd' : '') + '" data-novia-cd>' + units + '</div>';
+}
+
+function startNoviaCountdown() {
+    if (noviaCdTimer) { clearInterval(noviaCdTimer); noviaCdTimer = null; }
+    function tick() {
+        var t = noviaTimeLeft();
+        var boxes = document.querySelectorAll('[data-novia-cd]');
+        if (!boxes.length) return;
+        for (var i = 0; i < boxes.length; i++) {
+            if (!t) { boxes[i].innerHTML = '<div class="novia-cd-unit"><span class="novia-cd-num">¡HOY!</span><span class="novia-cd-lbl">último día</span></div>'; continue; }
+            var nums = boxes[i].querySelectorAll('[data-cd]');
+            for (var j = 0; j < nums.length; j++) {
+                var v = t[nums[j].getAttribute('data-cd')];
+                var txt = v < 10 ? '0' + v : '' + v;
+                if (nums[j].textContent !== txt) nums[j].textContent = txt;
+            }
+        }
+        if (!t && noviaCdTimer) { clearInterval(noviaCdTimer); noviaCdTimer = null; }
+    }
+    tick();
+    noviaCdTimer = setInterval(tick, 1000);
+}
+
+function noviaBannerHTML(count) {
+    return '<div class="novia-banner">' +
+             '<div class="novia-banner-text">' +
+               '<h2><span class="novia-crown">👑</span>Especiales <span class="novia-gold">Día de la Novia</span></h2>' +
+               '<p>' + count + ' arreglos seleccionados con hasta <strong>22% de descuento</strong> · Solo hasta el 1 de agosto</p>' +
+             '</div>' +
+             noviaCountdownHTML(false) +
+           '</div>';
+}
+
+function noviaCardOverlay(product) {
+    if (!product.novia) return '';
+    var off = Math.round((1 - product.price / product.originalPrice) * 100);
+    return '<div class="novia-ribbon"><span class="novia-spark">✦</span> DÍA DE LA NOVIA <span class="novia-spark">✦</span></div>' +
+           '<div class="novia-savings">-' + off + '%<small>DCTO</small></div>';
+}
+
+/* --- Flyer flotante con carrusel de los 7 arreglos --- */
+function initNoviaFlyer(items, fmt) {
+    if (!items || !items.length) return;
+    if (document.getElementById('noviaFlyerOverlay')) return;
+    try { if (sessionStorage.getItem('noviaFlyerSeen') === '1') return; } catch (e) {}
+
+    var slides = items.map(function (p, i) {
+        return '<div class="promo-flyer-slide' + (i === 0 ? ' active' : '') + '" data-index="' + i + '">' +
+                 '<div class="slide-img" style="background-image:url(\'' + p.image + '\')"></div>' +
+                 '<div class="slide-text">' +
+                   '<span class="slide-code">Cód. ' + p.code + '</span>' +
+                   '<h3>' + p.name + '</h3>' +
+                   '<div class="slide-prices">' +
+                     '<span class="slide-old">' + fmt(p.originalPrice) + '</span>' +
+                     '<span class="slide-new">' + fmt(p.price) + '</span>' +
+                   '</div>' +
+                 '</div>' +
+               '</div>';
+    }).join('');
+
+    var dots = items.map(function (_, i) {
+        return '<span class="' + (i === 0 ? 'active' : '') + '" data-index="' + i + '"></span>';
+    }).join('');
+
+    var overlay = document.createElement('div');
+    overlay.className = 'promo-flyer-overlay novia-flyer-mode';
+    overlay.id = 'noviaFlyerOverlay';
+    overlay.innerHTML =
+        '<div class="promo-flyer" role="dialog" aria-label="Ofertas Día de la Novia">' +
+          '<button class="promo-flyer-close" id="noviaFlyerClose" aria-label="Cerrar">&times;</button>' +
+          '<div class="promo-flyer-header">' +
+            '<h2><span class="gold-spark">✦</span> Día de la Novia <span class="gold-spark">✦</span></h2>' +
+            '<p>' + items.length + ' arreglos seleccionados con hasta 22% de descuento · Solo hasta el 1 de agosto</p>' +
+            noviaCountdownHTML(true) +
+          '</div>' +
+          '<div class="promo-flyer-carousel" id="noviaFlyerCarousel">' +
+            slides +
+            '<button class="novia-nav prev" aria-label="Anterior">&#8249;</button>' +
+            '<button class="novia-nav next" aria-label="Siguiente">&#8250;</button>' +
+            '<div class="novia-flyer-dots">' + dots + '</div>' +
+          '</div>' +
+          '<div class="promo-flyer-footer">' +
+            'Pedidos por <strong>WhatsApp +56 9 2243 7256</strong> · Despacho a domicilio en Antofagasta<br>' +
+            '<a class="novia-flyer-cta" href="' + NOVIA_WA + '" target="_blank" rel="noopener">Quiero mi arreglo con descuento</a>' +
+          '</div>' +
+        '</div>';
+    document.body.appendChild(overlay);
+
+    var slideEls = overlay.querySelectorAll('.promo-flyer-slide');
+    var dotEls = overlay.querySelectorAll('.novia-flyer-dots span');
+    var current = 0;
+    var timer = null;
+
+    function show(idx) {
+        slideEls[current].classList.remove('active');
+        if (dotEls[current]) dotEls[current].classList.remove('active');
+        current = (idx + slideEls.length) % slideEls.length;
+        slideEls[current].classList.add('active');
+        if (dotEls[current]) dotEls[current].classList.add('active');
+    }
+    function play() { if (!timer) timer = setInterval(function () { show(current + 1); }, 3200); }
+    function pause() { if (timer) { clearInterval(timer); timer = null; } }
+    function close() {
+        pause();
+        overlay.classList.remove('active');
+        document.removeEventListener('keydown', onKey);
+        setTimeout(function () { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); }, 450);
+    }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+
+    overlay.querySelector('#noviaFlyerClose').addEventListener('click', close);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+    overlay.querySelector('.novia-nav.prev').addEventListener('click', function () { pause(); show(current - 1); play(); });
+    overlay.querySelector('.novia-nav.next').addEventListener('click', function () { pause(); show(current + 1); play(); });
+    for (var i = 0; i < dotEls.length; i++) {
+        (function (k) {
+            dotEls[k].addEventListener('click', function () { pause(); show(k); play(); });
+        })(i);
+    }
+    overlay.querySelector('.promo-flyer').addEventListener('mouseenter', pause);
+    overlay.querySelector('.promo-flyer').addEventListener('mouseleave', play);
+    document.addEventListener('keydown', onKey);
+
+    setTimeout(function () {
+        overlay.classList.add('active');
+        startNoviaCountdown();
+        play();
+        try { sessionStorage.setItem('noviaFlyerSeen', '1'); } catch (e) {}
+    }, 700);
+}
+
         // Normalizar texto (quitar tildes y minúsculas)
         function normalize(str) {
             return str.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -1294,9 +1835,10 @@ const products = [
             emptyState.classList.remove('active');
             resultsCount.textContent = filteredProducts.length;
 
-            // Separar productos en promoción (siempre primero)
-            const promos = filteredProducts.filter(p => p.promo);
-            const noPromos = filteredProducts.filter(p => !p.promo);
+            // Día de la Novia primero, luego el resto de promociones
+            const novias = filteredProducts.filter(p => p.novia).sort((a, b) => a.id - b.id);
+            const promos = filteredProducts.filter(p => p.promo && !p.novia);
+            const noPromos = filteredProducts.filter(p => !p.promo && !p.novia);
 
             if (currentFilter === 'todos' && currentSearch.trim() === '') {
                 const funebres = noPromos.filter(p => p.categories.includes('funebres'));
@@ -1338,12 +1880,13 @@ const products = [
                     }
                 }
 
-                filteredProducts = [...promos, ...interleaved, ...funebres];
+                filteredProducts = [...novias, ...promos, ...interleaved, ...funebres];
             } else {
-                filteredProducts = [...promos, ...noPromos];
+                filteredProducts = [...novias, ...promos, ...noPromos];
             }
 
-            grid.innerHTML = filteredProducts.map(product => {
+            const noviaBanner = novias.length ? noviaBannerHTML(novias.length) : '';
+            grid.innerHTML = noviaBanner + filteredProducts.map(product => {
                 const hasVariations = Array.isArray(product.variations) && product.variations.length > 1;
                 const imagesHtml = hasVariations
                     ? product.variations.map((src, i) => `<img src="${src}" alt="${product.name} variante ${i+1}" class="product-image carousel-img${i===0?' active':''}" data-index="${i}" loading="lazy">`).join('')
@@ -1356,8 +1899,9 @@ const products = [
                     ? `openCarouselLightbox('${product.code}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')`
                     : `openLightbox('${product.image}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')`;
                 return `
-                <div class="product-card ${product.promo ? 'promo-card' : ''}" data-categories="${product.categories.join(' ')}" data-code="${product.code}">
-                    ${product.promo ? `
+                <div class="product-card ${product.novia ? 'novia-card' : (product.promo ? 'promo-card' : '')}" data-categories="${product.categories.join(' ')}" data-code="${product.code}">
+                    ${noviaCardOverlay(product)}
+                    ${product.promo && !product.novia ? `
                         <div class="promo-ribbon">
                             <span class="promo-spark">✦</span> OFERTA <span class="promo-spark">✦</span>
                         </div>
@@ -1377,7 +1921,7 @@ const products = [
                     </div>
                     <div class="product-info">
                         <span class="product-code">Cód. ${product.code}</span>
-                        ${product.originalPrice ? `<span class="discount-badge">¡OFERTA!</span>` : ''}
+                        ${product.originalPrice && !product.novia ? `<span class="discount-badge">¡OFERTA!</span>` : ''}
                         <h3 class="product-name">${product.name}</h3>
                         <div class="product-description">${product.description}</div>
                         <div class="product-footer">
@@ -1401,6 +1945,7 @@ const products = [
             `;
             }).join('');
 
+            if (novias.length) startNoviaCountdown();
             initCarousels();
         }
 
@@ -1513,55 +2058,8 @@ const products = [
             });
         }
 
-        // ===== Flyer flotante de promociones =====
-        (function initPromoFlyer() {
-            const overlay = document.getElementById('promoFlyerOverlay');
-            const carouselEl = document.getElementById('promoFlyerCarousel');
-            const closeBtn = document.getElementById('promoFlyerClose');
-            if (!overlay || !carouselEl) return;
-
-            const promos = products.filter(p => p.promo);
-            if (promos.length === 0) return;
-
-            carouselEl.innerHTML = promos.map((p, i) => `
-                <div class="promo-flyer-slide${i === 0 ? ' active' : ''}" data-index="${i}">
-                    <div class="slide-img" style="background-image: url('${p.image}');"></div>
-                    <div class="slide-text">
-                        <span class="slide-code">Cód. ${p.code}</span>
-                        <h3>${p.name}</h3>
-                        <div class="slide-prices">
-                            <span class="slide-old">${formatPrice(p.originalPrice)}</span>
-                            <span class="slide-new">${formatPrice(p.price)}</span>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-
-            const slides = carouselEl.querySelectorAll('.promo-flyer-slide');
-            let currentSlide = 0;
-            let slideTimer = null;
-            let autoCloseTimer = null;
-            const slideInterval = Math.max(900, Math.floor(5000 / promos.length));
-
-            function showSlide(idx) {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (idx + slides.length) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }
-            function closeFlyer() {
-                overlay.classList.remove('active');
-                if (slideTimer) { clearInterval(slideTimer); slideTimer = null; }
-                if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
-            }
-            closeBtn.addEventListener('click', closeFlyer);
-            overlay.addEventListener('click', (e) => { if (e.target === overlay) closeFlyer(); });
-
-            setTimeout(() => {
-                overlay.classList.add('active');
-                slideTimer = setInterval(() => showSlide(currentSlide + 1), slideInterval);
-                autoCloseTimer = setTimeout(closeFlyer, 5000);
-            }, 600);
-        })();
+        // ===== Flyer flotante Día de la Novia =====
+        initNoviaFlyer(products.filter(p => p.novia), formatPrice);
 
         // Inicializar
         renderProducts();

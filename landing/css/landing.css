@@ -1136,3 +1136,330 @@ img { max-width: 100%; height: auto; display: block; }
     .filter-btn { font-size: .75rem; padding: 5px 10px; }
     .search-input { font-size: .88rem; }
 }
+
+/* ============================================================
+   CAMPAÑA DÍA DE LA NOVIA — 1 de agosto
+   Animaciones sólo con transform/opacity (compuestas por GPU)
+   para no penalizar el rendimiento de la página.
+   ============================================================ */
+
+/* --- Banner que encabeza los 7 destacados --- */
+.novia-banner {
+    grid-column: 1 / -1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    padding: 1.05rem 1.3rem;
+    background: linear-gradient(120deg, #6d0f37 0%, #ad1457 42%, #e91e63 68%, #8e0f45 100%);
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem;
+    box-shadow: 0 10px 30px rgba(173, 20, 87, 0.3);
+    border: 2px solid rgba(255, 215, 128, 0.55);
+    contain: paint;
+}
+.novia-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translate3d(-160%, 0, 0) skewX(-18deg);
+    animation: noviaSheen 5.5s ease-in-out infinite;
+    pointer-events: none;
+    will-change: transform;
+}
+@keyframes noviaSheen {
+    0%   { transform: translate3d(-160%, 0, 0) skewX(-18deg); }
+    55%, 100% { transform: translate3d(330%, 0, 0) skewX(-18deg); }
+}
+.novia-banner-text { position: relative; z-index: 2; min-width: 240px; }
+.novia-banner-text h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.45rem;
+    line-height: 1.15;
+    margin: 0 0 0.25rem;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+}
+.novia-banner-text p {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.86rem;
+    opacity: 0.94;
+    letter-spacing: 0.2px;
+}
+.novia-banner .novia-gold { color: #ffd88a; }
+.novia-crown {
+    display: inline-block;
+    margin-right: 6px;
+    animation: noviaTwinkle 2.4s ease-in-out infinite;
+}
+@keyframes noviaTwinkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50%      { transform: scale(1.25) rotate(12deg); opacity: 0.75; }
+}
+
+/* --- Contador regresivo --- */
+.novia-countdown {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Poppins', sans-serif;
+}
+.novia-cd-unit {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 216, 138, 0.6);
+    border-radius: 10px;
+    padding: 0.35rem 0.5rem;
+    min-width: 50px;
+    text-align: center;
+    backdrop-filter: blur(3px);
+}
+.novia-cd-num {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+.novia-cd-lbl {
+    display: block;
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-top: 2px;
+}
+.novia-cd-sep { font-weight: 800; opacity: 0.55; }
+
+/* --- Tarjetas destacadas --- */
+.product-card.novia-card,
+.product-item.novia-card {
+    position: relative;
+    border: 3px solid transparent;
+    background-image: linear-gradient(#fff, #fff),
+                      linear-gradient(135deg, #d4af37 0%, #e91e63 35%, #ff80ab 60%, #d4af37 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.22), 0 0 0 4px rgba(212, 175, 55, 0.16);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: visible !important;
+}
+.product-card.novia-card:hover,
+.product-item.novia-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 42px rgba(233, 30, 99, 0.34), 0 0 0 5px rgba(212, 175, 55, 0.26);
+}
+
+/* Cinta esquina superior izquierda */
+.novia-ribbon {
+    position: absolute;
+    top: 14px;
+    left: -8px;
+    background: linear-gradient(135deg, #ad1457 0%, #e91e63 55%, #ff4081 100%);
+    color: #fff;
+    padding: 0.4rem 0.95rem 0.4rem 1.15rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(173, 20, 87, 0.55);
+    z-index: 10;
+    clip-path: polygon(0 0, 100% 0, 93% 50%, 100% 100%, 0 100%, 7% 50%);
+    animation: noviaRibbon 3s ease-in-out infinite;
+    will-change: transform;
+}
+@keyframes noviaRibbon {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.045); }
+}
+.novia-ribbon .novia-spark {
+    color: #ffd88a;
+    display: inline-block;
+    animation: noviaTwinkle 2.2s ease-in-out infinite;
+}
+
+/* Sello de descuento superior derecha */
+.novia-savings {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(140deg, #ffd88a 0%, #d4af37 55%, #b8860b 100%);
+    color: #5c0b2e;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border: 2px solid #fff;
+    box-shadow: 0 5px 16px rgba(184, 134, 11, 0.55);
+    z-index: 10;
+    animation: noviaSeal 2.6s ease-in-out infinite;
+    will-change: transform;
+}
+.novia-savings small {
+    font-size: 0.44rem;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+    margin-top: 2px;
+    opacity: 0.85;
+}
+@keyframes noviaSeal {
+    0%, 100% { transform: scale(1) rotate(-7deg); }
+    50%      { transform: scale(1.1) rotate(7deg); }
+}
+
+.product-card.novia-card .product-price,
+.product-item.novia-card .price,
+.product-item.novia-card .price-block .promo-price {
+    color: #c2185b;
+    font-weight: 800;
+}
+
+/* ============================================================
+   FLYER FLOTANTE — variante Día de la Novia
+   ============================================================ */
+.promo-flyer-overlay.novia-flyer-mode .promo-flyer::before {
+    background: linear-gradient(135deg, #d4af37, #e91e63, #ff80ab, #d4af37);
+}
+.promo-flyer-overlay.novia-flyer-mode .promo-flyer-header {
+    background: linear-gradient(125deg, #6d0f37 0%, #ad1457 45%, #e91e63 100%);
+}
+.promo-flyer-overlay.novia-flyer-mode .promo-flyer-close { color: #c2185b; }
+.promo-flyer-overlay.novia-flyer-mode .slide-new,
+.promo-flyer-overlay.novia-flyer-mode .promo-flyer-footer strong { color: #c2185b; }
+.promo-flyer-overlay.novia-flyer-mode .promo-flyer-progress { display: none; }
+
+.novia-flyer-cd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 0.6rem;
+}
+.novia-flyer-cd .novia-cd-unit { padding: 0.28rem 0.45rem; min-width: 46px; }
+.novia-flyer-cd .novia-cd-num { font-size: 1rem; }
+
+/* Flechas del carrusel */
+.novia-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.88);
+    color: #c2185b;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+.novia-nav:hover { background: #fff; transform: translateY(-50%) scale(1.12); }
+.novia-nav.prev { left: 8px; }
+.novia-nav.next { right: 8px; }
+
+/* Puntos del carrusel */
+.novia-flyer-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    z-index: 8;
+}
+.novia-flyer-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1.5px solid rgba(194, 24, 91, 0.7);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+.novia-flyer-dots span.active { background: #e91e63; transform: scale(1.3); }
+
+/* Botón WhatsApp del flyer */
+.novia-flyer-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #fff !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(18, 140, 126, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.novia-flyer-cta:hover { transform: translateY(-2px); box-shadow: 0 9px 24px rgba(18, 140, 126, 0.5); }
+
+/* Chip de filtro Día de la Novia */
+.filter-btn.novia-filter {
+    background: linear-gradient(135deg, #ad1457 0%, #e91e63 100%) !important;
+    color: #fff !important;
+    border-color: #e91e63 !important;
+    font-weight: 700;
+}
+.filter-btn.novia-filter:hover,
+.filter-btn.novia-filter.active {
+    background: linear-gradient(135deg, #6d0f37 0%, #c2185b 100%) !important;
+    color: #fff !important;
+}
+
+@media (max-width: 640px) {
+    .novia-banner { padding: 0.9rem 1rem; justify-content: center; text-align: center; }
+    .novia-banner-text { min-width: 0; }
+    .novia-banner-text h2 { font-size: 1.15rem; }
+    .novia-banner-text p { font-size: 0.78rem; }
+    .novia-cd-unit { min-width: 44px; padding: 0.3rem 0.4rem; }
+    .novia-cd-num { font-size: 1rem; }
+    .novia-savings { width: 46px; height: 46px; font-size: 0.82rem; }
+    .novia-ribbon { font-size: 0.62rem; padding: 0.35rem 0.75rem 0.35rem 0.95rem; }
+}
+
+/* Respeta la preferencia de menos movimiento del sistema */
+@media (prefers-reduced-motion: reduce) {
+    .novia-banner::after,
+    .novia-crown,
+    .novia-ribbon,
+    .novia-ribbon .novia-spark,
+    .novia-savings { animation: none !important; }
+}
+
+/* Arreglo del carrusel del flyer en móvil (antes quedaba sin alto) */
+@media (max-width: 600px) {
+    .promo-flyer-carousel { aspect-ratio: auto !important; height: 56vh; min-height: 320px; max-height: 430px; }
+    .promo-flyer-slide .slide-img { aspect-ratio: auto !important; flex: 1 1 55% !important; }
+    .promo-flyer-slide .slide-text { flex: 1 1 45%; }
+}
