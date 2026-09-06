@@ -112,6 +112,19 @@ const products = [
     { id: 105, code: "105", name: "Buqué Girasoles con Claveles Fucsia y Chocolate", price: 58750, originalPrice: 70500, image: "../assets/foto105.webp", description: "Girasoles rodeados de mini claveles fucsia y rosados, con tarjeta dedicada y chocolate incluido, sobre papel rosa. Flores y dulce en un solo regalo.", categories: ["ramos", "girasoles", "amarillas", "especiales", "precio-medio"], amarillas: true },
     { id: 106, code: "106", name: "Caja Corazón de Girasoles", price: 56250, originalPrice: 67500, image: "../assets/foto106.webp", description: "Girasoles y gypsophila montados en caja corazón blanca con moño amarillo. Amor y alegría en la misma pieza, lista para entregar.", categories: ["cajas", "girasoles", "amarillas", "precio-medio"], amarillas: true },
     { id: 107, code: "107", name: "Sombrerera Premium de Girasoles", price: 112500, originalPrice: 135000, image: "../assets/foto107.webp", description: "Sombrerera blanca colmada de girasoles con eucalipto fresco. Nuestra pieza más generosa en amarillo: presencia total para aniversarios, oficinas y grandes celebraciones.", categories: ["cajas", "girasoles", "amarillas", "premium", "precio-alto"], amarillas: true },
+    { id: 201, code: "P01", name: "Peluche Oso Blanco Grande con Rosa", price: 0, image: "../assets/peluches/1.jpeg", description: "Osito de peluche blanco de gran tamaño, muy suave, sosteniendo una rosa. El acompañante perfecto para un ramo: se abraza y se queda para siempre.", categories: ["peluches"], peluche: true },
+    { id: 202, code: "P02", name: "Peluche Oso Blanco Gigante", price: 0, image: "../assets/peluches/2.jpeg", description: "Oso de peluche blanco extra grande, de pelo suave y felpudo. Presencia enorme para cumpleaños, aniversarios y sorpresas que se recuerdan.", categories: ["peluches"], peluche: true },
+    { id: 203, code: "P03", name: "Peluche Oso Café con Moño Brillante", price: 0, image: "../assets/peluches/3.jpeg", description: "Oso de peluche café de textura mullida con moño brillante al cuello. Clásico, cálido y del tamaño ideal para regalar junto a flores.", categories: ["peluches"], peluche: true },
+    { id: 204, code: "P04", name: "Peluche Oso Beige con Almohada Decorativa", price: 0, image: "../assets/peluches/4.jpeg", description: "Oso de peluche beige de gran tamaño con almohadita decorativa entre los brazos. Tierno y muy fotogénico para la entrega.", categories: ["peluches"], peluche: true },
+    { id: 205, code: "P05", name: "Peluche Oso Durazno con Cinta Tornasol", price: 0, image: "../assets/peluches/5.jpeg", description: "Oso de peluche en tono durazno con cinta tornasol al cuello. Suave, elegante y perfecto para acompañar un ramo o una caja.", categories: ["peluches"], peluche: true },
+    { id: 206, code: "P06", name: "Peluche Conejo Rosado con Gorrito", price: 0, image: "../assets/peluches/6.jpeg", description: "Conejo de peluche rosado de orejas largas con gorrito lila. Dulce y coleccionable, ideal para cumpleaños y regalos infantiles.", categories: ["peluches"], peluche: true },
+    { id: 207, code: "P07", name: "Peluche Orejón Rosado con Mochila", price: 0, image: "../assets/peluches/7.jpeg", description: "Peluche rosado de orejas largas con mochilita decorativa. Suave, divertido y muy pedido por adolescentes y jóvenes.", categories: ["peluches"], peluche: true },
+    { id: 208, code: "P08", name: "Peluche Coleccionable Rosado con Capucha", price: 0, image: "../assets/peluches/8.jpeg", description: "Peluche coleccionable rosado con capucha de conejo y medalla dorada. Tendencia total: el regalo que se saca fotos solo.", categories: ["peluches"], peluche: true },
+    { id: 209, code: "P09", name: "Peluche Azul Orejón con Corazón", price: 0, image: "../assets/peluches/9.jpeg", description: "Peluche azul de orejas grandes abrazando un corazón rojo. Un clásico moderno para declaraciones y aniversarios.", categories: ["peluches"], peluche: true },
+    { id: 210, code: "P10", name: "Peluche Azul Orejón con Ranita", price: 0, image: "../assets/peluches/10.jpeg", description: "Peluche azul de orejas grandes con una ranita verde entre los brazos. Simpático, suave y de muy buen tamaño.", categories: ["peluches"], peluche: true },
+    { id: 211, code: "P11", name: "Set de Peluches Azules con Patito", price: 0, image: "../assets/peluches/11.jpeg", description: "Dúo de peluches azules acompañados de un patito amarillo. Ideal para regalar en pareja o armar una sorpresa completa.", categories: ["peluches"], peluche: true },
+    { id: 212, code: "P12", name: "Peluche Azul Orejón con Amiguito", price: 0, image: "../assets/peluches/12.jpeg", description: "Peluche azul de orejas grandes con un amiguito de colores entre las manos. Colorido, blandito y perfecto para alegrar el día.", categories: ["peluches"], peluche: true },
+    { id: 213, code: "P13", name: "Peluche Coleccionable Blanco con Capucha", price: 0, image: "../assets/peluches/13.jpeg", description: "Peluche coleccionable blanco con capucha y medalla dorada. Suave, sofisticado y con mucha personalidad.", categories: ["peluches"], peluche: true },
 ];
 
 
@@ -269,10 +282,12 @@ function renderProducts(filters = [], limit = null) {
     }
 
     // Campaña Flores Amarillas primero, después el resto de promociones
-    const amarillasProducts = productsToDisplay.filter(p => p.amarillas).sort((a, b) => a.id - b.id);
-    const promoProducts = productsToDisplay.filter(p => p.promo && !p.amarillas);
-    const nonPromoProducts = productsToDisplay.filter(p => !p.promo && !p.amarillas);
-    productsToDisplay = [...amarillasProducts, ...promoProducts, ...nonPromoProducts];
+    const amarillasProducts = productsToDisplay.filter(p => p.amarillas && !p.peluche).sort((a, b) => a.id - b.id);
+    const promoProducts = productsToDisplay.filter(p => p.promo && !p.amarillas && !p.peluche);
+    const nonPromoProducts = productsToDisplay.filter(p => !p.promo && !p.amarillas && !p.peluche);
+    // Los peluches van siempre al final del catálogo
+    const pelucheProducts = productsToDisplay.filter(p => p.peluche).sort((a, b) => a.id - b.id);
+    productsToDisplay = [...amarillasProducts, ...promoProducts, ...nonPromoProducts, ...pelucheProducts];
 
     if (limit) {
         productsToDisplay = productsToDisplay.slice(0, limit);
@@ -300,15 +315,20 @@ function renderProducts(filters = [], limit = null) {
             <div class="promo-ribbon"><span class="promo-spark">✦</span> OFERTA <span class="promo-spark">✦</span></div>
             <div class="promo-savings">-${Math.round((1 - product.price/product.originalPrice)*100)}%</div>
         ` : '');
-        const priceHTML = product.originalPrice
+        const peluchePriceHTML = `<div class="price-block">
+                   <span class="peluche-note">Precio a consultar</span>
+                   <span class="peluche-quote">Cotizar peluche</span>
+               </div>`;
+        const priceHTML = product.peluche ? peluchePriceHTML : product.originalPrice
             ? `<div class="price-block">
                    <span class="old-price">${formatCLP(product.originalPrice)}</span>
                    <span class="price promo-price">${formatCLP(product.price)}</span>
                </div>`
             : `<span class="price">${formatCLP(product.price)}</span>`;
         const productHTML = `
-            <div class="product-item ${product.amarillas ? 'amarillas-card' : (product.promo ? 'promo-card' : '')}" data-code="${product.code}">
+            <div class="product-item ${product.amarillas ? 'amarillas-card' : (product.peluche ? 'peluche-card' : (product.promo ? 'promo-card' : ''))}" data-code="${product.code}">
                 ${promoOverlay}
+                ${product.peluche ? `<div class="peluche-ribbon">🧸 PELUCHE</div>` : ''}
                 ${imageHTML}
                 <div class="product-info">
                     <span class="product-code">Cód. ${product.code}</span>
@@ -317,7 +337,7 @@ function renderProducts(filters = [], limit = null) {
                     <div class="product-footer">
                         ${priceHTML}
                         <button class="btn-order" onclick="orderWA('${escapedName}', '${product.price}', '${product.code}')">
-                            Pedir por WhatsApp
+                            ${product.peluche ? 'Cotizar peluche' : 'Pedir por WhatsApp'}
                         </button>
                     </div>
                 </div>
@@ -380,7 +400,10 @@ function contactWA() {
 
 function orderWA(productName, price, code) {
     const prefix = code ? `Cód. ${code} - ` : '';
-    const message = `Hola, me interesa ${prefix}${productName} (${formatCLP(parseFloat(price))}). ¿Podrías darme más información?`;
+    const value = parseFloat(price);
+    const message = (!value || value === 0)
+        ? `Hola, quiero cotizar el peluche ${prefix}${productName}. ¿Me das precio y disponibilidad?`
+        : `Hola, me interesa ${prefix}${productName} (${formatCLP(value)}). ¿Podrías darme más información?`;
     const encodedMessage = encodeURIComponent(message);
     const url = `https://wa.me/56922437256?text=${encodedMessage}`;
     try {
@@ -430,9 +453,21 @@ function injectAmarillasFilterChip() {
     else bar.appendChild(chip);
 }
 
+function injectPeluchesFilterChip() {
+    const bar = document.querySelector('.filters-container');
+    if (!bar || bar.querySelector('[data-filter="peluches"]')) return;
+    if (!products.some(p => p.peluche)) return;
+    const chip = document.createElement('button');
+    chip.className = 'filter-btn peluche-filter';
+    chip.setAttribute('data-filter', 'peluches');
+    chip.textContent = '🧸 Peluches';
+    bar.appendChild(chip); // siempre al final de la barra de filtros
+}
+
 function initCatalog() {
     window._catalogInitialized = true;
     injectAmarillasFilterChip();
+    injectPeluchesFilterChip();
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             filterProducts(this.getAttribute('data-filter'));

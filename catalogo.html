@@ -383,6 +383,73 @@
             .amarillas-savings { animation: none !important; }
         }
 
+        /* --- Tarjeta personalizada: Peluches --- */
+        .product-card.peluche-card,
+        .product-item.peluche-card {
+            position: relative;
+            border: 3px solid transparent;
+            background-image: linear-gradient(#fff, #fff),
+                              linear-gradient(135deg, #f8bbd0 0%, #ce93d8 45%, #b39ddb 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 10px 28px rgba(186, 104, 200, 0.20);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: visible !important;
+        }
+        .product-card.peluche-card:hover,
+        .product-item.peluche-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 40px rgba(186, 104, 200, 0.34);
+        }
+        .peluche-ribbon {
+            position: absolute;
+            top: 14px;
+            left: -8px;
+            background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 55%, #ba68c8 100%);
+            color: #fff;
+            padding: 0.4rem 0.95rem 0.4rem 1.15rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(106, 27, 154, 0.45);
+            z-index: 10;
+            clip-path: polygon(0 0, 100% 0, 93% 50%, 100% 100%, 0 100%, 7% 50%);
+        }
+        .peluche-note {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.66rem;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #8e24aa;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .peluche-quote {
+            display: inline-block;
+            background: linear-gradient(135deg, #f3e5f5 0%, #fce4ec 100%);
+            color: #6a1b9a;
+            border: 1px dashed #ba68c8;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            padding: 0.3rem 0.85rem;
+            border-radius: 50px;
+        }
+        .filter-btn.peluche-filter {
+            background: linear-gradient(135deg, #8e24aa 0%, #ba68c8 100%) !important;
+            color: #fff !important;
+            border-color: #ba68c8 !important;
+            font-weight: 700;
+        }
+        .filter-btn.peluche-filter:hover,
+        .filter-btn.peluche-filter.active {
+            background: linear-gradient(135deg, #6a1b9a 0%, #9c27b0 100%) !important;
+            color: #fff !important;
+        }
+
         /* Carousel para productos con variaciones */
         .product-image-container.has-carousel {
             position: relative;
@@ -601,6 +668,7 @@
                 <button class="filter-btn" data-filter="precio-bajo" data-code="900"><span class="filter-code">[900]</span> Hasta $30.000</button>
                 <button class="filter-btn" data-filter="precio-medio" data-code="910"><span class="filter-code">[910]</span> $30.000 - $80.000</button>
                 <button class="filter-btn" data-filter="precio-alto" data-code="920"><span class="filter-code">[920]</span> Más de $80.000</button>
+                <button class="filter-btn peluche-filter" data-filter="peluches" data-code="830"><span class="filter-code">[830]</span> 🧸 Peluches</button>
             </div>
         </div>
     </section>
@@ -608,7 +676,7 @@
     <!-- Results Counter -->
     <div class="results-counter">
         <div class="container">
-            Mostrando <strong id="results-count">106</strong> productos
+            Mostrando <strong id="results-count">119</strong> productos
         </div>
     </div>
 
@@ -1578,6 +1646,123 @@ const products = [
         description: "Sombrerera blanca colmada de girasoles con eucalipto fresco. Nuestra pieza más generosa en amarillo: presencia total para aniversarios, oficinas y grandes celebraciones.",
         categories: ["cajas", "girasoles", "amarillas", "premium", "precio-alto"],
         amarillas: true
+    },
+    {
+        id: 201, code: "P01",
+        name: "Peluche Oso Blanco Grande con Rosa",
+        price: 0,
+        image: "assets/peluches/1.jpeg",
+        description: "Osito de peluche blanco de gran tamaño, muy suave, sosteniendo una rosa. El acompañante perfecto para un ramo: se abraza y se queda para siempre.",
+        categories: ["peluches"],
+        peluche: true
+    },
+    {
+        id: 202, code: "P02",
+        name: "Peluche Oso Blanco Gigante",
+        price: 0,
+        image: "assets/peluches/2.jpeg",
+        description: "Oso de peluche blanco extra grande, de pelo suave y felpudo. Presencia enorme para cumpleaños, aniversarios y sorpresas que se recuerdan.",
+        categories: ["peluches"],
+        peluche: true
+    },
+    {
+        id: 203, code: "P03",
+        name: "Peluche Oso Café con Moño Brillante",
+        price: 0,
+        image: "assets/peluches/3.jpeg",
+        description: "Oso de peluche café de textura mullida con moño brillante al cuello. Clásico, cálido y del tamaño ideal para regalar junto a flores.",
+        categories: ["peluches"],
+        peluche: true
+    },
+    {
+        id: 204, code: "P04",
+        name: "Peluche Oso Beige con Almohada Decorativa",
+        price: 0,
+        image: "assets/peluches/4.jpeg",
+        description: "Oso de peluche beige de gran tamaño con almohadita decorativa entre los brazos. Tierno y muy fotogénico para la entrega.",
+        categories: ["peluches"],
+        peluche: true
+    },
+    {
+        id: 205, code: "P05",
+        name: "Peluche Oso Durazno con Cinta Tornasol",
+        price: 0,
+        image: "assets/peluches/5.jpeg",
+        description: "Oso de peluche en tono durazno con cinta tornasol al cuello. Suave, elegante y perfecto para acompañar un ramo o una caja.",
+        categories: ["peluches"],
+        peluche: true
+    },
+    {
+        id: 206, code: "P06",
+        name: "Peluche Conejo Rosado con Gorrito",
+        price: 0,
+        image: "assets/peluches/6.jpeg",
+        description: "Conejo de peluche rosado de orejas largas con gorrito lila. Dulce y coleccionable, ideal para cumpleaños y regalos infantiles.",
+        categories: ["peluches"],
+        peluche: true
+    },
+    {
+        id: 207, code: "P07",
+        name: "Peluche Orejón Rosado con Mochila",
+        price: 0,
+        image: "assets/peluches/7.jpeg",
+        description: "Peluche rosado de orejas largas con mochilita decorativa. Suave, divertido y muy pedido por adolescentes y jóvenes.",
+        categories: ["peluches"],
+        peluche: true
+    },
+    {
+        id: 208, code: "P08",
+        name: "Peluche Coleccionable Rosado con Capucha",
+        price: 0,
+        image: "assets/peluches/8.jpeg",
+        description: "Peluche coleccionable rosado con capucha de conejo y medalla dorada. Tendencia total: el regalo que se saca fotos solo.",
+        categories: ["peluches"],
+        peluche: true
+    },
+    {
+        id: 209, code: "P09",
+        name: "Peluche Azul Orejón con Corazón",
+        price: 0,
+        image: "assets/peluches/9.jpeg",
+        description: "Peluche azul de orejas grandes abrazando un corazón rojo. Un clásico moderno para declaraciones y aniversarios.",
+        categories: ["peluches"],
+        peluche: true
+    },
+    {
+        id: 210, code: "P10",
+        name: "Peluche Azul Orejón con Ranita",
+        price: 0,
+        image: "assets/peluches/10.jpeg",
+        description: "Peluche azul de orejas grandes con una ranita verde entre los brazos. Simpático, suave y de muy buen tamaño.",
+        categories: ["peluches"],
+        peluche: true
+    },
+    {
+        id: 211, code: "P11",
+        name: "Set de Peluches Azules con Patito",
+        price: 0,
+        image: "assets/peluches/11.jpeg",
+        description: "Dúo de peluches azules acompañados de un patito amarillo. Ideal para regalar en pareja o armar una sorpresa completa.",
+        categories: ["peluches"],
+        peluche: true
+    },
+    {
+        id: 212, code: "P12",
+        name: "Peluche Azul Orejón con Amiguito",
+        price: 0,
+        image: "assets/peluches/12.jpeg",
+        description: "Peluche azul de orejas grandes con un amiguito de colores entre las manos. Colorido, blandito y perfecto para alegrar el día.",
+        categories: ["peluches"],
+        peluche: true
+    },
+    {
+        id: 213, code: "P13",
+        name: "Peluche Coleccionable Blanco con Capucha",
+        price: 0,
+        image: "assets/peluches/13.jpeg",
+        description: "Peluche coleccionable blanco con capucha y medalla dorada. Suave, sofisticado y con mucha personalidad.",
+        categories: ["peluches"],
+        peluche: true
     }
 ];
 
@@ -1712,9 +1897,11 @@ function amarillasCardOverlay(product) {
             resultsCount.textContent = filteredProducts.length;
 
             // Campaña Flores Amarillas primero, luego el resto de promociones
-            const amarillasProducts = filteredProducts.filter(p => p.amarillas).sort((a, b) => a.id - b.id);
-            const promos = filteredProducts.filter(p => p.promo && !p.amarillas);
-            const noPromos = filteredProducts.filter(p => !p.promo && !p.amarillas);
+            const amarillasProducts = filteredProducts.filter(p => p.amarillas && !p.peluche).sort((a, b) => a.id - b.id);
+            const promos = filteredProducts.filter(p => p.promo && !p.amarillas && !p.peluche);
+            const noPromos = filteredProducts.filter(p => !p.promo && !p.amarillas && !p.peluche);
+            // Los peluches van siempre al final del catálogo
+            const peluches = filteredProducts.filter(p => p.peluche).sort((a, b) => a.id - b.id);
 
             if (currentFilter === 'todos' && currentSearch.trim() === '') {
                 const funebres = noPromos.filter(p => p.categories.includes('funebres'));
@@ -1756,9 +1943,9 @@ function amarillasCardOverlay(product) {
                     }
                 }
 
-                filteredProducts = [...amarillasProducts, ...promos, ...interleaved, ...funebres];
+                filteredProducts = [...amarillasProducts, ...promos, ...interleaved, ...funebres, ...peluches];
             } else {
-                filteredProducts = [...amarillasProducts, ...promos, ...noPromos];
+                filteredProducts = [...amarillasProducts, ...promos, ...noPromos, ...peluches];
             }
 
             const amarillasBanner = amarillasProducts.length ? amarillasBannerHTML(amarillasProducts.length) : '';
@@ -1775,8 +1962,9 @@ function amarillasCardOverlay(product) {
                     ? `openCarouselLightbox('${product.code}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')`
                     : `openLightbox('${product.image}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')`;
                 return `
-                <div class="product-card ${product.amarillas ? 'amarillas-card' : (product.promo ? 'promo-card' : '')}" data-categories="${product.categories.join(' ')}" data-code="${product.code}">
+                <div class="product-card ${product.amarillas ? 'amarillas-card' : (product.peluche ? 'peluche-card' : (product.promo ? 'promo-card' : ''))}" data-categories="${product.categories.join(' ')}" data-code="${product.code}">
                     ${amarillasCardOverlay(product)}
+                    ${product.peluche ? `<div class="peluche-ribbon">🧸 PELUCHE</div>` : ''}
                     ${product.promo && !product.amarillas ? `
                         <div class="promo-ribbon">
                             <span class="promo-spark">✦</span> OFERTA <span class="promo-spark">✦</span>
@@ -1802,18 +1990,23 @@ function amarillasCardOverlay(product) {
                         <div class="product-description">${product.description}</div>
                         <div class="product-footer">
                             <div>
-                                <span class="price-label">Desde</span>
-                                ${product.originalPrice ? `<div class="original-price">${formatPrice(product.originalPrice)}</div>` : ''}
-                                <div class="product-price">${formatPrice(product.price)}</div>
+                                ${product.peluche ? `
+                                    <span class="peluche-note">Precio a consultar</span>
+                                    <span class="peluche-quote">Cotizar peluche</span>
+                                ` : `
+                                    <span class="price-label">Desde</span>
+                                    ${product.originalPrice ? `<div class="original-price">${formatPrice(product.originalPrice)}</div>` : ''}
+                                    <div class="product-price">${formatPrice(product.price)}</div>
+                                `}
                             </div>
-                            <a href="https://wa.me/56922437256?text=Hola,%20me%20interesa%20el%20producto%20${product.code}:%20${encodeURIComponent(product.name)}%20-%20${formatPrice(product.price)}"
+                            <a href="${product.peluche ? `https://wa.me/56922437256?text=${encodeURIComponent('Hola, quiero cotizar el peluche ' + product.code + ': ' + product.name)}` : `https://wa.me/56922437256?text=Hola,%20me%20interesa%20el%20producto%20${product.code}:%20${encodeURIComponent(product.name)}%20-%20${formatPrice(product.price)}`}"
                                class="btn-order"
                                target="_blank"
                                onclick="gtag_report_conversion();">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                                 </svg>
-                                Pedir Ahora
+                                ${product.peluche ? 'Cotizar' : 'Pedir Ahora'}
                             </a>
                         </div>
                     </div>

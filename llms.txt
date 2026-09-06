@@ -45,9 +45,10 @@
 - Florería mayorista para eventos y empresas
 
 ## Catálogo
-- 106 productos disponibles
-- Códigos de producto: 001 a 107 (el código 067 fue descontinuado)
-- Filtros por categoría: flores amarillas, ramos, cajas, corazones, canastas, fúnebres, especiales, premium, tulipanes, girasoles, rosas
+- 119 productos disponibles (106 arreglos florales + 13 peluches)
+- Códigos de producto: 001 a 107 (el código 067 fue descontinuado) y P01 a P13 para peluches
+- Filtros por categoría: flores amarillas, peluches, ramos, cajas, corazones, canastas, fúnebres, especiales, premium, tulipanes, girasoles, rosas
+- Peluches: sin precio fijo, se cotizan por WhatsApp
 - Campaña vigente: Mes de las Flores Amarillas — 18 arreglos amarillos con 17% de descuento hasta el 21 de septiembre
 - Rangos de precio: hasta $30.000, $30.000 - $80.000, más de $80.000 CLP
 
