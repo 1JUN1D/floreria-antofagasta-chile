@@ -936,30 +936,30 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ============================================================
-   CAMPAÑA PROMOCIÓN DE LA SEMANA — 1 de agosto
+   CAMPAÑA: MES DE LAS FLORES AMARILLAS — 21 de septiembre
    Animaciones sólo con transform/opacity (compuestas por GPU)
    para no penalizar el rendimiento de la página.
    ============================================================ */
 
 /* --- Banner que encabeza los 7 destacados --- */
-.semana-banner {
+.amarillas-banner {
     grid-column: 1 / -1;
     position: relative;
     overflow: hidden;
     border-radius: 18px;
     padding: 1.05rem 1.3rem;
-    background: linear-gradient(120deg, #6d0f37 0%, #ad1457 42%, #e91e63 68%, #8e0f45 100%);
+    background: linear-gradient(120deg, #6b4200 0%, #9a6200 42%, #d18700 68%, #7a4a00 100%);
     color: #fff;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 0.9rem;
-    box-shadow: 0 10px 30px rgba(173, 20, 87, 0.3);
+    box-shadow: 0 10px 30px rgba(168, 106, 0, 0.3);
     border: 2px solid rgba(255, 215, 128, 0.55);
     contain: paint;
 }
-.semana-banner::after {
+.amarillas-banner::after {
     content: '';
     position: absolute;
     top: 0;
@@ -968,16 +968,16 @@ img { max-width: 100%; height: auto; display: block; }
     height: 100%;
     background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transform: translate3d(-160%, 0, 0) skewX(-18deg);
-    animation: semanaSheen 5.5s ease-in-out infinite;
+    animation: amarillasSheen 5.5s ease-in-out infinite;
     pointer-events: none;
     will-change: transform;
 }
-@keyframes semanaSheen {
+@keyframes amarillasSheen {
     0%   { transform: translate3d(-160%, 0, 0) skewX(-18deg); }
     55%, 100% { transform: translate3d(330%, 0, 0) skewX(-18deg); }
 }
-.semana-banner-text { position: relative; z-index: 2; min-width: 240px; }
-.semana-banner-text h2 {
+.amarillas-banner-text { position: relative; z-index: 2; min-width: 240px; }
+.amarillas-banner-text h2 {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 1.45rem;
     line-height: 1.15;
@@ -985,26 +985,26 @@ img { max-width: 100%; height: auto; display: block; }
     color: #fff;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
 }
-.semana-banner-text p {
+.amarillas-banner-text p {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     font-size: 0.86rem;
     opacity: 0.94;
     letter-spacing: 0.2px;
 }
-.semana-banner .semana-gold { color: #ffd88a; }
-.semana-crown {
+.amarillas-banner .amarillas-gold { color: #ffd88a; }
+.amarillas-crown {
     display: inline-block;
     margin-right: 6px;
-    animation: semanaTwinkle 2.4s ease-in-out infinite;
+    animation: amarillasTwinkle 2.4s ease-in-out infinite;
 }
-@keyframes semanaTwinkle {
+@keyframes amarillasTwinkle {
     0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
     50%      { transform: scale(1.25) rotate(12deg); opacity: 0.75; }
 }
 
 /* --- Contador regresivo --- */
-.semana-countdown {
+.amarillas-countdown {
     position: relative;
     z-index: 2;
     display: flex;
@@ -1012,7 +1012,7 @@ img { max-width: 100%; height: auto; display: block; }
     gap: 6px;
     font-family: 'Poppins', sans-serif;
 }
-.semana-cd-unit {
+.amarillas-cd-unit {
     background: rgba(255, 255, 255, 0.16);
     border: 1px solid rgba(255, 216, 138, 0.6);
     border-radius: 10px;
@@ -1021,7 +1021,7 @@ img { max-width: 100%; height: auto; display: block; }
     text-align: center;
     backdrop-filter: blur(3px);
 }
-.semana-cd-num {
+.amarillas-cd-num {
     display: block;
     font-size: 1.15rem;
     font-weight: 800;
@@ -1029,7 +1029,7 @@ img { max-width: 100%; height: auto; display: block; }
     color: #fff;
     font-variant-numeric: tabular-nums;
 }
-.semana-cd-lbl {
+.amarillas-cd-lbl {
     display: block;
     font-size: 0.58rem;
     letter-spacing: 1px;
@@ -1037,33 +1037,33 @@ img { max-width: 100%; height: auto; display: block; }
     opacity: 0.85;
     margin-top: 2px;
 }
-.semana-cd-sep { font-weight: 800; opacity: 0.55; }
+.amarillas-cd-sep { font-weight: 800; opacity: 0.55; }
 
 /* --- Tarjetas destacadas --- */
-.product-card.semana-card,
-.product-item.semana-card {
+.product-card.amarillas-card,
+.product-item.amarillas-card {
     position: relative;
     border: 3px solid transparent;
     background-image: linear-gradient(#fff, #fff),
-                      linear-gradient(135deg, #d4af37 0%, #e91e63 35%, #ff80ab 60%, #d4af37 100%);
+                      linear-gradient(135deg, #d4af37 0%, #f2a900 35%, #ffd54f 60%, #d4af37 100%);
     background-origin: border-box;
     background-clip: padding-box, border-box;
-    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.22), 0 0 0 4px rgba(212, 175, 55, 0.16);
+    box-shadow: 0 10px 30px rgba(242, 169, 0, 0.22), 0 0 0 4px rgba(212, 175, 55, 0.16);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: visible !important;
 }
-.product-card.semana-card:hover,
-.product-item.semana-card:hover {
+.product-card.amarillas-card:hover,
+.product-item.amarillas-card:hover {
     transform: translateY(-7px);
-    box-shadow: 0 18px 42px rgba(233, 30, 99, 0.34), 0 0 0 5px rgba(212, 175, 55, 0.26);
+    box-shadow: 0 18px 42px rgba(242, 169, 0, 0.34), 0 0 0 5px rgba(212, 175, 55, 0.26);
 }
 
 /* Cinta esquina superior izquierda */
-.semana-ribbon {
+.amarillas-ribbon {
     position: absolute;
     top: 14px;
     left: -8px;
-    background: linear-gradient(135deg, #ad1457 0%, #e91e63 55%, #ff4081 100%);
+    background: linear-gradient(135deg, #6b4200 0%, #9a6200 55%, #c07d00 100%);
     color: #fff;
     padding: 0.4rem 0.95rem 0.4rem 1.15rem;
     font-family: 'Poppins', sans-serif;
@@ -1071,24 +1071,24 @@ img { max-width: 100%; height: auto; display: block; }
     font-weight: 800;
     letter-spacing: 1.2px;
     white-space: nowrap;
-    box-shadow: 0 4px 14px rgba(173, 20, 87, 0.55);
+    box-shadow: 0 4px 14px rgba(168, 106, 0, 0.55);
     z-index: 10;
     clip-path: polygon(0 0, 100% 0, 93% 50%, 100% 100%, 0 100%, 7% 50%);
-    animation: semanaRibbon 3s ease-in-out infinite;
+    animation: amarillasRibbon 3s ease-in-out infinite;
     will-change: transform;
 }
-@keyframes semanaRibbon {
+@keyframes amarillasRibbon {
     0%, 100% { transform: scale(1); }
     50%      { transform: scale(1.045); }
 }
-.semana-ribbon .semana-spark {
+.amarillas-ribbon .amarillas-spark {
     color: #ffd88a;
     display: inline-block;
-    animation: semanaTwinkle 2.2s ease-in-out infinite;
+    animation: amarillasTwinkle 2.2s ease-in-out infinite;
 }
 
 /* Sello de descuento superior derecha */
-.semana-savings {
+.amarillas-savings {
     position: absolute;
     top: 12px;
     right: 12px;
@@ -1096,7 +1096,7 @@ img { max-width: 100%; height: auto; display: block; }
     height: 54px;
     border-radius: 50%;
     background: linear-gradient(140deg, #ffd88a 0%, #d4af37 55%, #b8860b 100%);
-    color: #5c0b2e;
+    color: #4a2d00;
     font-family: 'Poppins', sans-serif;
     font-weight: 900;
     font-size: 0.95rem;
@@ -1108,58 +1108,58 @@ img { max-width: 100%; height: auto; display: block; }
     border: 2px solid #fff;
     box-shadow: 0 5px 16px rgba(184, 134, 11, 0.55);
     z-index: 10;
-    animation: semanaSeal 2.6s ease-in-out infinite;
+    animation: amarillasSeal 2.6s ease-in-out infinite;
     will-change: transform;
 }
-.semana-savings small {
+.amarillas-savings small {
     font-size: 0.44rem;
     letter-spacing: 0.6px;
     font-weight: 700;
     margin-top: 2px;
     opacity: 0.85;
 }
-@keyframes semanaSeal {
+@keyframes amarillasSeal {
     0%, 100% { transform: scale(1) rotate(-7deg); }
     50%      { transform: scale(1.1) rotate(7deg); }
 }
 
-.product-card.semana-card .product-price,
-.product-item.semana-card .price,
-.product-item.semana-card .price-block .promo-price {
-    color: #c2185b;
+.product-card.amarillas-card .product-price,
+.product-item.amarillas-card .price,
+.product-item.amarillas-card .price-block .promo-price {
+    color: #b26a00;
     font-weight: 800;
 }
 
-/* Chip de filtro Promoción de la Semana */
-.filter-btn.semana-filter {
-    background: linear-gradient(135deg, #ad1457 0%, #e91e63 100%) !important;
+/* Chip de filtro Mes de las Flores Amarillas */
+.filter-btn.amarillas-filter {
+    background: linear-gradient(135deg, #b26a00 0%, #d18700 100%) !important;
     color: #fff !important;
-    border-color: #e91e63 !important;
+    border-color: #f2a900 !important;
     font-weight: 700;
 }
-.filter-btn.semana-filter:hover,
-.filter-btn.semana-filter.active {
-    background: linear-gradient(135deg, #6d0f37 0%, #c2185b 100%) !important;
+.filter-btn.amarillas-filter:hover,
+.filter-btn.amarillas-filter.active {
+    background: linear-gradient(135deg, #6b4200 0%, #a86a00 100%) !important;
     color: #fff !important;
 }
 
 @media (max-width: 640px) {
-    .semana-banner { padding: 0.9rem 1rem; justify-content: center; text-align: center; }
-    .semana-banner-text { min-width: 0; }
-    .semana-banner-text h2 { font-size: 1.15rem; }
-    .semana-banner-text p { font-size: 0.78rem; }
-    .semana-cd-unit { min-width: 44px; padding: 0.3rem 0.4rem; }
-    .semana-cd-num { font-size: 1rem; }
-    .semana-savings { width: 46px; height: 46px; font-size: 0.82rem; }
-    .semana-ribbon { font-size: 0.62rem; padding: 0.35rem 0.75rem 0.35rem 0.95rem; }
+    .amarillas-banner { padding: 0.9rem 1rem; justify-content: center; text-align: center; }
+    .amarillas-banner-text { min-width: 0; }
+    .amarillas-banner-text h2 { font-size: 1.15rem; }
+    .amarillas-banner-text p { font-size: 0.78rem; }
+    .amarillas-cd-unit { min-width: 44px; padding: 0.3rem 0.4rem; }
+    .amarillas-cd-num { font-size: 1rem; }
+    .amarillas-savings { width: 46px; height: 46px; font-size: 0.82rem; }
+    .amarillas-ribbon { font-size: 0.62rem; padding: 0.35rem 0.75rem 0.35rem 0.95rem; }
 }
 
 /* Respeta la preferencia de menos movimiento del sistema */
 @media (prefers-reduced-motion: reduce) {
-    .semana-banner::after,
-    .semana-crown,
-    .semana-ribbon,
-    .semana-ribbon .semana-spark,
-    .semana-savings { animation: none !important; }
+    .amarillas-banner::after,
+    .amarillas-crown,
+    .amarillas-ribbon,
+    .amarillas-ribbon .amarillas-spark,
+    .amarillas-savings { animation: none !important; }
 }
 

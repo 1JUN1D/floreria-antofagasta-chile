@@ -45,9 +45,10 @@
 - Florería mayorista para eventos y empresas
 
 ## Catálogo
-- 42 productos disponibles
-- Códigos de producto: 001 a 042
-- Filtros por categoría: ramos, cajas, corazones, canastas, fúnebres, especiales, premium, tulipanes, girasoles, rosas
+- 106 productos disponibles
+- Códigos de producto: 001 a 107 (el código 067 fue descontinuado)
+- Filtros por categoría: flores amarillas, ramos, cajas, corazones, canastas, fúnebres, especiales, premium, tulipanes, girasoles, rosas
+- Campaña vigente: Mes de las Flores Amarillas — 18 arreglos amarillos con 17% de descuento hasta el 21 de septiembre
 - Rangos de precio: hasta $30.000, $30.000 - $80.000, más de $80.000 CLP
 
 ## Horarios

@@ -57,7 +57,7 @@ const products = [
     { id: 50, code: "050", name: "Bouquet Rosas Rojas en Papel Kraft Texturizado", price: 65990, image: "../assets/foto50.webp", description: "Ramo abundante de rosas rojas envuelto en papel kraft texturizado con detalles dorados y moño rojo de raso. Una pieza atemporal con presentación natural y muy elegante.", categories: ["ramos", "rosas", "premium", "precio-medio"] },
     { id: 51, code: "051", name: "Buqué Rosas Rosadas con Mariposa y Corazón Plateado", price: 62000, image: "../assets/foto51.webp", description: "Ramo circular de rosas rosadas y gypsophila envuelto en papel rosa traslúcido, decorado con mariposa y corazón plateado. Una propuesta dulce y delicada para enamorar.", categories: ["ramos", "rosas", "precio-medio"] },
     { id: 52, code: "052", name: "Mini Bouquet Rosas Rojas con Mariposa", price: 44000, image: "../assets/foto52.webp", description: "Ramo compacto de rosas rojas con gypsophila, envuelto en papel negro de borde blanco con mariposa plateada y moño rojo. Un detalle perfecto para sorpresas espontáneas.", categories: ["ramos", "rosas", "precio-medio"] },
-    { id: 53, code: "053", name: "Bouquet Bicolor Rosas Rojas y Blancas Premium", price: 81000, originalPrice: 96000, image: "../assets/foto53.webp", description: "Ramo elegante con rosas rojas y blancas alternadas en papel negro con borde dorado y moño burdeo. Una combinación clásica y refinada para ocasiones formales.", categories: ["ramos", "semana", "rosas", "premium", "precio-medio"], semana: true },
+    { id: 53, code: "053", name: "Bouquet Bicolor Rosas Rojas y Blancas Premium", price: 81000, originalPrice: 96000, image: "../assets/foto53.webp", description: "Ramo elegante con rosas rojas y blancas alternadas en papel negro con borde dorado y moño burdeo. Una combinación clásica y refinada para ocasiones formales.", categories: ["ramos", "rosas", "premium", "precio-medio"], promo: true },
     { id: 54, code: "054", name: "Bouquet Premium Rosas Rojas con Ferrero Rocher", price: 99000, image: "../assets/foto54.webp", description: "Bouquet abundante de rosas rojas con chocolates Ferrero Rocher distribuidos entre las flores, envuelto en papel negro con borde dorado y moño burdeo. Una experiencia gourmet y romántica al máximo nivel.", categories: ["ramos", "rosas", "especiales", "premium", "precio-alto"] },
     { id: 55, code: "055", name: "Ramo de Girasoles con Eucalipto y Paniculata", price: 27490, image: "../assets/foto55.webp", description: "Bouquet luminoso con girasoles frescos, eucalipto y paniculata blanca, envuelto en papel amarillo con interior gris y moño de seda en tonos cálidos. Una propuesta alegre y natural, perfecta para iluminar cualquier ocasión.", categories: ["ramos", "girasoles", "precio-bajo"] },
     { id: 56, code: "056", name: "Bouquet Rosas Rojas con Pino y Detalle Dorado", price: 16240, image: "../assets/foto56.webp", description: "Ramo elegante de rosas rojas con ramas de pino y paniculata, envuelto en papel negro con borde dorado y moño rojo con mariposa dorada. Estilo sofisticado y festivo, ideal para regalos especiales y celebraciones de fin de año.", categories: ["ramos", "rosas", "especiales", "precio-bajo"] },
@@ -76,44 +76,66 @@ const products = [
     { id: 70, code: "070", name: "Buqué Premium Mix Rosas Rojas y Blancas con Mariposas Doradas", price: 65000, originalPrice: 81000, image: "../assets/foto70.webp", description: "Ramo abundante con rosas rojas y blancas combinadas, envuelto en papel negro con borde dorado y rematado con tres mariposas filigrana doradas. Diseño imponente y elegante, perfecto para aniversarios y declaraciones románticas inolvidables.", categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"] },
     { id: 71, code: "071", name: "Buqué Realeza Rosas Rojas con Corona, Ferrero y Mariposas", price: 73738, originalPrice: 88485, image: "../assets/foto71.webp", description: "Composición circular monumental de rosas rojas con corona dorada, chocolates Ferrero Rocher y mariposas filigrana, envuelto en papel blanco con bordes dorados. Una pieza majestuosa para sorprender en grande y conquistar con elegancia y lujo.", categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"] },
     { id: 72, code: "072", name: "Mega Bouquet Rosas Rojas y Rosadas en Papel Translúcido", price: 72000, originalPrice: 90000, image: "../assets/foto72.webp", description: "Bouquet voluminoso con rosas rojas y rosa pastel alternadas, envuelto en papel translúcido rosa que realza su delicadeza. Un regalo romántico y abundante, ideal para aniversarios, cumpleaños y declaraciones de amor.", categories: ["ramos", "rosas", "premium", "precio-medio"] },
-    { id: 73, code: "073", name: "Buqué Clásico 12 Rosas Rojas con Tarjeta y Moño", price: 35000, originalPrice: 44000, image: "../assets/foto73.webp", description: "Ramo compacto con docena de rosas rojas, envuelto en papel blanco con líneas doradas, tarjeta personalizable y moño rojo. Clásico atemporal para San Valentín, aniversarios y gestos románticos.", categories: ["ramos", "semana", "rosas", "precio-medio"], semana: true },
+    { id: 73, code: "073", name: "Buqué Clásico 12 Rosas Rojas con Tarjeta y Moño", price: 35000, originalPrice: 44000, image: "../assets/foto73.webp", description: "Ramo compacto con docena de rosas rojas, envuelto en papel blanco con líneas doradas, tarjeta personalizable y moño rojo. Clásico atemporal para San Valentín, aniversarios y gestos románticos.", categories: ["ramos", "rosas", "precio-medio"], promo: true },
     { id: 74, code: "074", name: "Buqué Elegante Rosas Rojas con Mariposas Doradas", price: 37488, originalPrice: 44985, image: "../assets/foto74.webp", description: "Ramo de rosas rojas con follaje fresco, envoltura blanca con borde dorado y dos mariposas filigrana doradas en la parte superior. Una propuesta sobria y elegante para sorprender con clase en momentos especiales.", categories: ["ramos", "rosas", "especiales", "precio-medio"] }
 ,
-    { id: 75, code: "075", name: "Buqué Ternura Infinita — Margaritas Fucsia y Blancas", price: 37500, originalPrice: 48000, image: "../assets/foto75.webp", description: "Cúpula abundante de margaritas fucsia y blancas abierta como flor de loto, envuelta en papel lila con filo dorado. Es el ramo que ella deja en el centro de la mesa para que todos pregunten quién se lo regaló. Alegría pura, sin necesidad de explicar nada.", categories: ["ramos", "semana", "especiales", "precio-medio"], semana: true },
-    { id: 76, code: "076", name: "Buqué Primer Amor — Claveles Rosados", price: 31250, originalPrice: 40000, image: "../assets/foto76.webp", description: "Claveles rosados de pétalos aterciopelados con follaje fresco y flores silvestres blancas, envueltos en papel translúcido con amarre de rafia natural. Delicado como el primer “sí” y de los que siguen frescos más de dos semanas: cada mañana ella vuelve a recordar por qué la elegiste.", categories: ["ramos", "semana", "precio-medio"], semana: true },
-    { id: 77, code: "077", name: "Buqué Reina por un Día — Lilium con Corona de Cristales", price: 60000, originalPrice: 72000, image: "../assets/foto77.webp", description: "Lilium rosados abiertos, gerberas, claveles y gypsophila coronados por una tiara de cristales, sobre papel rosa con vetas doradas. Este no es un ramo: es la prueba física de que ella es la reina. El que se elige cuando quieres que ese día no se le olvide nunca.", categories: ["ramos", "semana", "especiales", "premium", "precio-medio"], semana: true },
-    { id: 78, code: "078", name: "Buqué Mi Sol — Girasoles con Ferrero Rocher", price: 48750, originalPrice: 62400, image: "../assets/foto78.webp", description: "Girasoles de gran porte con follaje fresco, caja de Ferrero Rocher y una mariposa azul, envueltos en papel kraft con borde satinado. Para @@PROSE_SEMANA@@ los días grises: flores que buscan el sol y chocolate que se derrite mientras ella te agradece.", categories: ["ramos", "girasoles", "especiales", "precio-medio"] },
-    { id: 79, code: "079", name: "Buqué Latido — Gerberas con Mariposa de Corazones", price: 27500, originalPrice: 35200, image: "../assets/foto79.webp", description: "Tres gerberas en fucsia, rosa y coral con nube de gypsophila y una mariposa plateada tallada en corazones, sobre papel lila con moño de raso. El detalle exacto para un “pensé en ti” sin motivo: pequeño en tamaño, enorme en intención.", categories: ["ramos", "semana", "especiales", "precio-bajo"], semana: true },
+    { id: 75, code: "075", name: "Buqué Ternura Infinita — Margaritas Fucsia y Blancas", price: 37500, originalPrice: 48000, image: "../assets/foto75.webp", description: "Cúpula abundante de margaritas fucsia y blancas abierta como flor de loto, envuelta en papel lila con filo dorado. Es el ramo que ella deja en el centro de la mesa para que todos pregunten quién se lo regaló. Alegría pura, sin necesidad de explicar nada.", categories: ["ramos", "especiales", "precio-medio"], promo: true },
+    { id: 76, code: "076", name: "Buqué Primer Amor — Claveles Rosados", price: 31250, originalPrice: 40000, image: "../assets/foto76.webp", description: "Claveles rosados de pétalos aterciopelados con follaje fresco y flores silvestres blancas, envueltos en papel translúcido con amarre de rafia natural. Delicado como el primer “sí” y de los que siguen frescos más de dos amarillasProducts: cada mañana ella vuelve a recordar por qué la elegiste.", categories: ["ramos", "precio-medio"], promo: true },
+    { id: 77, code: "077", name: "Buqué Reina por un Día — Lilium con Corona de Cristales", price: 60000, originalPrice: 72000, image: "../assets/foto77.webp", description: "Lilium rosados abiertos, gerberas, claveles y gypsophila coronados por una tiara de cristales, sobre papel rosa con vetas doradas. Este no es un ramo: es la prueba física de que ella es la reina. El que se elige cuando quieres que ese día no se le olvide nunca.", categories: ["ramos", "especiales", "premium", "precio-medio"], promo: true },
+    { id: 78, code: "078", name: "Buqué Mi Sol — Girasoles con Ferrero Rocher", price: 48750, originalPrice: 62400, image: "../assets/foto78.webp", description: "Girasoles de gran porte con follaje fresco, caja de Ferrero Rocher y una mariposa azul, envueltos en papel kraft con borde satinado. Para @@PROSE_AMARILLAS@@ los días grises: flores que buscan el sol y chocolate que se derrite mientras ella te agradece.", categories: ["ramos", "girasoles", "especiales", "precio-medio"] },
+    { id: 79, code: "079", name: "Buqué Latido — Gerberas con Mariposa de Corazones", price: 27500, originalPrice: 35200, image: "../assets/foto79.webp", description: "Tres gerberas en fucsia, rosa y coral con nube de gypsophila y una mariposa plateada tallada en corazones, sobre papel lila con moño de raso. El detalle exacto para un “pensé en ti” sin motivo: pequeño en tamaño, enorme en intención.", categories: ["ramos", "especiales", "precio-bajo"], promo: true },
     { id: 80, code: "080", name: "Buqué Sonrisa — Margaritas Amarillas", price: 31250, originalPrice: 40000, image: "../assets/foto80.webp", description: "Brazada generosa de margaritas amarillas envuelta en papel crema estampado con moño a juego. El amarillo es el color que el cerebro lee como felicidad antes de alcanzar a pensarlo: llega y le cambia el ánimo del día entero, aunque afuera esté nublado.", categories: ["ramos", "precio-medio"] },
     { id: 81, code: "081", name: "Buqué Clásico Eterno — 5 Rosas Rojas con Eucalipto", price: 25000, originalPrice: 32000, image: "../assets/foto81.webp", description: "Cinco rosas rojas de tallo largo con eucalipto plateado y gypsophila, envueltas en papel negro translúcido. El rojo sobre negro es el contraste más deseado del mundo por una razón: cuando no sabes qué regalar, esto nunca falla.", categories: ["ramos", "rosas", "precio-bajo"] },
     { id: 82, code: "082", name: "Arreglo Fúnebre Blanco con Lilium y Cala", price: 35000, image: "../assets/foto82.webp", description: "Arreglo fúnebre en tonos blancos con lilium, cala, claveles, crisantemos y gypsophila, realzado con eucalipto y follaje verde fresco. Una composición amplia y luminosa que acompaña con respeto y serenidad en el velatorio o la despedida.", categories: ["funebres", "precio-medio"] },
     { id: 83, code: "083", name: "Palma Fúnebre Ovalada Blanca con Cala", price: 31000, image: "../assets/foto83.webp", description: "Palma fúnebre ovalada elaborada con cala blanca, crisantemos, claveles y gypsophila sobre base de pino y eucalipto. Su forma alargada la hace ideal para apoyar junto al féretro o en el sitio de descanso, transmitiendo paz y respeto.", categories: ["funebres", "coronas-funebres", "precio-medio"] },
     { id: 84, code: "084", name: "Arreglo de Condolencias Blanco con Calas y Gerberas Rosadas", price: 50000, image: "../assets/foto84.webp", description: "Amplio arreglo de condolencias en tonos blancos con calas, lilium, claveles, crisantemos y gypsophila, suavizado por gerberas rosadas y follaje fresco con eucalipto. Incluye tarjeta de dedicatoria. Una composición serena y luminosa para acompañar con respeto en la despedida.", categories: ["funebres", "precio-medio"] },
-    { id: 85, code: "085", name: "Buqué Reina de la Noche — Rosas Negras con Ferrero Rocher", price: 70000, image: "../assets/foto85.webp", description: "Rosas negras con gypsophila negra, bombones Ferrero Rocher, corona dorada y mariposas doradas, envueltas en papel negro con filo dorado. Un buqué de lujo, dramático e inolvidable: para quien quiere regalar algo que nadie más se atreve a regalar.", categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"] }
+    { id: 85, code: "085", name: "Buqué Reina de la Noche — Rosas Negras con Ferrero Rocher", price: 70000, image: "../assets/foto85.webp", description: "Rosas negras con gypsophila negra, bombones Ferrero Rocher, corona dorada y mariposas doradas, envueltas en papel negro con filo dorado. Un buqué de lujo, dramático e inolvidable: para quien quiere regalar algo que nadie más se atreve a regalar.", categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"] },
+    { id: 86, code: "086", name: "Buqué Elegancia Blanca — Calas y Gerbera", price: 31250, image: "../assets/foto86.webp", description: "Calas blancas, gerbera y clavel blanco con gypsophila y helecho sobre papel negro, con mariposa dorada y tarjeta dedicada. Pureza y sobriedad en un mismo ramo: ideal para agradecer, felicitar o acompañar con elegancia.", categories: ["ramos", "especiales", "precio-medio"] },
+    { id: 87, code: "087", name: "Mega Bouquet Rosas Fucsia con Gypsophila", price: 81250, image: "../assets/foto87.webp", description: "Ramo abundante de rosas fucsia con nubes de gypsophila y helecho, envuelto en papel negro con filo amarillo y moño de raso fucsia. Impacto puro: el regalo que se roba todas las miradas apenas entra por la puerta.", categories: ["ramos", "rosas", "premium", "precio-alto"] },
+    { id: 88, code: "088", name: "Canasta de Condolencias con Girasol y Claveles", price: 50000, image: "../assets/foto88.webp", description: "Canasta de mimbre con girasol central, claveles rosados y crisantemos blancos y amarillos, con banda negra de pésame y moño rosado. Un acompañamiento cálido y respetuoso para expresar cariño en momentos difíciles.", categories: ["canastas", "funebres", "precio-medio"] },
+    { id: 89, code: "089", name: "Buqué de Novia Lisianthus y Eucalipto", price: 43750, image: "../assets/foto89.webp", description: "Ramo de novia con lisianthus blancos, rosados y verdes, gypsophila y eucalipto, con mango envuelto en cinta natural. Delicado, romántico y pensado para las fotos que se miran toda la vida.", categories: ["ramos", "especiales", "precio-medio"] },
+    { id: 90, code: "090", name: "Buqué Sol Radiante — Girasol y Margaritas Amarillas", price: 28750, originalPrice: 34500, image: "../assets/foto90.webp", description: "Girasol central rodeado de margaritas amarillas y gypsophila, envuelto en papel blanco con filo dorado y moño amarillo. Un ramo que ilumina la casa apenas cruza la puerta.", categories: ["ramos", "girasoles", "amarillas", "precio-bajo"], amarillas: true },
+    { id: 91, code: "091", name: "Centro de Mesa Girasol con Gerberas Amarillas", price: 25000, originalPrice: 30000, image: "../assets/foto91.webp", description: "Base de helechos frescos con gerberas amarillas y blancas, gypsophila y un girasol elevado en tubo de vidrio. Perfecto para el centro de la mesa en cumpleaños, oficinas y celebraciones familiares.", categories: ["especiales", "girasoles", "amarillas", "precio-bajo"], amarillas: true },
+    { id: 92, code: "092", name: "Cúpula de Cristal con Girasol Preservado", price: 43750, originalPrice: 52500, image: "../assets/foto92.webp", description: "Girasol preservado bajo cúpula de vidrio, sobre base de madera y piedras blancas. Un detalle que no se marchita: queda de recuerdo en el escritorio o el velador.", categories: ["especiales", "girasoles", "amarillas", "precio-medio"], amarillas: true },
+    { id: 93, code: "093", name: "Buqué Primavera Amarilla con Rosa y Mariposa Dorada", price: 37500, originalPrice: 45000, image: "../assets/foto93.webp", description: "Margaritas amarillas, crisantemos blancos y una rosa amarilla al centro, con mariposa dorada, papel blanco y moño amarillo. Fresco, luminoso y alegre para cumpleaños y buenas noticias.", categories: ["ramos", "amarillas", "precio-medio"], amarillas: true },
+    { id: 94, code: "094", name: "Buqué Rústico Girasol y Crisantemos Blancos", price: 17500, originalPrice: 21000, image: "../assets/foto94.webp", description: "Girasol acompañado de crisantemos blancos, solidago y eucalipto, envuelto en arpillera natural con moño amarillo. Sencillo, campestre y con mucho encanto.", categories: ["ramos", "girasoles", "amarillas", "precio-bajo"], amarillas: true },
+    { id: 95, code: "095", name: "Buqué Campestre Girasol, Rosa Amarilla y Astromelias", price: 26250, originalPrice: 31500, image: "../assets/foto95.webp", description: "Girasol, rosa amarilla y astromelias durazno con gypsophila y helecho cuero, sobre papel de arpillera con moño amarillo. Calidez de campo para regalar sin esperar una fecha especial.", categories: ["ramos", "girasoles", "amarillas", "precio-bajo"], amarillas: true },
+    { id: 96, code: "096", name: "Buqué Lluvia de Sol — Margaritas Amarillas", price: 41250, originalPrice: 49500, image: "../assets/foto96.webp", description: "Ramo abundante de margaritas amarillas con gypsophila, envuelto en papel blanco con filo dorado y moño amarillo. Volumen y color puro: el favorito para alegrarle el día a alguien.", categories: ["ramos", "amarillas", "precio-medio"], amarillas: true },
+    { id: 97, code: "097", name: "Caja Premium de Girasoles con Tapa Negra", price: 32500, originalPrice: 39000, image: "../assets/foto97.webp", description: "Girasoles, margaritas amarillas y gypsophila montados dentro de una caja transparente con tapa negra y asa. Llega listo para regalar, sin necesidad de florero.", categories: ["cajas", "girasoles", "amarillas", "precio-medio"], amarillas: true },
+    { id: 98, code: "098", name: "Florero Minimalista con Girasol y Flores Silvestres", price: 27500, originalPrice: 33000, image: "../assets/foto98.webp", description: "Un girasol con solidago y flores silvestres blancas en florero de vidrio delgado. Detalle sobrio y luminoso para escritorios, recepciones y regalos discretos.", categories: ["especiales", "girasoles", "amarillas", "precio-bajo"], amarillas: true },
+    { id: 99, code: "099", name: "Florero Alegría con Gerberas Amarillas", price: 30000, originalPrice: 36000, image: "../assets/foto99.webp", description: "Dos gerberas amarillas con solidago y follaje fresco en florero de vidrio texturizado con moño amarillo. Pequeño, alegre y directo al corazón.", categories: ["especiales", "amarillas", "precio-bajo"], amarillas: true },
+    { id: 100, code: "100", name: "Buqué Dorado de Girasoles con Eucalipto", price: 56250, originalPrice: 67500, image: "../assets/foto100.webp", description: "Girasoles en cascada con eucalipto y gypsophila, envueltos en papel dorado con moño amarillo. Presentación alargada y señorial para una entrega que impresiona.", categories: ["ramos", "girasoles", "amarillas", "precio-medio"], amarillas: true },
+    { id: 101, code: "101", name: "Buqué Kraft de Girasoles con Matricaria y Eucalipto", price: 36250, originalPrice: 43500, image: "../assets/foto101.webp", description: "Girasoles con matricaria blanca y eucalipto, envueltos en papel kraft con interior lila, cinta beige y tarjeta dedicada. Estilo natural y sofisticado, muy fotogénico.", categories: ["ramos", "girasoles", "amarillas", "precio-medio"], amarillas: true },
+    { id: 102, code: "102", name: "Buqué Tres Girasoles en Papel Rosa", price: 26250, originalPrice: 31500, image: "../assets/foto102.webp", description: "Tres girasoles con gypsophila y follaje fino, envueltos en papel rosa y blanco con moño crema. La combinación dulce y luminosa que nunca falla.", categories: ["ramos", "girasoles", "amarillas", "precio-bajo"], amarillas: true },
+    { id: 103, code: "103", name: "Buqué Sol de Otoño — Margaritas Amarillas y Solidago", price: 37500, originalPrice: 45000, image: "../assets/foto103.webp", description: "Margaritas amarillas con solidago y follaje verde, en papel naranja y blanco con cinta verde y tarjeta dedicada. Cálido, vibrante y perfecto para agradecer.", categories: ["ramos", "amarillas", "precio-medio"], amarillas: true },
+    { id: 104, code: "104", name: "Mega Bouquet Girasoles con Mariposas Doradas", price: 68750, originalPrice: 82500, image: "../assets/foto104.webp", description: "Corona abundante de girasoles sobre papel negro, con mariposas doradas y moño dorado. Contraste dramático y de lujo: el ramo que se recuerda por años.", categories: ["ramos", "girasoles", "amarillas", "premium", "precio-medio"], amarillas: true },
+    { id: 105, code: "105", name: "Buqué Girasoles con Claveles Fucsia y Chocolate", price: 58750, originalPrice: 70500, image: "../assets/foto105.webp", description: "Girasoles rodeados de mini claveles fucsia y rosados, con tarjeta dedicada y chocolate incluido, sobre papel rosa. Flores y dulce en un solo regalo.", categories: ["ramos", "girasoles", "amarillas", "especiales", "precio-medio"], amarillas: true },
+    { id: 106, code: "106", name: "Caja Corazón de Girasoles", price: 56250, originalPrice: 67500, image: "../assets/foto106.webp", description: "Girasoles y gypsophila montados en caja corazón blanca con moño amarillo. Amor y alegría en la misma pieza, lista para entregar.", categories: ["cajas", "girasoles", "amarillas", "precio-medio"], amarillas: true },
+    { id: 107, code: "107", name: "Sombrerera Premium de Girasoles", price: 112500, originalPrice: 135000, image: "../assets/foto107.webp", description: "Sombrerera blanca colmada de girasoles con eucalipto fresco. Nuestra pieza más generosa en amarillo: presencia total para aniversarios, oficinas y grandes celebraciones.", categories: ["cajas", "girasoles", "amarillas", "premium", "precio-alto"], amarillas: true },
 ];
 
 
 /* ============================================================
-   PROMOCIÓN DE LA SEMANA
-   Contador semanal (cierra cada domingo a las 23:59) y banner
+   CAMPAÑA: MES DE LAS FLORES AMARILLAS (21 de septiembre)
+   Contador regresivo al 21 de septiembre y banner
    de sección. Todo el movimiento se hace con transform/opacity,
    así el navegador lo resuelve en la GPU y no re-calcula el layout.
    ============================================================ */
-var semanaCdTimer = null;
+var amarillasCdTimer = null;
 
-/* La promo cierra el domingo de la semana en curso a las 23:59:59
-   (hora local del visitante). Se recalcula sola: el lunes parte de nuevo,
-   así que no hay que editar fechas cada semana. */
-function semanaDeadline() {
+/* La campaña del Mes de las Flores Amarillas cierra el 21 de septiembre
+   a las 23:59:59 (hora local del visitante). Si el año ya pasó esa fecha,
+   el contador salta automáticamente al 21 de septiembre del año siguiente. */
+function amarillasDeadline() {
     var now = new Date();
-    var end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
-    var dow = now.getDay(); // 0 = domingo
-    end.setDate(end.getDate() + (dow === 0 ? 0 : 7 - dow));
+    var year = now.getFullYear();
+    var end = new Date(year, 8, 21, 23, 59, 59, 999); // 8 = septiembre
+    if (end.getTime() < now.getTime()) end = new Date(year + 1, 8, 21, 23, 59, 59, 999);
     return end.getTime();
 }
 
-function semanaTimeLeft() {
-    var diff = semanaDeadline() - Date.now();
+function amarillasTimeLeft() {
+    var diff = amarillasDeadline() - Date.now();
     if (diff <= 0) return null;
     return {
         d: Math.floor(diff / 86400000),
@@ -123,23 +145,23 @@ function semanaTimeLeft() {
     };
 }
 
-function semanaCountdownHTML(compact) {
+function amarillasCountdownHTML(compact) {
     var labels = { d: 'días', h: 'hrs', m: 'min', s: 'seg' };
     var units = ['d', 'h', 'm', 's'].map(function (u) {
-        return '<div class="semana-cd-unit"><span class="semana-cd-num" data-cd="' + u + '">--</span>' +
-               '<span class="semana-cd-lbl">' + labels[u] + '</span></div>';
+        return '<div class="amarillas-cd-unit"><span class="amarillas-cd-num" data-cd="' + u + '">--</span>' +
+               '<span class="amarillas-cd-lbl">' + labels[u] + '</span></div>';
     }).join('');
-    return '<div class="semana-countdown' + (compact ? ' semana-cd-compact' : '') + '" data-semana-cd>' + units + '</div>';
+    return '<div class="amarillas-countdown' + (compact ? ' amarillas-cd-compact' : '') + '" data-amarillas-cd>' + units + '</div>';
 }
 
-function startSemanaCountdown() {
-    if (semanaCdTimer) { clearInterval(semanaCdTimer); semanaCdTimer = null; }
+function startAmarillasCountdown() {
+    if (amarillasCdTimer) { clearInterval(amarillasCdTimer); amarillasCdTimer = null; }
     function tick() {
-        var t = semanaTimeLeft();
-        var boxes = document.querySelectorAll('[data-semana-cd]');
+        var t = amarillasTimeLeft();
+        var boxes = document.querySelectorAll('[data-amarillas-cd]');
         if (!boxes.length) return;
         for (var i = 0; i < boxes.length; i++) {
-            if (!t) { boxes[i].innerHTML = '<div class="semana-cd-unit"><span class="semana-cd-num">¡HOY!</span><span class="semana-cd-lbl">último día</span></div>'; continue; }
+            if (!t) { boxes[i].innerHTML = '<div class="amarillas-cd-unit"><span class="amarillas-cd-num">¡HOY!</span><span class="amarillas-cd-lbl">último día</span></div>'; continue; }
             var nums = boxes[i].querySelectorAll('[data-cd]');
             for (var j = 0; j < nums.length; j++) {
                 var v = t[nums[j].getAttribute('data-cd')];
@@ -149,27 +171,27 @@ function startSemanaCountdown() {
         }
     }
     tick();
-    semanaCdTimer = setInterval(tick, 1000);
+    amarillasCdTimer = setInterval(tick, 1000);
 }
 
-function semanaBannerHTML(count) {
-    return '<div class="semana-banner">' +
-             '<div class="semana-banner-text">' +
-               '<h2><span class="semana-crown">✦</span>Promoción de la <span class="semana-gold">Semana</span></h2>' +
-               '<p>' + count + ' arreglos seleccionados con hasta <strong>22% de descuento</strong> · Solo hasta el domingo</p>' +
+function amarillasBannerHTML(count) {
+    return '<div class="amarillas-banner">' +
+             '<div class="amarillas-banner-text">' +
+               '<h2><span class="amarillas-crown">🌻</span>Mes de las <span class="amarillas-gold">Flores Amarillas</span></h2>' +
+               '<p>' + count + ' arreglos amarillos con <strong>17% de descuento</strong> · Hasta el <strong>21 de septiembre</strong></p>' +
              '</div>' +
-             semanaCountdownHTML(false) +
+             amarillasCountdownHTML(false) +
            '</div>';
 }
 
-function semanaCardOverlay(product) {
-    if (!product.semana) return '';
+function amarillasCardOverlay(product) {
+    if (!product.amarillas) return '';
     var badge = '';
     if (product.originalPrice && product.originalPrice > product.price) {
         var off = Math.round((1 - product.price / product.originalPrice) * 100);
-        badge = '<div class="semana-savings">-' + off + '%<small>DCTO</small></div>';
+        badge = '<div class="amarillas-savings">-' + off + '%<small>DCTO</small></div>';
     }
-    return '<div class="semana-ribbon"><span class="semana-spark">✦</span> PROMO DE LA SEMANA <span class="semana-spark">✦</span></div>' + badge;
+    return '<div class="amarillas-ribbon"><span class="amarillas-spark">🌻</span> FLORES AMARILLAS <span class="amarillas-spark">🌻</span></div>' + badge;
 }
 
 // --- VARIABLES GLOBALES ---
@@ -246,11 +268,11 @@ function renderProducts(filters = [], limit = null) {
         });
     }
 
-    // Promoción de la Semana primero, después el resto de promociones
-    const semanaProducts = productsToDisplay.filter(p => p.semana).sort((a, b) => a.id - b.id);
-    const promoProducts = productsToDisplay.filter(p => p.promo && !p.semana);
-    const nonPromoProducts = productsToDisplay.filter(p => !p.promo && !p.semana);
-    productsToDisplay = [...semanaProducts, ...promoProducts, ...nonPromoProducts];
+    // Campaña Flores Amarillas primero, después el resto de promociones
+    const amarillasProducts = productsToDisplay.filter(p => p.amarillas).sort((a, b) => a.id - b.id);
+    const promoProducts = productsToDisplay.filter(p => p.promo && !p.amarillas);
+    const nonPromoProducts = productsToDisplay.filter(p => !p.promo && !p.amarillas);
+    productsToDisplay = [...amarillasProducts, ...promoProducts, ...nonPromoProducts];
 
     if (limit) {
         productsToDisplay = productsToDisplay.slice(0, limit);
@@ -259,7 +281,7 @@ function renderProducts(filters = [], limit = null) {
     updateResultsCount(productsToDisplay.length);
 
     const htmlParts = [];
-    if (semanaProducts.length) htmlParts.push(semanaBannerHTML(semanaProducts.length));
+    if (amarillasProducts.length) htmlParts.push(amarillasBannerHTML(amarillasProducts.length));
     productsToDisplay.forEach(product => {
         const escapedName = product.name.replace(/'/g, "\\'");
         const hasVariations = Array.isArray(product.variations) && product.variations.length > 1;
@@ -274,7 +296,7 @@ function renderProducts(filters = [], limit = null) {
             : `<div class="product-image">
                   <img src="${product.image}" alt="${product.name} - Flores a domicilio Antofagasta" loading="lazy">
               </div>`;
-        const promoOverlay = product.semana ? semanaCardOverlay(product) : (product.promo ? `
+        const promoOverlay = product.amarillas ? amarillasCardOverlay(product) : (product.promo ? `
             <div class="promo-ribbon"><span class="promo-spark">✦</span> OFERTA <span class="promo-spark">✦</span></div>
             <div class="promo-savings">-${Math.round((1 - product.price/product.originalPrice)*100)}%</div>
         ` : '');
@@ -285,7 +307,7 @@ function renderProducts(filters = [], limit = null) {
                </div>`
             : `<span class="price">${formatCLP(product.price)}</span>`;
         const productHTML = `
-            <div class="product-item ${product.semana ? 'semana-card' : (product.promo ? 'promo-card' : '')}" data-code="${product.code}">
+            <div class="product-item ${product.amarillas ? 'amarillas-card' : (product.promo ? 'promo-card' : '')}" data-code="${product.code}">
                 ${promoOverlay}
                 ${imageHTML}
                 <div class="product-info">
@@ -305,7 +327,7 @@ function renderProducts(filters = [], limit = null) {
     });
     container.innerHTML = htmlParts.join('');
 
-    if (semanaProducts.length) startSemanaCountdown();
+    if (amarillasProducts.length) startAmarillasCountdown();
     initLandingCarousels();
 }
 
@@ -395,14 +417,14 @@ function filterProducts(tag) {
 }
 
 // --- INICIALIZAR CATÁLOGO COMPLETO ---
-function injectSemanaFilterChip() {
+function injectAmarillasFilterChip() {
     const bar = document.querySelector('.filters-container');
-    if (!bar || bar.querySelector('[data-filter="semana"]')) return;
-    if (!products.some(p => p.semana)) return;
+    if (!bar || bar.querySelector('[data-filter="amarillas"]')) return;
+    if (!products.some(p => p.amarillas)) return;
     const chip = document.createElement('button');
-    chip.className = 'filter-btn semana-filter';
-    chip.setAttribute('data-filter', 'semana');
-    chip.textContent = '✦ Promo de la Semana';
+    chip.className = 'filter-btn amarillas-filter';
+    chip.setAttribute('data-filter', 'amarillas');
+    chip.textContent = '🌻 Flores Amarillas';
     const todos = bar.querySelector('[data-filter="todos"]');
     if (todos && todos.nextSibling) bar.insertBefore(chip, todos.nextSibling);
     else bar.appendChild(chip);
@@ -410,7 +432,7 @@ function injectSemanaFilterChip() {
 
 function initCatalog() {
     window._catalogInitialized = true;
-    injectSemanaFilterChip();
+    injectAmarillasFilterChip();
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             filterProducts(this.getAttribute('data-filter'));

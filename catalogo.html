@@ -156,30 +156,30 @@
 
 
         /* ============================================================
-           CAMPAÑA PROMOCIÓN DE LA SEMANA — 1 de agosto
+           CAMPAÑA: MES DE LAS FLORES AMARILLAS — 21 de septiembre
            Animaciones sólo con transform/opacity (compuestas por GPU)
            para no penalizar el rendimiento de la página.
            ============================================================ */
 
         /* --- Banner que encabeza los 7 destacados --- */
-        .semana-banner {
+        .amarillas-banner {
             grid-column: 1 / -1;
             position: relative;
             overflow: hidden;
             border-radius: 18px;
             padding: 1.05rem 1.3rem;
-            background: linear-gradient(120deg, #6d0f37 0%, #ad1457 42%, #e91e63 68%, #8e0f45 100%);
+            background: linear-gradient(120deg, #6b4200 0%, #9a6200 42%, #d18700 68%, #7a4a00 100%);
             color: #fff;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             gap: 0.9rem;
-            box-shadow: 0 10px 30px rgba(173, 20, 87, 0.3);
+            box-shadow: 0 10px 30px rgba(168, 106, 0, 0.3);
             border: 2px solid rgba(255, 215, 128, 0.55);
             contain: paint;
         }
-        .semana-banner::after {
+        .amarillas-banner::after {
             content: '';
             position: absolute;
             top: 0;
@@ -188,16 +188,16 @@
             height: 100%;
             background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transform: translate3d(-160%, 0, 0) skewX(-18deg);
-            animation: semanaSheen 5.5s ease-in-out infinite;
+            animation: amarillasSheen 5.5s ease-in-out infinite;
             pointer-events: none;
             will-change: transform;
         }
-        @keyframes semanaSheen {
+        @keyframes amarillasSheen {
             0%   { transform: translate3d(-160%, 0, 0) skewX(-18deg); }
             55%, 100% { transform: translate3d(330%, 0, 0) skewX(-18deg); }
         }
-        .semana-banner-text { position: relative; z-index: 2; min-width: 240px; }
-        .semana-banner-text h2 {
+        .amarillas-banner-text { position: relative; z-index: 2; min-width: 240px; }
+        .amarillas-banner-text h2 {
             font-family: 'Playfair Display', Georgia, serif;
             font-size: 1.45rem;
             line-height: 1.15;
@@ -205,26 +205,26 @@
             color: #fff;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
         }
-        .semana-banner-text p {
+        .amarillas-banner-text p {
             margin: 0;
             font-family: 'Poppins', sans-serif;
             font-size: 0.86rem;
             opacity: 0.94;
             letter-spacing: 0.2px;
         }
-        .semana-banner .semana-gold { color: #ffd88a; }
-        .semana-crown {
+        .amarillas-banner .amarillas-gold { color: #ffd88a; }
+        .amarillas-crown {
             display: inline-block;
             margin-right: 6px;
-            animation: semanaTwinkle 2.4s ease-in-out infinite;
+            animation: amarillasTwinkle 2.4s ease-in-out infinite;
         }
-        @keyframes semanaTwinkle {
+        @keyframes amarillasTwinkle {
             0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
             50%      { transform: scale(1.25) rotate(12deg); opacity: 0.75; }
         }
 
         /* --- Contador regresivo --- */
-        .semana-countdown {
+        .amarillas-countdown {
             position: relative;
             z-index: 2;
             display: flex;
@@ -232,7 +232,7 @@
             gap: 6px;
             font-family: 'Poppins', sans-serif;
         }
-        .semana-cd-unit {
+        .amarillas-cd-unit {
             background: rgba(255, 255, 255, 0.16);
             border: 1px solid rgba(255, 216, 138, 0.6);
             border-radius: 10px;
@@ -241,7 +241,7 @@
             text-align: center;
             backdrop-filter: blur(3px);
         }
-        .semana-cd-num {
+        .amarillas-cd-num {
             display: block;
             font-size: 1.15rem;
             font-weight: 800;
@@ -249,7 +249,7 @@
             color: #fff;
             font-variant-numeric: tabular-nums;
         }
-        .semana-cd-lbl {
+        .amarillas-cd-lbl {
             display: block;
             font-size: 0.58rem;
             letter-spacing: 1px;
@@ -257,33 +257,33 @@
             opacity: 0.85;
             margin-top: 2px;
         }
-        .semana-cd-sep { font-weight: 800; opacity: 0.55; }
+        .amarillas-cd-sep { font-weight: 800; opacity: 0.55; }
 
         /* --- Tarjetas destacadas --- */
-        .product-card.semana-card,
-        .product-item.semana-card {
+        .product-card.amarillas-card,
+        .product-item.amarillas-card {
             position: relative;
             border: 3px solid transparent;
             background-image: linear-gradient(#fff, #fff),
-                              linear-gradient(135deg, #d4af37 0%, #e91e63 35%, #ff80ab 60%, #d4af37 100%);
+                              linear-gradient(135deg, #d4af37 0%, #f2a900 35%, #ffd54f 60%, #d4af37 100%);
             background-origin: border-box;
             background-clip: padding-box, border-box;
-            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.22), 0 0 0 4px rgba(212, 175, 55, 0.16);
+            box-shadow: 0 10px 30px rgba(242, 169, 0, 0.22), 0 0 0 4px rgba(212, 175, 55, 0.16);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: visible !important;
         }
-        .product-card.semana-card:hover,
-        .product-item.semana-card:hover {
+        .product-card.amarillas-card:hover,
+        .product-item.amarillas-card:hover {
             transform: translateY(-7px);
-            box-shadow: 0 18px 42px rgba(233, 30, 99, 0.34), 0 0 0 5px rgba(212, 175, 55, 0.26);
+            box-shadow: 0 18px 42px rgba(242, 169, 0, 0.34), 0 0 0 5px rgba(212, 175, 55, 0.26);
         }
 
         /* Cinta esquina superior izquierda */
-        .semana-ribbon {
+        .amarillas-ribbon {
             position: absolute;
             top: 14px;
             left: -8px;
-            background: linear-gradient(135deg, #ad1457 0%, #e91e63 55%, #ff4081 100%);
+            background: linear-gradient(135deg, #6b4200 0%, #9a6200 55%, #c07d00 100%);
             color: #fff;
             padding: 0.4rem 0.95rem 0.4rem 1.15rem;
             font-family: 'Poppins', sans-serif;
@@ -291,24 +291,24 @@
             font-weight: 800;
             letter-spacing: 1.2px;
             white-space: nowrap;
-            box-shadow: 0 4px 14px rgba(173, 20, 87, 0.55);
+            box-shadow: 0 4px 14px rgba(168, 106, 0, 0.55);
             z-index: 10;
             clip-path: polygon(0 0, 100% 0, 93% 50%, 100% 100%, 0 100%, 7% 50%);
-            animation: semanaRibbon 3s ease-in-out infinite;
+            animation: amarillasRibbon 3s ease-in-out infinite;
             will-change: transform;
         }
-        @keyframes semanaRibbon {
+        @keyframes amarillasRibbon {
             0%, 100% { transform: scale(1); }
             50%      { transform: scale(1.045); }
         }
-        .semana-ribbon .semana-spark {
+        .amarillas-ribbon .amarillas-spark {
             color: #ffd88a;
             display: inline-block;
-            animation: semanaTwinkle 2.2s ease-in-out infinite;
+            animation: amarillasTwinkle 2.2s ease-in-out infinite;
         }
 
         /* Sello de descuento superior derecha */
-        .semana-savings {
+        .amarillas-savings {
             position: absolute;
             top: 12px;
             right: 12px;
@@ -316,7 +316,7 @@
             height: 54px;
             border-radius: 50%;
             background: linear-gradient(140deg, #ffd88a 0%, #d4af37 55%, #b8860b 100%);
-            color: #5c0b2e;
+            color: #4a2d00;
             font-family: 'Poppins', sans-serif;
             font-weight: 900;
             font-size: 0.95rem;
@@ -328,59 +328,59 @@
             border: 2px solid #fff;
             box-shadow: 0 5px 16px rgba(184, 134, 11, 0.55);
             z-index: 10;
-            animation: semanaSeal 2.6s ease-in-out infinite;
+            animation: amarillasSeal 2.6s ease-in-out infinite;
             will-change: transform;
         }
-        .semana-savings small {
+        .amarillas-savings small {
             font-size: 0.44rem;
             letter-spacing: 0.6px;
             font-weight: 700;
             margin-top: 2px;
             opacity: 0.85;
         }
-        @keyframes semanaSeal {
+        @keyframes amarillasSeal {
             0%, 100% { transform: scale(1) rotate(-7deg); }
             50%      { transform: scale(1.1) rotate(7deg); }
         }
 
-        .product-card.semana-card .product-price,
-        .product-item.semana-card .price,
-        .product-item.semana-card .price-block .promo-price {
-            color: #c2185b;
+        .product-card.amarillas-card .product-price,
+        .product-item.amarillas-card .price,
+        .product-item.amarillas-card .price-block .promo-price {
+            color: #b26a00;
             font-weight: 800;
         }
 
-        /* Chip de filtro Promoción de la Semana */
-        .filter-btn.semana-filter {
-            background: linear-gradient(135deg, #ad1457 0%, #e91e63 100%) !important;
+        /* Chip de filtro Mes de las Flores Amarillas */
+        .filter-btn.amarillas-filter {
+            background: linear-gradient(135deg, #b26a00 0%, #d18700 100%) !important;
             color: #fff !important;
-            border-color: #e91e63 !important;
+            border-color: #f2a900 !important;
             font-weight: 700;
         }
-        .filter-btn.semana-filter:hover,
-        .filter-btn.semana-filter.active {
-            background: linear-gradient(135deg, #6d0f37 0%, #c2185b 100%) !important;
+        .filter-btn.amarillas-filter:hover,
+        .filter-btn.amarillas-filter.active {
+            background: linear-gradient(135deg, #6b4200 0%, #a86a00 100%) !important;
             color: #fff !important;
         }
 
         @media (max-width: 640px) {
-            .semana-banner { padding: 0.9rem 1rem; justify-content: center; text-align: center; }
-            .semana-banner-text { min-width: 0; }
-            .semana-banner-text h2 { font-size: 1.15rem; }
-            .semana-banner-text p { font-size: 0.78rem; }
-            .semana-cd-unit { min-width: 44px; padding: 0.3rem 0.4rem; }
-            .semana-cd-num { font-size: 1rem; }
-            .semana-savings { width: 46px; height: 46px; font-size: 0.82rem; }
-            .semana-ribbon { font-size: 0.62rem; padding: 0.35rem 0.75rem 0.35rem 0.95rem; }
+            .amarillas-banner { padding: 0.9rem 1rem; justify-content: center; text-align: center; }
+            .amarillas-banner-text { min-width: 0; }
+            .amarillas-banner-text h2 { font-size: 1.15rem; }
+            .amarillas-banner-text p { font-size: 0.78rem; }
+            .amarillas-cd-unit { min-width: 44px; padding: 0.3rem 0.4rem; }
+            .amarillas-cd-num { font-size: 1rem; }
+            .amarillas-savings { width: 46px; height: 46px; font-size: 0.82rem; }
+            .amarillas-ribbon { font-size: 0.62rem; padding: 0.35rem 0.75rem 0.35rem 0.95rem; }
         }
 
         /* Respeta la preferencia de menos movimiento del sistema */
         @media (prefers-reduced-motion: reduce) {
-            .semana-banner::after,
-            .semana-crown,
-            .semana-ribbon,
-            .semana-ribbon .semana-spark,
-            .semana-savings { animation: none !important; }
+            .amarillas-banner::after,
+            .amarillas-crown,
+            .amarillas-ribbon,
+            .amarillas-ribbon .amarillas-spark,
+            .amarillas-savings { animation: none !important; }
         }
 
         /* Carousel para productos con variaciones */
@@ -466,38 +466,38 @@
             50% { transform: scale(1.08); }
         }
 
-        /* Nota flotante de descuento fúnebres */
-        .funeral-discount-note {
+        /* Flyer flotante: Mes de las Flores Amarillas */
+        .campaign-note {
             position: fixed;
             bottom: 95px;
             left: 20px;
             z-index: 998;
             max-width: 280px;
-            background: linear-gradient(135deg, #ffffff 0%, #fff8f8 100%);
-            border: 2px solid #d32f2f;
+            background: linear-gradient(135deg, #ffffff 0%, #fffaeb 100%);
+            border: 2px solid #f2a900;
             border-radius: 14px;
             padding: 0.9rem 2.2rem 0.9rem 1rem;
-            box-shadow: 0 8px 24px rgba(211, 47, 47, 0.25);
+            box-shadow: 0 8px 24px rgba(242, 169, 0, 0.32);
             font-family: 'Poppins', sans-serif;
             font-size: 0.85rem;
             color: #40353E;
             line-height: 1.35;
             animation: slideInLeft 0.6s ease-out, gentleFloat 3s ease-in-out infinite 0.6s;
         }
-        .funeral-discount-note strong {
+        .campaign-note strong {
             display: block;
-            color: #d32f2f;
+            color: #b26a00;
             font-weight: 700;
             font-size: 0.92rem;
             margin-bottom: 0.25rem;
             letter-spacing: 0.3px;
         }
-        .funeral-discount-note .note-icon {
+        .campaign-note .note-icon {
             display: inline-block;
             margin-right: 4px;
             font-size: 1rem;
         }
-        .funeral-discount-note .note-close {
+        .campaign-note .note-close {
             position: absolute;
             top: 6px;
             right: 8px;
@@ -514,10 +514,31 @@
             align-items: center;
             justify-content: center;
         }
-        .funeral-discount-note .note-close:hover {
-            color: #d32f2f;
+        .campaign-note .note-close:hover {
+            color: #b26a00;
         }
-        .funeral-discount-note.hidden {
+        .campaign-note .note-date {
+            color: #b26a00;
+            font-weight: 700;
+        }
+        .campaign-note .note-cta {
+            display: inline-block;
+            margin-top: 0.5rem;
+            background: linear-gradient(135deg, #b26a00 0%, #d18700 100%);
+            color: #fff;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            padding: 0.35rem 0.8rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+        .campaign-note .note-cta:hover {
+            background: linear-gradient(135deg, #7a4a00 0%, #b26a00 100%);
+        }
+        .campaign-note.hidden {
             display: none;
         }
         @keyframes slideInLeft {
@@ -529,7 +550,7 @@
             50% { transform: translateY(-4px); }
         }
         @media (max-width: 600px) {
-            .funeral-discount-note {
+            .campaign-note {
                 bottom: 85px;
                 left: 12px;
                 right: 12px;
@@ -566,7 +587,7 @@
             <div class="filters-container">
                 <span class="filter-label">Filtrar por:</span>
                 <button class="filter-btn active" data-filter="todos" data-code="000"><span class="filter-code">[000]</span> Todos</button>
-                <button class="filter-btn semana-filter" data-filter="semana" data-code="077"><span class="filter-code">[077]</span> ✦ Promo de la Semana</button>
+                <button class="filter-btn amarillas-filter" data-filter="amarillas" data-code="090"><span class="filter-code">[090]</span> 🌻 Flores Amarillas · 21 Sept</button>
                 <button class="filter-btn" data-filter="ramos" data-code="100"><span class="filter-code">[100]</span> Ramos</button>
                 <button class="filter-btn" data-filter="cajas" data-code="200"><span class="filter-code">[200]</span> Cajas y Cofres</button>
                 <button class="filter-btn" data-filter="corazones" data-code="300"><span class="filter-code">[300]</span> Corazones</button>
@@ -587,7 +608,7 @@
     <!-- Results Counter -->
     <div class="results-counter">
         <div class="container">
-            Mostrando <strong id="results-count">74</strong> productos
+            Mostrando <strong id="results-count">106</strong> productos
         </div>
     </div>
 
@@ -619,11 +640,12 @@
     </div>
 
 
-    <!-- Nota flotante: descuento en arreglos fúnebres -->
-    <div class="funeral-discount-note" id="funeralDiscountNote" role="status" aria-live="polite">
-        <button class="note-close" id="funeralNoteClose" aria-label="Cerrar aviso">&times;</button>
-        <strong><span class="note-icon">🤍</span> Arreglos Fúnebres en Descuento</strong>
-        Acompañamos tu duelo con precios especiales en nuestros arreglos fúnebres por tiempo limitado.
+    <!-- Flyer flotante: Mes de las Flores Amarillas (21 de septiembre) -->
+    <div class="campaign-note" id="campaignNote" role="status" aria-live="polite">
+        <button class="note-close" id="campaignNoteClose" aria-label="Cerrar aviso">&times;</button>
+        <strong><span class="note-icon">🌻</span> Mes de las Flores Amarillas</strong>
+        El <span class="note-date">21 de septiembre</span> se regalan flores amarillas. Tenemos 18 arreglos amarillos con precios de promoción y despacho en Antofagasta.
+        <button class="note-cta" type="button" onclick="verFloresAmarillas()">Ver flores amarillas 🌻</button>
     </div>
 
     <!-- Scroll to Top -->
@@ -1069,8 +1091,8 @@ const products = [
         originalPrice: 96000,
         image: "assets/foto53.webp",
         description: "Ramo elegante con rosas rojas y blancas alternadas en papel negro con borde dorado y moño burdeo. Una combinación clásica y refinada para ocasiones formales.",
-        categories: ["ramos", "semana", "rosas", "premium", "precio-medio"],
-        semana: true
+        categories: ["ramos", "rosas", "premium", "precio-medio"],
+        promo: true
     },
     {
         id: 54, code: "054",
@@ -1233,8 +1255,8 @@ const products = [
         originalPrice: 44000,
         image: "assets/foto73.webp",
         description: "Ramo compacto con docena de rosas rojas, envuelto en papel blanco con líneas doradas, tarjeta personalizable y moño rojo. Clásico atemporal para San Valentín, aniversarios y gestos románticos.",
-        categories: ["ramos", "semana", "rosas", "precio-medio"],
-        semana: true
+        categories: ["ramos", "rosas", "precio-medio"],
+        promo: true
     },
     {
         id: 74, code: "074",
@@ -1253,8 +1275,8 @@ const products = [
         originalPrice: 48000,
         image: "assets/foto75.webp",
         description: "Cúpula abundante de margaritas fucsia y blancas abierta como flor de loto, envuelta en papel lila con filo dorado. Es el ramo que ella deja en el centro de la mesa para que todos pregunten quién se lo regaló. Alegría pura, sin necesidad de explicar nada.",
-        categories: ["ramos", "semana", "especiales", "precio-medio"],
-        semana: true
+        categories: ["ramos", "especiales", "precio-medio"],
+        promo: true
     },
     {
         id: 76, code: "076",
@@ -1262,9 +1284,9 @@ const products = [
         price: 31250,
         originalPrice: 40000,
         image: "assets/foto76.webp",
-        description: "Claveles rosados de pétalos aterciopelados con follaje fresco y flores silvestres blancas, envueltos en papel translúcido con amarre de rafia natural. Delicado como el primer “sí” y de los que siguen frescos más de dos semanas: cada mañana ella vuelve a recordar por qué la elegiste.",
-        categories: ["ramos", "semana", "precio-medio"],
-        semana: true
+        description: "Claveles rosados de pétalos aterciopelados con follaje fresco y flores silvestres blancas, envueltos en papel translúcido con amarre de rafia natural. Delicado como el primer “sí” y de los que siguen frescos más de dos amarillasProducts: cada mañana ella vuelve a recordar por qué la elegiste.",
+        categories: ["ramos", "precio-medio"],
+        promo: true
     },
     {
         id: 77, code: "077",
@@ -1273,8 +1295,8 @@ const products = [
         originalPrice: 72000,
         image: "assets/foto77.webp",
         description: "Lilium rosados abiertos, gerberas, claveles y gypsophila coronados por una tiara de cristales, sobre papel rosa con vetas doradas. Este no es un ramo: es la prueba física de que ella es la reina. El que se elige cuando quieres que ese día no se le olvide nunca.",
-        categories: ["ramos", "semana", "especiales", "premium", "precio-medio"],
-        semana: true
+        categories: ["ramos", "especiales", "premium", "precio-medio"],
+        promo: true
     },
     {
         id: 78, code: "078",
@@ -1282,7 +1304,7 @@ const products = [
         price: 48750,
         originalPrice: 62400,
         image: "assets/foto78.webp",
-        description: "Girasoles de gran porte con follaje fresco, caja de Ferrero Rocher y una mariposa azul, envueltos en papel kraft con borde satinado. Para @@PROSE_SEMANA@@ los días grises: flores que buscan el sol y chocolate que se derrite mientras ella te agradece.",
+        description: "Girasoles de gran porte con follaje fresco, caja de Ferrero Rocher y una mariposa azul, envueltos en papel kraft con borde satinado. Para @@PROSE_AMARILLAS@@ los días grises: flores que buscan el sol y chocolate que se derrite mientras ella te agradece.",
         categories: ["ramos", "girasoles", "especiales", "precio-medio"]
     },
     {
@@ -1292,8 +1314,8 @@ const products = [
         originalPrice: 35200,
         image: "assets/foto79.webp",
         description: "Tres gerberas en fucsia, rosa y coral con nube de gypsophila y una mariposa plateada tallada en corazones, sobre papel lila con moño de raso. El detalle exacto para un “pensé en ti” sin motivo: pequeño en tamaño, enorme en intención.",
-        categories: ["ramos", "semana", "especiales", "precio-bajo"],
-        semana: true
+        categories: ["ramos", "especiales", "precio-bajo"],
+        promo: true
     },
     {
         id: 80, code: "080",
@@ -1344,30 +1366,242 @@ const products = [
         image: "assets/foto85.webp",
         description: "Rosas negras con gypsophila negra, bombones Ferrero Rocher, corona dorada y mariposas doradas, envueltas en papel negro con filo dorado. Un buqué de lujo, dramático e inolvidable: para quien quiere regalar algo que nadie más se atreve a regalar.",
         categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"]
+    },
+    {
+        id: 86, code: "086",
+        name: "Buqué Elegancia Blanca — Calas y Gerbera",
+        price: 31250,
+        image: "assets/foto86.webp",
+        description: "Calas blancas, gerbera y clavel blanco con gypsophila y helecho sobre papel negro, con mariposa dorada y tarjeta dedicada. Pureza y sobriedad en un mismo ramo: ideal para agradecer, felicitar o acompañar con elegancia.",
+        categories: ["ramos", "especiales", "precio-medio"]
+    },
+    {
+        id: 87, code: "087",
+        name: "Mega Bouquet Rosas Fucsia con Gypsophila",
+        price: 81250,
+        image: "assets/foto87.webp",
+        description: "Ramo abundante de rosas fucsia con nubes de gypsophila y helecho, envuelto en papel negro con filo amarillo y moño de raso fucsia. Impacto puro: el regalo que se roba todas las miradas apenas entra por la puerta.",
+        categories: ["ramos", "rosas", "premium", "precio-alto"]
+    },
+    {
+        id: 88, code: "088",
+        name: "Canasta de Condolencias con Girasol y Claveles",
+        price: 50000,
+        image: "assets/foto88.webp",
+        description: "Canasta de mimbre con girasol central, claveles rosados y crisantemos blancos y amarillos, con banda negra de pésame y moño rosado. Un acompañamiento cálido y respetuoso para expresar cariño en momentos difíciles.",
+        categories: ["canastas", "funebres", "precio-medio"]
+    },
+    {
+        id: 89, code: "089",
+        name: "Buqué de Novia Lisianthus y Eucalipto",
+        price: 43750,
+        image: "assets/foto89.webp",
+        description: "Ramo de novia con lisianthus blancos, rosados y verdes, gypsophila y eucalipto, con mango envuelto en cinta natural. Delicado, romántico y pensado para las fotos que se miran toda la vida.",
+        categories: ["ramos", "especiales", "precio-medio"]
+    },
+    {
+        id: 90, code: "090",
+        name: "Buqué Sol Radiante — Girasol y Margaritas Amarillas",
+        price: 28750,
+        originalPrice: 34500,
+        image: "assets/foto90.webp",
+        description: "Girasol central rodeado de margaritas amarillas y gypsophila, envuelto en papel blanco con filo dorado y moño amarillo. Un ramo que ilumina la casa apenas cruza la puerta.",
+        categories: ["ramos", "girasoles", "amarillas", "precio-bajo"],
+        amarillas: true
+    },
+    {
+        id: 91, code: "091",
+        name: "Centro de Mesa Girasol con Gerberas Amarillas",
+        price: 25000,
+        originalPrice: 30000,
+        image: "assets/foto91.webp",
+        description: "Base de helechos frescos con gerberas amarillas y blancas, gypsophila y un girasol elevado en tubo de vidrio. Perfecto para el centro de la mesa en cumpleaños, oficinas y celebraciones familiares.",
+        categories: ["especiales", "girasoles", "amarillas", "precio-bajo"],
+        amarillas: true
+    },
+    {
+        id: 92, code: "092",
+        name: "Cúpula de Cristal con Girasol Preservado",
+        price: 43750,
+        originalPrice: 52500,
+        image: "assets/foto92.webp",
+        description: "Girasol preservado bajo cúpula de vidrio, sobre base de madera y piedras blancas. Un detalle que no se marchita: queda de recuerdo en el escritorio o el velador.",
+        categories: ["especiales", "girasoles", "amarillas", "precio-medio"],
+        amarillas: true
+    },
+    {
+        id: 93, code: "093",
+        name: "Buqué Primavera Amarilla con Rosa y Mariposa Dorada",
+        price: 37500,
+        originalPrice: 45000,
+        image: "assets/foto93.webp",
+        description: "Margaritas amarillas, crisantemos blancos y una rosa amarilla al centro, con mariposa dorada, papel blanco y moño amarillo. Fresco, luminoso y alegre para cumpleaños y buenas noticias.",
+        categories: ["ramos", "amarillas", "precio-medio"],
+        amarillas: true
+    },
+    {
+        id: 94, code: "094",
+        name: "Buqué Rústico Girasol y Crisantemos Blancos",
+        price: 17500,
+        originalPrice: 21000,
+        image: "assets/foto94.webp",
+        description: "Girasol acompañado de crisantemos blancos, solidago y eucalipto, envuelto en arpillera natural con moño amarillo. Sencillo, campestre y con mucho encanto.",
+        categories: ["ramos", "girasoles", "amarillas", "precio-bajo"],
+        amarillas: true
+    },
+    {
+        id: 95, code: "095",
+        name: "Buqué Campestre Girasol, Rosa Amarilla y Astromelias",
+        price: 26250,
+        originalPrice: 31500,
+        image: "assets/foto95.webp",
+        description: "Girasol, rosa amarilla y astromelias durazno con gypsophila y helecho cuero, sobre papel de arpillera con moño amarillo. Calidez de campo para regalar sin esperar una fecha especial.",
+        categories: ["ramos", "girasoles", "amarillas", "precio-bajo"],
+        amarillas: true
+    },
+    {
+        id: 96, code: "096",
+        name: "Buqué Lluvia de Sol — Margaritas Amarillas",
+        price: 41250,
+        originalPrice: 49500,
+        image: "assets/foto96.webp",
+        description: "Ramo abundante de margaritas amarillas con gypsophila, envuelto en papel blanco con filo dorado y moño amarillo. Volumen y color puro: el favorito para alegrarle el día a alguien.",
+        categories: ["ramos", "amarillas", "precio-medio"],
+        amarillas: true
+    },
+    {
+        id: 97, code: "097",
+        name: "Caja Premium de Girasoles con Tapa Negra",
+        price: 32500,
+        originalPrice: 39000,
+        image: "assets/foto97.webp",
+        description: "Girasoles, margaritas amarillas y gypsophila montados dentro de una caja transparente con tapa negra y asa. Llega listo para regalar, sin necesidad de florero.",
+        categories: ["cajas", "girasoles", "amarillas", "precio-medio"],
+        amarillas: true
+    },
+    {
+        id: 98, code: "098",
+        name: "Florero Minimalista con Girasol y Flores Silvestres",
+        price: 27500,
+        originalPrice: 33000,
+        image: "assets/foto98.webp",
+        description: "Un girasol con solidago y flores silvestres blancas en florero de vidrio delgado. Detalle sobrio y luminoso para escritorios, recepciones y regalos discretos.",
+        categories: ["especiales", "girasoles", "amarillas", "precio-bajo"],
+        amarillas: true
+    },
+    {
+        id: 99, code: "099",
+        name: "Florero Alegría con Gerberas Amarillas",
+        price: 30000,
+        originalPrice: 36000,
+        image: "assets/foto99.webp",
+        description: "Dos gerberas amarillas con solidago y follaje fresco en florero de vidrio texturizado con moño amarillo. Pequeño, alegre y directo al corazón.",
+        categories: ["especiales", "amarillas", "precio-bajo"],
+        amarillas: true
+    },
+    {
+        id: 100, code: "100",
+        name: "Buqué Dorado de Girasoles con Eucalipto",
+        price: 56250,
+        originalPrice: 67500,
+        image: "assets/foto100.webp",
+        description: "Girasoles en cascada con eucalipto y gypsophila, envueltos en papel dorado con moño amarillo. Presentación alargada y señorial para una entrega que impresiona.",
+        categories: ["ramos", "girasoles", "amarillas", "precio-medio"],
+        amarillas: true
+    },
+    {
+        id: 101, code: "101",
+        name: "Buqué Kraft de Girasoles con Matricaria y Eucalipto",
+        price: 36250,
+        originalPrice: 43500,
+        image: "assets/foto101.webp",
+        description: "Girasoles con matricaria blanca y eucalipto, envueltos en papel kraft con interior lila, cinta beige y tarjeta dedicada. Estilo natural y sofisticado, muy fotogénico.",
+        categories: ["ramos", "girasoles", "amarillas", "precio-medio"],
+        amarillas: true
+    },
+    {
+        id: 102, code: "102",
+        name: "Buqué Tres Girasoles en Papel Rosa",
+        price: 26250,
+        originalPrice: 31500,
+        image: "assets/foto102.webp",
+        description: "Tres girasoles con gypsophila y follaje fino, envueltos en papel rosa y blanco con moño crema. La combinación dulce y luminosa que nunca falla.",
+        categories: ["ramos", "girasoles", "amarillas", "precio-bajo"],
+        amarillas: true
+    },
+    {
+        id: 103, code: "103",
+        name: "Buqué Sol de Otoño — Margaritas Amarillas y Solidago",
+        price: 37500,
+        originalPrice: 45000,
+        image: "assets/foto103.webp",
+        description: "Margaritas amarillas con solidago y follaje verde, en papel naranja y blanco con cinta verde y tarjeta dedicada. Cálido, vibrante y perfecto para agradecer.",
+        categories: ["ramos", "amarillas", "precio-medio"],
+        amarillas: true
+    },
+    {
+        id: 104, code: "104",
+        name: "Mega Bouquet Girasoles con Mariposas Doradas",
+        price: 68750,
+        originalPrice: 82500,
+        image: "assets/foto104.webp",
+        description: "Corona abundante de girasoles sobre papel negro, con mariposas doradas y moño dorado. Contraste dramático y de lujo: el ramo que se recuerda por años.",
+        categories: ["ramos", "girasoles", "amarillas", "premium", "precio-medio"],
+        amarillas: true
+    },
+    {
+        id: 105, code: "105",
+        name: "Buqué Girasoles con Claveles Fucsia y Chocolate",
+        price: 58750,
+        originalPrice: 70500,
+        image: "assets/foto105.webp",
+        description: "Girasoles rodeados de mini claveles fucsia y rosados, con tarjeta dedicada y chocolate incluido, sobre papel rosa. Flores y dulce en un solo regalo.",
+        categories: ["ramos", "girasoles", "amarillas", "especiales", "precio-medio"],
+        amarillas: true
+    },
+    {
+        id: 106, code: "106",
+        name: "Caja Corazón de Girasoles",
+        price: 56250,
+        originalPrice: 67500,
+        image: "assets/foto106.webp",
+        description: "Girasoles y gypsophila montados en caja corazón blanca con moño amarillo. Amor y alegría en la misma pieza, lista para entregar.",
+        categories: ["cajas", "girasoles", "amarillas", "precio-medio"],
+        amarillas: true
+    },
+    {
+        id: 107, code: "107",
+        name: "Sombrerera Premium de Girasoles",
+        price: 112500,
+        originalPrice: 135000,
+        image: "assets/foto107.webp",
+        description: "Sombrerera blanca colmada de girasoles con eucalipto fresco. Nuestra pieza más generosa en amarillo: presencia total para aniversarios, oficinas y grandes celebraciones.",
+        categories: ["cajas", "girasoles", "amarillas", "premium", "precio-alto"],
+        amarillas: true
     }
 ];
 
 /* ============================================================
-   PROMOCIÓN DE LA SEMANA
-   Contador semanal (cierra cada domingo a las 23:59) y banner
+   CAMPAÑA: MES DE LAS FLORES AMARILLAS (21 de septiembre)
+   Contador regresivo al 21 de septiembre y banner
    de sección. Todo el movimiento se hace con transform/opacity,
    así el navegador lo resuelve en la GPU y no re-calcula el layout.
    ============================================================ */
-var semanaCdTimer = null;
+var amarillasCdTimer = null;
 
-/* La promo cierra el domingo de la semana en curso a las 23:59:59
-   (hora local del visitante). Se recalcula sola: el lunes parte de nuevo,
-   así que no hay que editar fechas cada semana. */
-function semanaDeadline() {
+/* La campaña del Mes de las Flores Amarillas cierra el 21 de septiembre
+   a las 23:59:59 (hora local del visitante). Si el año ya pasó esa fecha,
+   el contador salta automáticamente al 21 de septiembre del año siguiente. */
+function amarillasDeadline() {
     var now = new Date();
-    var end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
-    var dow = now.getDay(); // 0 = domingo
-    end.setDate(end.getDate() + (dow === 0 ? 0 : 7 - dow));
+    var year = now.getFullYear();
+    var end = new Date(year, 8, 21, 23, 59, 59, 999); // 8 = septiembre
+    if (end.getTime() < now.getTime()) end = new Date(year + 1, 8, 21, 23, 59, 59, 999);
     return end.getTime();
 }
 
-function semanaTimeLeft() {
-    var diff = semanaDeadline() - Date.now();
+function amarillasTimeLeft() {
+    var diff = amarillasDeadline() - Date.now();
     if (diff <= 0) return null;
     return {
         d: Math.floor(diff / 86400000),
@@ -1377,23 +1611,23 @@ function semanaTimeLeft() {
     };
 }
 
-function semanaCountdownHTML(compact) {
+function amarillasCountdownHTML(compact) {
     var labels = { d: 'días', h: 'hrs', m: 'min', s: 'seg' };
     var units = ['d', 'h', 'm', 's'].map(function (u) {
-        return '<div class="semana-cd-unit"><span class="semana-cd-num" data-cd="' + u + '">--</span>' +
-               '<span class="semana-cd-lbl">' + labels[u] + '</span></div>';
+        return '<div class="amarillas-cd-unit"><span class="amarillas-cd-num" data-cd="' + u + '">--</span>' +
+               '<span class="amarillas-cd-lbl">' + labels[u] + '</span></div>';
     }).join('');
-    return '<div class="semana-countdown' + (compact ? ' semana-cd-compact' : '') + '" data-semana-cd>' + units + '</div>';
+    return '<div class="amarillas-countdown' + (compact ? ' amarillas-cd-compact' : '') + '" data-amarillas-cd>' + units + '</div>';
 }
 
-function startSemanaCountdown() {
-    if (semanaCdTimer) { clearInterval(semanaCdTimer); semanaCdTimer = null; }
+function startAmarillasCountdown() {
+    if (amarillasCdTimer) { clearInterval(amarillasCdTimer); amarillasCdTimer = null; }
     function tick() {
-        var t = semanaTimeLeft();
-        var boxes = document.querySelectorAll('[data-semana-cd]');
+        var t = amarillasTimeLeft();
+        var boxes = document.querySelectorAll('[data-amarillas-cd]');
         if (!boxes.length) return;
         for (var i = 0; i < boxes.length; i++) {
-            if (!t) { boxes[i].innerHTML = '<div class="semana-cd-unit"><span class="semana-cd-num">¡HOY!</span><span class="semana-cd-lbl">último día</span></div>'; continue; }
+            if (!t) { boxes[i].innerHTML = '<div class="amarillas-cd-unit"><span class="amarillas-cd-num">¡HOY!</span><span class="amarillas-cd-lbl">último día</span></div>'; continue; }
             var nums = boxes[i].querySelectorAll('[data-cd]');
             for (var j = 0; j < nums.length; j++) {
                 var v = t[nums[j].getAttribute('data-cd')];
@@ -1403,27 +1637,27 @@ function startSemanaCountdown() {
         }
     }
     tick();
-    semanaCdTimer = setInterval(tick, 1000);
+    amarillasCdTimer = setInterval(tick, 1000);
 }
 
-function semanaBannerHTML(count) {
-    return '<div class="semana-banner">' +
-             '<div class="semana-banner-text">' +
-               '<h2><span class="semana-crown">✦</span>Promoción de la <span class="semana-gold">Semana</span></h2>' +
-               '<p>' + count + ' arreglos seleccionados con hasta <strong>22% de descuento</strong> · Solo hasta el domingo</p>' +
+function amarillasBannerHTML(count) {
+    return '<div class="amarillas-banner">' +
+             '<div class="amarillas-banner-text">' +
+               '<h2><span class="amarillas-crown">🌻</span>Mes de las <span class="amarillas-gold">Flores Amarillas</span></h2>' +
+               '<p>' + count + ' arreglos amarillos con <strong>17% de descuento</strong> · Hasta el <strong>21 de septiembre</strong></p>' +
              '</div>' +
-             semanaCountdownHTML(false) +
+             amarillasCountdownHTML(false) +
            '</div>';
 }
 
-function semanaCardOverlay(product) {
-    if (!product.semana) return '';
+function amarillasCardOverlay(product) {
+    if (!product.amarillas) return '';
     var badge = '';
     if (product.originalPrice && product.originalPrice > product.price) {
         var off = Math.round((1 - product.price / product.originalPrice) * 100);
-        badge = '<div class="semana-savings">-' + off + '%<small>DCTO</small></div>';
+        badge = '<div class="amarillas-savings">-' + off + '%<small>DCTO</small></div>';
     }
-    return '<div class="semana-ribbon"><span class="semana-spark">✦</span> PROMO DE LA SEMANA <span class="semana-spark">✦</span></div>' + badge;
+    return '<div class="amarillas-ribbon"><span class="amarillas-spark">🌻</span> FLORES AMARILLAS <span class="amarillas-spark">🌻</span></div>' + badge;
 }
 
         // Normalizar texto (quitar tildes y minúsculas)
@@ -1477,10 +1711,10 @@ function semanaCardOverlay(product) {
             emptyState.classList.remove('active');
             resultsCount.textContent = filteredProducts.length;
 
-            // Promoción de la Semana primero, luego el resto de promociones
-            const semanas = filteredProducts.filter(p => p.semana).sort((a, b) => a.id - b.id);
-            const promos = filteredProducts.filter(p => p.promo && !p.semana);
-            const noPromos = filteredProducts.filter(p => !p.promo && !p.semana);
+            // Campaña Flores Amarillas primero, luego el resto de promociones
+            const amarillasProducts = filteredProducts.filter(p => p.amarillas).sort((a, b) => a.id - b.id);
+            const promos = filteredProducts.filter(p => p.promo && !p.amarillas);
+            const noPromos = filteredProducts.filter(p => !p.promo && !p.amarillas);
 
             if (currentFilter === 'todos' && currentSearch.trim() === '') {
                 const funebres = noPromos.filter(p => p.categories.includes('funebres'));
@@ -1522,13 +1756,13 @@ function semanaCardOverlay(product) {
                     }
                 }
 
-                filteredProducts = [...semanas, ...promos, ...interleaved, ...funebres];
+                filteredProducts = [...amarillasProducts, ...promos, ...interleaved, ...funebres];
             } else {
-                filteredProducts = [...semanas, ...promos, ...noPromos];
+                filteredProducts = [...amarillasProducts, ...promos, ...noPromos];
             }
 
-            const semanaBanner = semanas.length ? semanaBannerHTML(semanas.length) : '';
-            grid.innerHTML = semanaBanner + filteredProducts.map(product => {
+            const amarillasBanner = amarillasProducts.length ? amarillasBannerHTML(amarillasProducts.length) : '';
+            grid.innerHTML = amarillasBanner + filteredProducts.map(product => {
                 const hasVariations = Array.isArray(product.variations) && product.variations.length > 1;
                 const imagesHtml = hasVariations
                     ? product.variations.map((src, i) => `<img src="${src}" alt="${product.name} variante ${i+1}" class="product-image carousel-img${i===0?' active':''}" data-index="${i}" loading="lazy">`).join('')
@@ -1541,9 +1775,9 @@ function semanaCardOverlay(product) {
                     ? `openCarouselLightbox('${product.code}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')`
                     : `openLightbox('${product.image}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')`;
                 return `
-                <div class="product-card ${product.semana ? 'semana-card' : (product.promo ? 'promo-card' : '')}" data-categories="${product.categories.join(' ')}" data-code="${product.code}">
-                    ${semanaCardOverlay(product)}
-                    ${product.promo && !product.semana ? `
+                <div class="product-card ${product.amarillas ? 'amarillas-card' : (product.promo ? 'promo-card' : '')}" data-categories="${product.categories.join(' ')}" data-code="${product.code}">
+                    ${amarillasCardOverlay(product)}
+                    ${product.promo && !product.amarillas ? `
                         <div class="promo-ribbon">
                             <span class="promo-spark">✦</span> OFERTA <span class="promo-spark">✦</span>
                         </div>
@@ -1563,7 +1797,7 @@ function semanaCardOverlay(product) {
                     </div>
                     <div class="product-info">
                         <span class="product-code">Cód. ${product.code}</span>
-                        ${product.originalPrice && !product.semana ? `<span class="discount-badge">¡OFERTA!</span>` : ''}
+                        ${product.originalPrice && !product.amarillas ? `<span class="discount-badge">¡OFERTA!</span>` : ''}
                         <h3 class="product-name">${product.name}</h3>
                         <div class="product-description">${product.description}</div>
                         <div class="product-footer">
@@ -1587,7 +1821,7 @@ function semanaCardOverlay(product) {
             `;
             }).join('');
 
-            if (semanas.length) startSemanaCountdown();
+            if (amarillasProducts.length) startAmarillasCountdown();
             initCarousels();
         }
 
@@ -1691,13 +1925,19 @@ function semanaCardOverlay(product) {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Nota flotante de descuento fúnebres
-        const funeralNote = document.getElementById('funeralDiscountNote');
-        const funeralNoteClose = document.getElementById('funeralNoteClose');
-        if (funeralNoteClose && funeralNote) {
-            funeralNoteClose.addEventListener('click', function() {
-                funeralNote.classList.add('hidden');
+        // Flyer flotante: Mes de las Flores Amarillas
+        const campaignNote = document.getElementById('campaignNote');
+        const campaignNoteClose = document.getElementById('campaignNoteClose');
+        if (campaignNoteClose && campaignNote) {
+            campaignNoteClose.addEventListener('click', function() {
+                campaignNote.classList.add('hidden');
             });
+        }
+
+        // Atajo del flyer: activa el filtro de Flores Amarillas
+        function verFloresAmarillas() {
+            const btn = document.querySelector('.filter-btn[data-filter="amarillas"]');
+            if (btn) btn.click();
         }
 
         // Inicializar
