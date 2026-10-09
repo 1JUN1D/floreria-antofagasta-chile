@@ -1230,3 +1230,292 @@ img { max-width: 100%; height: auto; display: block; }
     background: linear-gradient(135deg, #6a1b9a 0%, #9c27b0 100%) !important;
     color: #fff !important;
 }
+
+/* ============================================================
+   PROMOCIÓN ARREGLOS FÚNEBRES — sección + flyer flotante
+   Paleta sobria (ciruela de marca, plata y lavanda suave).
+   ============================================================ */
+.funebre-banner {
+    grid-column: 1 / -1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    padding: 1.05rem 1.3rem;
+    margin-top: 0.75rem;
+    background: linear-gradient(120deg, #2b2330 0%, #40353E 45%, #5e4f63 75%, #2f2734 100%);
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem;
+    box-shadow: 0 10px 30px rgba(64, 53, 62, 0.28);
+    border: 2px solid rgba(220, 220, 230, 0.55);
+    scroll-margin-top: 90px;
+    contain: paint;
+}
+.funebre-banner::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 40%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+    transform: translate3d(-160%, 0, 0) skewX(-18deg);
+    animation: semanaSheen 7s ease-in-out infinite;
+    pointer-events: none;
+}
+.funebre-banner-text { position: relative; z-index: 2; min-width: 240px; text-align: left; }
+.funebre-banner-text h2 { text-align: inherit; }
+.funebre-banner-text h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.45rem;
+    line-height: 1.15;
+    margin: 0 0 0.25rem;
+    color: #fff;
+}
+.funebre-banner-text h2 .funebre-silver { color: #e3dce8; font-style: italic; }
+.funebre-banner-text p {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.86rem;
+    opacity: 0.92;
+}
+.funebre-banner-tag {
+    position: relative;
+    z-index: 2;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(227, 220, 232, 0.6);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+}
+.product-item.funebre-promo-card {
+    position: relative;
+    border: 3px solid transparent;
+    background-image: linear-gradient(#fff, #fff),
+                      linear-gradient(135deg, #c9c3cf 0%, #8C748B 45%, #e8e3ec 70%, #a99bb0 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 10px 28px rgba(64, 53, 62, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: visible !important;
+}
+.product-item.funebre-promo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 38px rgba(64, 53, 62, 0.28);
+}
+.funebre-ribbon {
+    position: absolute;
+    top: 14px;
+    left: -8px;
+    background: linear-gradient(135deg, #2b2330 0%, #40353E 55%, #6b5a6e 100%);
+    color: #fff;
+    padding: 0.4rem 0.95rem 0.4rem 1.15rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(43, 35, 48, 0.45);
+    z-index: 10;
+    clip-path: polygon(0 0, 100% 0, 93% 50%, 100% 100%, 0 100%, 7% 50%);
+}
+.funebre-ribbon span { color: #e3dce8; }
+.funebre-savings {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(140deg, #ffffff 0%, #e3dce8 55%, #bfb3c6 100%);
+    color: #40353E;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border: 2px solid #fff;
+    box-shadow: 0 5px 16px rgba(64, 53, 62, 0.35);
+    z-index: 10;
+}
+.funebre-savings small {
+    font-size: 0.44rem;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+    margin-top: 2px;
+    opacity: 0.85;
+}
+.product-item.funebre-promo-card .price-block .promo-price { color: #40353E; font-weight: 800; }
+
+/* --- Flyer flotante (se cierra solo a los 5 s) --- */
+.ff-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(20, 16, 22, 0.55);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+.ff-overlay.ff-show { opacity: 1; }
+.ff-card {
+    position: relative;
+    width: min(560px, 100%);
+    max-height: calc(100vh - 32px);
+    overflow: auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    transform: translateY(18px) scale(0.97);
+    transition: transform 0.35s ease;
+    font-family: 'Poppins', sans-serif;
+}
+.ff-overlay.ff-show .ff-card { transform: none; }
+.ff-head {
+    background: linear-gradient(120deg, #2b2330 0%, #40353E 50%, #5e4f63 100%);
+    color: #fff;
+    text-align: center;
+    padding: 1.1rem 2.6rem 0.95rem;
+}
+.ff-kicker {
+    display: inline-block;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #e3dce8;
+    border: 1px solid rgba(227, 220, 232, 0.55);
+    border-radius: 50px;
+    padding: 0.2rem 0.75rem;
+    margin-bottom: 0.45rem;
+}
+.ff-head h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    margin: 0 0 0.2rem;
+    color: #fff;
+}
+.ff-head p { margin: 0; font-size: 0.82rem; opacity: 0.9; }
+.ff-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+}
+.ff-close:hover { background: rgba(255, 255, 255, 0.3); }
+.ff-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    padding: 1rem;
+}
+.ff-item {
+    position: relative;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    text-align: inherit;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #40353E;
+    border: 1px solid #ebe6ee;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ff-item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(64, 53, 62, 0.15); }
+.ff-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: #f5f3f6;
+}
+.ff-off {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: #40353E;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.15rem 0.45rem;
+    border-radius: 50px;
+}
+.ff-info { padding: 0.5rem 0.55rem 0.6rem; text-align: center; }
+.ff-name {
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 0.3rem;
+    min-height: 2.5em;
+}
+.ff-old { display: block; font-size: 0.74rem; color: #999; text-decoration: line-through; }
+.ff-new { display: block; font-size: 1.02rem; font-weight: 800; color: #40353E; }
+.ff-foot { padding: 0 1rem 1rem; text-align: center; }
+.ff-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, #40353E 0%, #8C748B 100%);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.65rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+}
+.ff-progress { height: 4px; background: #ebe6ee; }
+.ff-progress span {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #8C748B, #40353E);
+    transform-origin: left center;
+}
+.ff-overlay.ff-run .ff-progress span { animation: ffCountdown 5s linear forwards; }
+@keyframes ffCountdown { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+
+@media (max-width: 480px) {
+    .funebre-banner { padding: 0.9rem 1rem; justify-content: center; text-align: center; }
+    .funebre-banner-text { text-align: center; }
+    .funebre-banner-text { min-width: 0; }
+    .funebre-banner-text h2 { font-size: 1.15rem; }
+    .funebre-banner-text p { font-size: 0.78rem; }
+    .funebre-savings { width: 46px; height: 46px; font-size: 0.82rem; }
+    .ff-head { padding: 0.95rem 2.4rem 0.8rem; }
+    .ff-head h3 { font-size: 1.2rem; }
+    .ff-items { gap: 0.45rem; padding: 0.75rem; }
+    .ff-name { font-size: 0.64rem; }
+    .ff-new { font-size: 0.88rem; }
+    .ff-old { font-size: 0.66rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .funebre-banner::after { animation: none !important; }
+    .ff-overlay, .ff-card { transition: none; }
+}
+

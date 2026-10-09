@@ -533,6 +533,287 @@
             50% { transform: scale(1.08); }
         }
 
+        /* ============================================================
+           PROMOCIÓN ARREGLOS FÚNEBRES — sección + flyer flotante
+           Paleta sobria (ciruela de marca, plata y lavanda suave).
+           ============================================================ */
+        .funebre-banner {
+            grid-column: 1 / -1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            padding: 1.05rem 1.3rem;
+            margin-top: 0.75rem;
+            background: linear-gradient(120deg, #2b2330 0%, #40353E 45%, #5e4f63 75%, #2f2734 100%);
+            color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.9rem;
+            box-shadow: 0 10px 30px rgba(64, 53, 62, 0.28);
+            border: 2px solid rgba(220, 220, 230, 0.55);
+            scroll-margin-top: 110px;
+            contain: paint;
+        }
+        .funebre-banner::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 40%; height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+            transform: translate3d(-160%, 0, 0) skewX(-18deg);
+            animation: semanaSheen 7s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .funebre-banner-text { position: relative; z-index: 2; min-width: 240px; }
+        .funebre-banner-text h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.45rem;
+            line-height: 1.15;
+            margin: 0 0 0.25rem;
+            color: #fff;
+        }
+        .funebre-banner-text h2 .funebre-silver { color: #e3dce8; font-style: italic; }
+        .funebre-banner-text p {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.86rem;
+            opacity: 0.92;
+        }
+        .funebre-banner-tag {
+            position: relative;
+            z-index: 2;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(227, 220, 232, 0.6);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            white-space: nowrap;
+        }
+        .product-card.funebre-promo-card {
+            position: relative;
+            border: 3px solid transparent;
+            background-image: linear-gradient(#fff, #fff),
+                              linear-gradient(135deg, #c9c3cf 0%, #8C748B 45%, #e8e3ec 70%, #a99bb0 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 10px 28px rgba(64, 53, 62, 0.18);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: visible !important;
+        }
+        .product-card.funebre-promo-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 38px rgba(64, 53, 62, 0.28);
+        }
+        .funebre-ribbon {
+            position: absolute;
+            top: 14px;
+            left: -8px;
+            background: linear-gradient(135deg, #2b2330 0%, #40353E 55%, #6b5a6e 100%);
+            color: #fff;
+            padding: 0.4rem 0.95rem 0.4rem 1.15rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(43, 35, 48, 0.45);
+            z-index: 10;
+            clip-path: polygon(0 0, 100% 0, 93% 50%, 100% 100%, 0 100%, 7% 50%);
+        }
+        .funebre-ribbon span { color: #e3dce8; }
+        .funebre-savings {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: linear-gradient(140deg, #ffffff 0%, #e3dce8 55%, #bfb3c6 100%);
+            color: #40353E;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 0.95rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            border: 2px solid #fff;
+            box-shadow: 0 5px 16px rgba(64, 53, 62, 0.35);
+            z-index: 10;
+        }
+        .funebre-savings small {
+            font-size: 0.44rem;
+            letter-spacing: 0.6px;
+            font-weight: 700;
+            margin-top: 2px;
+            opacity: 0.85;
+        }
+        .product-card.funebre-promo-card .product-price { color: #40353E; font-weight: 800; }
+
+        /* --- Flyer flotante (se cierra solo a los 5 s) --- */
+        .ff-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            background: rgba(20, 16, 22, 0.55);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        .ff-overlay.ff-show { opacity: 1; }
+        .ff-card {
+            position: relative;
+            width: min(560px, 100%);
+            max-height: calc(100vh - 32px);
+            overflow: auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+            transform: translateY(18px) scale(0.97);
+            transition: transform 0.35s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        .ff-overlay.ff-show .ff-card { transform: none; }
+        .ff-head {
+            background: linear-gradient(120deg, #2b2330 0%, #40353E 50%, #5e4f63 100%);
+            color: #fff;
+            text-align: center;
+            padding: 1.1rem 2.6rem 0.95rem;
+        }
+        .ff-kicker {
+            display: inline-block;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #e3dce8;
+            border: 1px solid rgba(227, 220, 232, 0.55);
+            border-radius: 50px;
+            padding: 0.2rem 0.75rem;
+            margin-bottom: 0.45rem;
+        }
+        .ff-head h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            line-height: 1.15;
+            margin: 0 0 0.2rem;
+            color: #fff;
+        }
+        .ff-head p { margin: 0; font-size: 0.82rem; opacity: 0.9; }
+        .ff-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .ff-close:hover { background: rgba(255, 255, 255, 0.3); }
+        .ff-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            padding: 1rem;
+        }
+        .ff-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: #40353E;
+            border: 1px solid #ebe6ee;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #fff;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .ff-item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(64, 53, 62, 0.15); }
+        .ff-item img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            background: #f5f3f6;
+        }
+        .ff-off {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: #40353E;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 0.15rem 0.45rem;
+            border-radius: 50px;
+        }
+        .ff-info { padding: 0.5rem 0.55rem 0.6rem; text-align: center; }
+        .ff-name {
+            font-size: 0.72rem;
+            font-weight: 600;
+            line-height: 1.25;
+            margin: 0 0 0.3rem;
+            min-height: 2.5em;
+        }
+        .ff-old { display: block; font-size: 0.74rem; color: #999; text-decoration: line-through; }
+        .ff-new { display: block; font-size: 1.02rem; font-weight: 800; color: #40353E; }
+        .ff-foot { padding: 0 1rem 1rem; text-align: center; }
+        .ff-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #40353E 0%, #8C748B 100%);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.88rem;
+            padding: 0.65rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+        }
+        .ff-progress { height: 4px; background: #ebe6ee; }
+        .ff-progress span {
+            display: block;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, #8C748B, #40353E);
+            transform-origin: left center;
+        }
+        .ff-overlay.ff-run .ff-progress span { animation: ffCountdown 5s linear forwards; }
+        @keyframes ffCountdown { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+
+        @media (max-width: 480px) {
+            .funebre-banner { padding: 0.9rem 1rem; justify-content: center; text-align: center; }
+            .funebre-banner-text { min-width: 0; }
+            .funebre-banner-text h2 { font-size: 1.15rem; }
+            .funebre-banner-text p { font-size: 0.78rem; }
+            .funebre-savings { width: 46px; height: 46px; font-size: 0.82rem; }
+            .ff-head { padding: 0.95rem 2.4rem 0.8rem; }
+            .ff-head h3 { font-size: 1.2rem; }
+            .ff-items { gap: 0.45rem; padding: 0.75rem; }
+            .ff-name { font-size: 0.64rem; }
+            .ff-new { font-size: 0.88rem; }
+            .ff-old { font-size: 0.66rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .funebre-banner::after { animation: none !important; }
+            .ff-overlay, .ff-card { transition: none; }
+        }
+
     </style>
 </head>
 <body>
@@ -1138,9 +1419,11 @@ const products = [
         id: 63, code: "063",
         name: "Arreglo Fúnebre Piramidal Rosas Blancas",
         price: 46000,
+        originalPrice: 60000,
         image: "assets/foto63.webp",
         description: "Arreglo fúnebre piramidal compuesto por rosas blancas, gypsophila y abundante follaje de helecho verde sobre fondo neutro. Una pieza serena y delicada que transmite respeto, paz y consuelo en momentos de despedida.",
-        categories: ["funebres", "precio-medio"]
+        categories: ["funebres", "precio-medio"],
+        funebrePromo: true
     },
     {
         id: 64, code: "064",
@@ -1307,9 +1590,11 @@ const products = [
         id: 82, code: "082",
         name: "Arreglo Fúnebre Blanco con Lilium y Cala",
         price: 35000,
+        originalPrice: 48000,
         image: "assets/foto82.webp",
         description: "Arreglo fúnebre en tonos blancos con lilium, cala, claveles, crisantemos y gypsophila, realzado con eucalipto y follaje verde fresco. Una composición amplia y luminosa que acompaña con respeto y serenidad en el velatorio o la despedida.",
-        categories: ["funebres", "precio-medio"]
+        categories: ["funebres", "precio-medio"],
+        funebrePromo: true
     },
     {
         id: 83, code: "083",
@@ -1323,9 +1608,11 @@ const products = [
         id: 84, code: "084",
         name: "Arreglo de Condolencias Blanco con Calas y Gerberas Rosadas",
         price: 50000,
+        originalPrice: 75000,
         image: "assets/foto84.webp",
         description: "Amplio arreglo de condolencias en tonos blancos con calas, lilium, claveles, crisantemos y gypsophila, suavizado por gerberas rosadas y follaje fresco con eucalipto. Incluye tarjeta de dedicatoria. Una composición serena y luminosa para acompañar con respeto en la despedida.",
-        categories: ["funebres", "precio-medio"]
+        categories: ["funebres", "precio-medio"],
+        funebrePromo: true
     },
     {
         id: 85, code: "085",
@@ -1709,6 +1996,104 @@ function semanaCardOverlay(product) {
     return '<div class="semana-ribbon"><span class="semana-spark">✦</span> PROMO DE LA SEMANA <span class="semana-spark">✦</span></div>' + badge;
 }
 
+/* ============================================================
+   PROMOCIÓN ARREGLOS FÚNEBRES
+   Los productos con funebrePromo: true se muestran justo debajo
+   de la Promoción de la Semana, con su propio banner, y en un
+   flyer flotante que se cierra solo a los 5 segundos.
+   ============================================================ */
+function funebreBannerHTML(list) {
+    var maxOff = 0;
+    list.forEach(function (p) {
+        if (p.originalPrice > p.price) maxOff = Math.max(maxOff, Math.round((1 - p.price / p.originalPrice) * 100));
+    });
+    return '<div class="funebre-banner" id="promo-funebre">' +
+             '<div class="funebre-banner-text">' +
+               '<h2>Promoción <span class="funebre-silver">Arreglos Fúnebres</span></h2>' +
+               '<p>Acompaña con respeto y cariño en los momentos difíciles · Despacho a domicilio en Antofagasta</p>' +
+             '</div>' +
+             '<div class="funebre-banner-tag">Hasta ' + maxOff + '% de descuento</div>' +
+           '</div>';
+}
+
+function funebreCardOverlay(product) {
+    if (!product.funebrePromo || product.semana) return '';
+    var badge = '';
+    if (product.originalPrice && product.originalPrice > product.price) {
+        var off = Math.round((1 - product.price / product.originalPrice) * 100);
+        badge = '<div class="funebre-savings">-' + off + '%<small>DCTO</small></div>';
+    }
+    return '<div class="funebre-ribbon"><span>❀</span> PROMO FÚNEBRE <span>❀</span></div>' + badge;
+}
+
+function showFunebreFlyer() {
+    var list = products.filter(function (p) { return p.funebrePromo; });
+    if (!list.length || document.getElementById('ff-overlay')) return;
+    var fmt = function (n) { return '$' + n.toLocaleString('es-CL'); };
+    var items = list.map(function (p) {
+        var off = p.originalPrice ? Math.round((1 - p.price / p.originalPrice) * 100) : 0;
+        var wa = 'https://wa.me/56922437256?text=' + encodeURIComponent('Hola, me interesa el producto ' + p.code + ': ' + p.name + ' - ' + fmt(p.price) + ' (promoción arreglos fúnebres)');
+        return '<a class="ff-item" href="' + wa + '" target="_blank" rel="noopener" onclick="gtag_report_conversion();">' +
+                 (off ? '<span class="ff-off">-' + off + '%</span>' : '') +
+                 '<img src="' + p.image + '" alt="' + p.name + '">' +
+                 '<div class="ff-info">' +
+                   '<p class="ff-name">' + p.name + '</p>' +
+                   (p.originalPrice ? '<span class="ff-old">Antes ' + fmt(p.originalPrice) + '</span>' : '') +
+                   '<span class="ff-new">' + fmt(p.price) + '</span>' +
+                 '</div>' +
+               '</a>';
+    }).join('');
+
+    var overlay = document.createElement('div');
+    overlay.className = 'ff-overlay';
+    overlay.id = 'ff-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Promoción de arreglos fúnebres');
+    overlay.innerHTML =
+        '<div class="ff-card">' +
+          '<button class="ff-close" type="button" aria-label="Cerrar">&times;</button>' +
+          '<div class="ff-head">' +
+            '<span class="ff-kicker">Promoción especial</span>' +
+            '<h3>Arreglos Fúnebres</h3>' +
+            '<p>Acompaña con respeto a quienes más quieres</p>' +
+          '</div>' +
+          '<div class="ff-progress"><span></span></div>' +
+          '<div class="ff-items">' + items + '</div>' +
+          '<div class="ff-foot"><button class="ff-cta" type="button">Ver promoción</button></div>' +
+        '</div>';
+    document.body.appendChild(overlay);
+
+    var timer = null;
+    function close() {
+        if (!overlay.parentNode) return;
+        clearTimeout(timer);
+        overlay.classList.remove('ff-show');
+        document.removeEventListener('keydown', onKey);
+        setTimeout(function () { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); }, 380);
+    }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+    overlay.querySelector('.ff-close').addEventListener('click', close);
+    overlay.querySelector('.ff-cta').addEventListener('click', function () {
+        close();
+        var target = document.getElementById('promo-funebre');
+        if (!target) {
+            document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.filter === 'todos'); });
+            renderProducts('todos', '');
+            target = document.getElementById('promo-funebre');
+        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    document.addEventListener('keydown', onKey);
+
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () { overlay.classList.add('ff-show', 'ff-run'); });
+    });
+    timer = setTimeout(close, 5000); // se cierra solo a los 5 segundos
+}
+
         // Normalizar texto (quitar tildes y minúsculas)
         function normalize(str) {
             return str.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -1762,8 +2147,10 @@ function semanaCardOverlay(product) {
 
             // Promoción de la Semana primero, luego el resto de promociones
             const semanaProducts = filteredProducts.filter(p => p.semana && !p.peluche).sort((a, b) => a.id - b.id);
-            const promos = filteredProducts.filter(p => p.promo && !p.semana && !p.peluche);
-            const noPromos = filteredProducts.filter(p => !p.promo && !p.semana && !p.peluche);
+            // Promoción Arreglos Fúnebres justo debajo de la Promo de la Semana
+            const funebrePromo = filteredProducts.filter(p => p.funebrePromo && !p.semana && !p.peluche).sort((a, b) => a.price - b.price);
+            const promos = filteredProducts.filter(p => p.promo && !p.semana && !p.funebrePromo && !p.peluche);
+            const noPromos = filteredProducts.filter(p => !p.promo && !p.semana && !p.funebrePromo && !p.peluche);
             // Los peluches van siempre al final del catálogo
             const peluches = filteredProducts.filter(p => p.peluche).sort((a, b) => a.id - b.id);
 
@@ -1807,13 +2194,14 @@ function semanaCardOverlay(product) {
                     }
                 }
 
-                filteredProducts = [...semanaProducts, ...promos, ...interleaved, ...funebres, ...peluches];
+                filteredProducts = [...semanaProducts, ...funebrePromo, ...promos, ...interleaved, ...funebres, ...peluches];
             } else {
-                filteredProducts = [...semanaProducts, ...promos, ...noPromos, ...peluches];
+                filteredProducts = [...semanaProducts, ...funebrePromo, ...promos, ...noPromos, ...peluches];
             }
 
             const semanaBanner = semanaProducts.length ? semanaBannerHTML(semanaProducts.length) : '';
-            grid.innerHTML = semanaBanner + filteredProducts.map(product => {
+            const funebreBanner = funebrePromo.length ? funebreBannerHTML(funebrePromo) : '';
+            grid.innerHTML = semanaBanner + filteredProducts.map((product, idx) => {
                 const hasVariations = Array.isArray(product.variations) && product.variations.length > 1;
                 const imagesHtml = hasVariations
                     ? product.variations.map((src, i) => `<img src="${src}" alt="${product.name} variante ${i+1}" class="product-image carousel-img${i===0?' active':''}" data-index="${i}" loading="lazy">`).join('')
@@ -1825,9 +2213,10 @@ function semanaCardOverlay(product) {
                 const lightboxHandler = hasVariations
                     ? `openCarouselLightbox('${product.code}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')`
                     : `openLightbox('${product.image}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')`;
-                return `
-                <div class="product-card ${product.semana ? 'semana-card' : (product.peluche ? 'peluche-card' : (product.promo ? 'promo-card' : ''))}" data-categories="${product.categories.join(' ')}" data-code="${product.code}">
+                return `${idx === semanaProducts.length ? funebreBanner : ''}
+                <div class="product-card ${product.semana ? 'semana-card' : (product.peluche ? 'peluche-card' : (product.funebrePromo ? 'funebre-promo-card' : (product.promo ? 'promo-card' : '')))}" data-categories="${product.categories.join(' ')}" data-code="${product.code}">
                     ${semanaCardOverlay(product)}
+                    ${funebreCardOverlay(product)}
                     ${product.peluche ? `<div class="peluche-ribbon">🧸 PELUCHE</div>` : ''}
                     ${product.promo && !product.semana ? `
                         <div class="promo-ribbon">
@@ -1849,7 +2238,7 @@ function semanaCardOverlay(product) {
                     </div>
                     <div class="product-info">
                         <span class="product-code">Cód. ${product.code}</span>
-                        ${product.originalPrice && !product.semana ? `<span class="discount-badge">¡OFERTA!</span>` : ''}
+                        ${product.originalPrice && !product.semana && !product.funebrePromo ? `<span class="discount-badge">¡OFERTA!</span>` : ''}
                         <h3 class="product-name">${product.name}</h3>
                         <div class="product-description">${product.description}</div>
                         <div class="product-footer">
@@ -1984,6 +2373,9 @@ function semanaCardOverlay(product) {
 
         // Inicializar
         renderProducts();
+
+        // Flyer flotante Promoción Arreglos Fúnebres (se cierra solo a los 5 s)
+        window.addEventListener('load', function () { setTimeout(showFunebreFlyer, 700); });
     </script>
 </body>
 </html>

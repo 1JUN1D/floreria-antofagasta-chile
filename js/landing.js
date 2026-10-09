@@ -67,7 +67,7 @@ const products = [
     { id: 60, code: "060", name: "Bouquet Mixto Girasol y Crisantemos con Mariposa", price: 18740, image: "../assets/foto60.webp", description: "Ramo combinado con girasol central, crisantemos amarillos, follaje y mariposa decorativa plateada, envuelto en papel blanco con borde dorado y moño salmón. Un arreglo equilibrado entre frescura y elegancia para regalos versátiles.", categories: ["ramos", "girasoles", "especiales", "precio-bajo"] },
     { id: 61, code: "061", name: "Bouquet Premium de Girasoles con Mimosa", price: 31240, image: "../assets/foto61.webp", description: "Bouquet de gran formato con tres girasoles, mimosa amarilla y follaje fresco, envuelto en papel kraft y negro con detalles de yute natural. Estilo campestre premium, perfecto para regalos memorables y eventos especiales.", categories: ["ramos", "girasoles", "premium", "precio-medio"] },
     { id: 62, code: "062", name: "Ramo de Lirios con Globo Corazón Te Amo", price: 64000, image: "../assets/foto62.webp", description: "Ramo romántico de lirios rosados y blancos con paniculata y follaje verde, acompañado de globo metálico en forma de corazón con la leyenda Te Amo y envoltura lila con moño rosa. Una declaración de amor lista para sorprender.", categories: ["ramos", "especiales", "precio-medio"] },
-    { id: 63, code: "063", name: "Arreglo Fúnebre Piramidal Rosas Blancas", price: 46000, image: "../assets/foto63.webp", description: "Arreglo fúnebre piramidal compuesto por rosas blancas, gypsophila y abundante follaje de helecho verde sobre fondo neutro. Una pieza serena y delicada que transmite respeto, paz y consuelo en momentos de despedida.", categories: ["funebres", "coronas-funebres", "precio-medio"] },
+    { id: 63, code: "063", name: "Arreglo Fúnebre Piramidal Rosas Blancas", price: 46000, originalPrice: 60000, image: "../assets/foto63.webp", description: "Arreglo fúnebre piramidal compuesto por rosas blancas, gypsophila y abundante follaje de helecho verde sobre fondo neutro. Una pieza serena y delicada que transmite respeto, paz y consuelo en momentos de despedida.", categories: ["funebres", "coronas-funebres", "precio-medio"], funebrePromo: true },
     { id: 64, code: "064", name: "Bouquet Sol Girasol con Rosas Amarillas y Mariposas", price: 33000, image: "../assets/foto64.webp", description: "Ramo radiante con girasol central, rosas amarillas y blancas, paniculata y mariposas doradas decorativas, envuelto en papel celeste pastel con bordes dorados y moño a juego. Una composición luminosa y alegre, perfecta para cumpleaños, gracias y momentos de pura felicidad.", categories: ["ramos", "girasoles", "rosas", "especiales", "precio-bajo"] },
     { id: 65, code: "065", name: "Cartera Floral Rosa con Rosas, Alstroemerias y Ferrero", price: 41237, image: "../assets/foto65.webp", description: "Cartera floral en papel cream con asa dorada, rellena de rosas rosadas, alstroemerias, claveles rosados, follaje verde fresco y caja de Ferrero Rocher, rematada con envoltura lila y moño rosa. Un regalo tierno y sofisticado, ideal para sorprender a mamá, parejas o en cumpleaños femeninos.", categories: ["cajas", "rosas", "especiales", "precio-medio"] },
     { id: 66, code: "066", name: "Florero Clásico Docena Rosas Rojas con Tarjeta", price: 53738, image: "../assets/foto66.webp", description: "Florero de vidrio con docena de rosas rojas, gypsophila y follaje verde, coronado con tarjeta blanca y moño rojo en el cuello. Pieza atemporal y elegante para declaraciones románticas, aniversarios y San Valentín.", categories: ["especiales", "rosas", "precio-medio"] },
@@ -86,9 +86,9 @@ const products = [
     { id: 79, code: "079", name: "Buqué Latido — Gerberas con Mariposa de Corazones", price: 27500, originalPrice: 35200, image: "../assets/foto79.webp", description: "Tres gerberas en fucsia, rosa y coral con nube de gypsophila y una mariposa plateada tallada en corazones, sobre papel lila con moño de raso. El detalle exacto para un “pensé en ti” sin motivo: pequeño en tamaño, enorme en intención.", categories: ["ramos", "semana", "especiales", "precio-bajo"], semana: true },
     { id: 80, code: "080", name: "Buqué Sonrisa — Margaritas Amarillas", price: 31250, originalPrice: 40000, image: "../assets/foto80.webp", description: "Brazada generosa de margaritas amarillas envuelta en papel crema estampado con moño a juego. El amarillo es el color que el cerebro lee como felicidad antes de alcanzar a pensarlo: llega y le cambia el ánimo del día entero, aunque afuera esté nublado.", categories: ["ramos", "precio-medio"] },
     { id: 81, code: "081", name: "Buqué Clásico Eterno — 5 Rosas Rojas con Eucalipto", price: 25000, originalPrice: 32000, image: "../assets/foto81.webp", description: "Cinco rosas rojas de tallo largo con eucalipto plateado y gypsophila, envueltas en papel negro translúcido. El rojo sobre negro es el contraste más deseado del mundo por una razón: cuando no sabes qué regalar, esto nunca falla.", categories: ["ramos", "rosas", "precio-bajo"] },
-    { id: 82, code: "082", name: "Arreglo Fúnebre Blanco con Lilium y Cala", price: 35000, image: "../assets/foto82.webp", description: "Arreglo fúnebre en tonos blancos con lilium, cala, claveles, crisantemos y gypsophila, realzado con eucalipto y follaje verde fresco. Una composición amplia y luminosa que acompaña con respeto y serenidad en el velatorio o la despedida.", categories: ["funebres", "precio-medio"] },
+    { id: 82, code: "082", name: "Arreglo Fúnebre Blanco con Lilium y Cala", price: 35000, originalPrice: 48000, image: "../assets/foto82.webp", description: "Arreglo fúnebre en tonos blancos con lilium, cala, claveles, crisantemos y gypsophila, realzado con eucalipto y follaje verde fresco. Una composición amplia y luminosa que acompaña con respeto y serenidad en el velatorio o la despedida.", categories: ["funebres", "precio-medio"], funebrePromo: true },
     { id: 83, code: "083", name: "Palma Fúnebre Ovalada Blanca con Cala", price: 31000, image: "../assets/foto83.webp", description: "Palma fúnebre ovalada elaborada con cala blanca, crisantemos, claveles y gypsophila sobre base de pino y eucalipto. Su forma alargada la hace ideal para apoyar junto al féretro o en el sitio de descanso, transmitiendo paz y respeto.", categories: ["funebres", "coronas-funebres", "precio-medio"] },
-    { id: 84, code: "084", name: "Arreglo de Condolencias Blanco con Calas y Gerberas Rosadas", price: 50000, image: "../assets/foto84.webp", description: "Amplio arreglo de condolencias en tonos blancos con calas, lilium, claveles, crisantemos y gypsophila, suavizado por gerberas rosadas y follaje fresco con eucalipto. Incluye tarjeta de dedicatoria. Una composición serena y luminosa para acompañar con respeto en la despedida.", categories: ["funebres", "precio-medio"] },
+    { id: 84, code: "084", name: "Arreglo de Condolencias Blanco con Calas y Gerberas Rosadas", price: 50000, originalPrice: 75000, image: "../assets/foto84.webp", description: "Amplio arreglo de condolencias en tonos blancos con calas, lilium, claveles, crisantemos y gypsophila, suavizado por gerberas rosadas y follaje fresco con eucalipto. Incluye tarjeta de dedicatoria. Una composición serena y luminosa para acompañar con respeto en la despedida.", categories: ["funebres", "precio-medio"], funebrePromo: true },
     { id: 85, code: "085", name: "Buqué Reina de la Noche — Rosas Negras con Ferrero Rocher", price: 70000, image: "../assets/foto85.webp", description: "Rosas negras con gypsophila negra, bombones Ferrero Rocher, corona dorada y mariposas doradas, envueltas en papel negro con filo dorado. Un buqué de lujo, dramático e inolvidable: para quien quiere regalar algo que nadie más se atreve a regalar.", categories: ["ramos", "rosas", "especiales", "premium", "precio-medio"] },
     { id: 86, code: "086", name: "Buqué Elegancia Blanca — Calas y Gerbera", price: 31250, image: "../assets/foto86.webp", description: "Calas blancas, gerbera y clavel blanco con gypsophila y helecho sobre papel negro, con mariposa dorada y tarjeta dedicada. Pureza y sobriedad en un mismo ramo: ideal para agradecer, felicitar o acompañar con elegancia.", categories: ["ramos", "especiales", "precio-medio"] },
     { id: 87, code: "087", name: "Mega Bouquet Rosas Fucsia con Gypsophila", price: 81250, image: "../assets/foto87.webp", description: "Ramo abundante de rosas fucsia con nubes de gypsophila y helecho, envuelto en papel negro con filo amarillo y moño de raso fucsia. Impacto puro: el regalo que se roba todas las miradas apenas entra por la puerta.", categories: ["ramos", "rosas", "premium", "precio-alto"] },
@@ -227,6 +227,113 @@ function formatCLP(price) {
 // Alias por compatibilidad
 function formatCOP(price) { return formatCLP(price); }
 
+/* ============================================================
+   PROMOCIÓN ARREGLOS FÚNEBRES
+   Los productos con funebrePromo: true se muestran justo debajo
+   de la Promoción de la Semana, con su propio banner, y en un
+   flyer flotante que se cierra solo a los 5 segundos.
+   ============================================================ */
+function funebreBannerHTML(list) {
+    var maxOff = 0;
+    list.forEach(function (p) {
+        if (p.originalPrice > p.price) maxOff = Math.max(maxOff, Math.round((1 - p.price / p.originalPrice) * 100));
+    });
+    return '<div class="funebre-banner" id="promo-funebre">' +
+             '<div class="funebre-banner-text">' +
+               '<h2>Promoción <span class="funebre-silver">Arreglos Fúnebres</span></h2>' +
+               '<p>Acompaña con respeto y cariño en los momentos difíciles · Despacho a domicilio en Antofagasta</p>' +
+             '</div>' +
+             '<div class="funebre-banner-tag">Hasta ' + maxOff + '% de descuento</div>' +
+           '</div>';
+}
+
+function funebreCardOverlay(product) {
+    if (!product.funebrePromo || product.semana) return '';
+    var badge = '';
+    if (product.originalPrice && product.originalPrice > product.price) {
+        var off = Math.round((1 - product.price / product.originalPrice) * 100);
+        badge = '<div class="funebre-savings">-' + off + '%<small>DCTO</small></div>';
+    }
+    return '<div class="funebre-ribbon"><span>❀</span> PROMO FÚNEBRE <span>❀</span></div>' + badge;
+}
+
+function showFunebreFlyer() {
+    var list = products.filter(function (p) { return p.funebrePromo; }).sort(function (a, b) { return a.price - b.price; });
+    if (!list.length || document.getElementById('ff-overlay')) return;
+    var items = list.map(function (p) {
+        var off = p.originalPrice ? Math.round((1 - p.price / p.originalPrice) * 100) : 0;
+        return '<button type="button" class="ff-item" data-code="' + p.code + '">' +
+                 (off ? '<span class="ff-off">-' + off + '%</span>' : '') +
+                 '<img src="' + p.image + '" alt="' + p.name + '">' +
+                 '<div class="ff-info">' +
+                   '<p class="ff-name">' + p.name + '</p>' +
+                   (p.originalPrice ? '<span class="ff-old">Antes ' + formatCLP(p.originalPrice) + '</span>' : '') +
+                   '<span class="ff-new">' + formatCLP(p.price) + '</span>' +
+                 '</div>' +
+               '</button>';
+    }).join('');
+
+    var overlay = document.createElement('div');
+    overlay.className = 'ff-overlay';
+    overlay.id = 'ff-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Promoción de arreglos fúnebres');
+    overlay.innerHTML =
+        '<div class="ff-card">' +
+          '<button class="ff-close" type="button" aria-label="Cerrar">&times;</button>' +
+          '<div class="ff-head">' +
+            '<span class="ff-kicker">Promoción especial</span>' +
+            '<h3>Arreglos Fúnebres</h3>' +
+            '<p>Acompaña con respeto a quienes más quieres</p>' +
+          '</div>' +
+          '<div class="ff-progress"><span></span></div>' +
+          '<div class="ff-items">' + items + '</div>' +
+          '<div class="ff-foot"><button class="ff-cta" type="button">Ver promoción</button></div>' +
+        '</div>';
+    document.body.appendChild(overlay);
+
+    var timer = null;
+    function close() {
+        if (!overlay.parentNode) return;
+        clearTimeout(timer);
+        overlay.classList.remove('ff-show');
+        document.removeEventListener('keydown', onKey);
+        setTimeout(function () { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); }, 380);
+    }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+    overlay.querySelector('.ff-close').addEventListener('click', close);
+    overlay.querySelectorAll('.ff-item').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var p = list.find(function (x) { return x.code === btn.getAttribute('data-code'); });
+            close();
+            if (p) orderWA(p.name, p.price, p.code);
+        });
+    });
+    overlay.querySelector('.ff-cta').addEventListener('click', function () {
+        close();
+        var target = document.getElementById('promo-funebre');
+        if (!target) {
+            currentSearchQuery = '';
+            var si = document.getElementById('search-input'); if (si) si.value = '';
+            filterProducts('todos');
+            target = document.getElementById('promo-funebre');
+        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    document.addEventListener('keydown', onKey);
+
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () { overlay.classList.add('ff-show', 'ff-run'); });
+    });
+    timer = setTimeout(close, 5000); // se cierra solo a los 5 segundos
+}
+
+// Flyer flotante al cargar la landing
+window.addEventListener('load', function () { setTimeout(showFunebreFlyer, 700); });
+
 // --- ORDENAR PRODUCTOS: primero los de la categoría de la landing ---
 function getSortedProducts(priorityTag) {
     const priority = [];
@@ -283,11 +390,13 @@ function renderProducts(filters = [], limit = null) {
 
     // Promoción de la Semana primero, después el resto de promociones
     const semanaProducts = productsToDisplay.filter(p => p.semana && !p.peluche).sort((a, b) => a.id - b.id);
-    const promoProducts = productsToDisplay.filter(p => p.promo && !p.semana && !p.peluche);
-    const nonPromoProducts = productsToDisplay.filter(p => !p.promo && !p.semana && !p.peluche);
+    // Promoción Arreglos Fúnebres justo debajo de la Promo de la Semana
+    const funebrePromo = productsToDisplay.filter(p => p.funebrePromo && !p.semana && !p.peluche).sort((a, b) => a.price - b.price);
+    const promoProducts = productsToDisplay.filter(p => p.promo && !p.semana && !p.funebrePromo && !p.peluche);
+    const nonPromoProducts = productsToDisplay.filter(p => !p.promo && !p.semana && !p.funebrePromo && !p.peluche);
     // Los peluches van siempre al final del catálogo
     const pelucheProducts = productsToDisplay.filter(p => p.peluche).sort((a, b) => a.id - b.id);
-    productsToDisplay = [...semanaProducts, ...promoProducts, ...nonPromoProducts, ...pelucheProducts];
+    productsToDisplay = [...semanaProducts, ...funebrePromo, ...promoProducts, ...nonPromoProducts, ...pelucheProducts];
 
     if (limit) {
         productsToDisplay = productsToDisplay.slice(0, limit);
@@ -297,7 +406,12 @@ function renderProducts(filters = [], limit = null) {
 
     const htmlParts = [];
     if (semanaProducts.length) htmlParts.push(semanaBannerHTML(semanaProducts.length));
+    let funebreBannerDone = false;
     productsToDisplay.forEach(product => {
+        if (!funebreBannerDone && product.funebrePromo && !product.semana && !product.peluche) {
+            htmlParts.push(funebreBannerHTML(funebrePromo));
+            funebreBannerDone = true;
+        }
         const escapedName = product.name.replace(/'/g, "\\'");
         const hasVariations = Array.isArray(product.variations) && product.variations.length > 1;
         const imageHTML = hasVariations
@@ -311,7 +425,7 @@ function renderProducts(filters = [], limit = null) {
             : `<div class="product-image">
                   <img src="${product.image}" alt="${product.name} - Flores a domicilio Antofagasta" loading="lazy">
               </div>`;
-        const promoOverlay = product.semana ? semanaCardOverlay(product) : (product.promo ? `
+        const promoOverlay = product.semana ? semanaCardOverlay(product) : product.funebrePromo ? funebreCardOverlay(product) : (product.promo ? `
             <div class="promo-ribbon"><span class="promo-spark">✦</span> OFERTA <span class="promo-spark">✦</span></div>
             <div class="promo-savings">-${Math.round((1 - product.price/product.originalPrice)*100)}%</div>
         ` : '');
@@ -326,7 +440,7 @@ function renderProducts(filters = [], limit = null) {
                </div>`
             : `<span class="price">${formatCLP(product.price)}</span>`;
         const productHTML = `
-            <div class="product-item ${product.semana ? 'semana-card' : (product.peluche ? 'peluche-card' : (product.promo ? 'promo-card' : ''))}" data-code="${product.code}">
+            <div class="product-item ${product.semana ? 'semana-card' : (product.peluche ? 'peluche-card' : (product.funebrePromo ? 'funebre-promo-card' : (product.promo ? 'promo-card' : '')))}" data-code="${product.code}">
                 ${promoOverlay}
                 ${product.peluche ? `<div class="peluche-ribbon">🧸 PELUCHE</div>` : ''}
                 ${imageHTML}
