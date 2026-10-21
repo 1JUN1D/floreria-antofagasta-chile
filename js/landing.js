@@ -1,5 +1,5 @@
 // ===================================
-// LANDING PAGE JS - Full Petalos Antofagasta
+// LANDING PAGE JS - Antofagasta
 // Catálogo con prioridad por categoría + Conversiones Google Ads
 // ===================================
 
