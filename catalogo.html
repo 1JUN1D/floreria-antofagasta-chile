@@ -2032,7 +2032,7 @@ function showFunebreFlyer() {
     var fmt = function (n) { return '$' + n.toLocaleString('es-CL'); };
     var items = list.map(function (p) {
         var off = p.originalPrice ? Math.round((1 - p.price / p.originalPrice) * 100) : 0;
-        var wa = 'https://wa.me/56922437256?text=' + encodeURIComponent('Hola, me interesa el producto ' + p.code + ': ' + p.name + ' - ' + fmt(p.price) + ' (promoción arreglos fúnebres)');
+        var wa = 'https://wa.me/56930536073?text=' + encodeURIComponent('Hola, me interesa el producto ' + p.code + ': ' + p.name + ' - ' + fmt(p.price) + ' (promoción arreglos fúnebres)');
         return '<a class="ff-item" href="' + wa + '" target="_blank" rel="noopener" onclick="gtag_report_conversion();">' +
                  (off ? '<span class="ff-off">-' + off + '%</span>' : '') +
                  '<img src="' + p.image + '" alt="' + p.name + '">' +
@@ -2252,7 +2252,7 @@ function showFunebreFlyer() {
                                     <div class="product-price">${formatPrice(product.price)}</div>
                                 `}
                             </div>
-                            <a href="${product.peluche ? `https://wa.me/56922437256?text=${encodeURIComponent('Hola, quiero cotizar el peluche ' + product.code + ': ' + product.name)}` : `https://wa.me/56922437256?text=Hola,%20me%20interesa%20el%20producto%20${product.code}:%20${encodeURIComponent(product.name)}%20-%20${formatPrice(product.price)}`}"
+                            <a href="${product.peluche ? `https://wa.me/56930536073?text=${encodeURIComponent('Hola, quiero cotizar el peluche ' + product.code + ': ' + product.name)}` : `https://wa.me/56930536073?text=Hola,%20me%20interesa%20el%20producto%20${product.code}:%20${encodeURIComponent(product.name)}%20-%20${formatPrice(product.price)}`}"
                                class="btn-order"
                                target="_blank"
                                onclick="gtag_report_conversion();">
