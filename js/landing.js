@@ -500,7 +500,7 @@ function contactWA() {
     const url = 'https://wa.me/56930536073?text=Hola,%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20flores.%20%C2%BFPodr%C3%ADan%20ayudarme%3F';
     try {
         gtag('event', 'conversion', {
-            'send_to': 'AW-18163228199/iTZDCLCAzsocEKe889RD',
+            'send_to': 'AW-18565860555/ShSRCOHTnrUdEMuZ8pRF',
             'value': 1.0,
             'currency': 'CLP',
             'event_callback': function () {
@@ -522,7 +522,7 @@ function orderWA(productName, price, code) {
     const url = `https://wa.me/56930536073?text=${encodedMessage}`;
     try {
         gtag('event', 'conversion', {
-            'send_to': 'AW-18163228199/iTZDCLCAzsocEKe889RD',
+            'send_to': 'AW-18565860555/ShSRCOHTnrUdEMuZ8pRF',
             'value': 1.0,
             'currency': 'CLP',
             'event_callback': function () {
