@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://ansofagastafloreria.dondeseria.com/sitemap.xml
+Sitemap: https://ansofagastafloreria.dondeseria.com/sitemap.xml

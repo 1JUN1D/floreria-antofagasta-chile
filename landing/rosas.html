@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explora exquisitos arreglos y bouquets de rosas con despacho a domicilio en Antofagasta. Flores de primera calidad, ramilletes compactos, cajas floreadas para celebraciones y momentos memorables. Envío en el mismo día.">
     <meta name="keywords" content="ramo de rosas, bouquet de rosas, rosas a domicilio, caja de rosas, arreglos de rosas, ramo de rosas rojas, ramos de rosas para cumpleaños, colores de rosas, rosa negra flor, rosas negras naturales, ramos de rosas con girasoles, ramo buchon de rosas, bouquet de rosas antofagasta, rosas a domicilio antofagasta">
-    <meta property="og:title" content="Ramos y Bouquets de Rosas Frescas a Domicilio en Antofagasta">
+    <meta property="og:title" content="Ramos y Bouquets de Rosas Frescas a Domicilio en Antofagasta | D'Fleur">
     <meta property="og:description" content="Rosas frescas y arreglos de rosas para cumpleaños, aniversarios y ocasiones especiales. Entrega mismo día en Antofagasta, Región de Antofagasta.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1200&q=80">
     <meta property="og:url" content="https://ansofagastafloreria.dondeseria.com/landing/rosas">
@@ -45,17 +45,17 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/landing.css">
 
-        <link rel="icon" type="image/png" href="assets/logo.webp">
+        <link rel="icon" type="image/webp" href="../assets/webp/logo_favicon.webp">
 
 
-    <title>Ramos de Rosas Frescas a Domicilio en Antofagasta</title>
+    <title>Ramos de Rosas Frescas a Domicilio en Antofagasta | D'Fleur</title>
 </head>
 <body>
     <!-- Header/Navigation -->
     <header class="header">
         <div class="container header-content">
             <div class="logo">
-                <img src="../assets/logo.webp" alt="Florería en Antofagasta">
+                <img src="../assets/webp/logo.webp" alt="D'Fleur - Florería en Antofagasta">
             </div>
             <nav class="nav">
                 <a href="#inicio" class="nav-link">Inicio</a>
@@ -121,6 +121,13 @@
     <!-- Grid de Productos -->
     <section class="products-section">
         <div class="container">
+            <div class="cotiza-banner">
+                <div>
+                    <h3>¿Tienes algo en mente?</h3>
+                    <p>Armamos el arreglo según tu gusto, la ocasión y tu presupuesto.</p>
+                </div>
+                <button type="button" onclick="trackConversion('https://wa.me/56936187973?text=' + encodeURIComponent('Hola, quiero cotizar un arreglo personalizado. ¿Me ayudan?'))">Cotizar por WhatsApp</button>
+            </div>
             <div class="products-container"></div>
             <div class="empty-state" id="empty-state">
                 <h3>No se encontraron productos</h3>
@@ -136,7 +143,7 @@
             <h2>Sorprende Hoy, Sonríen Mañana</h2>
             <p>Haz tu pedido de arreglo floral a casa ahora mismo. Entregamos cada día en toda Antofagasta.</p>
             <button class="cta-button-large" onclick="orderWA(); return false;">
-                📞 WhatsApp: +56 9 3053 6073
+                📞 WhatsApp: +56 9 3618 7973
             </button>
             <p class="cta-subtitle">Servicio continuo sin parar - Respuesta inmediata</p>
         </div>
@@ -146,11 +153,11 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-info">
-                <p>Florería en Antofagasta, Región de Antofagasta, Chile</p>
-                <p>WhatsApp: <a href="https://wa.me/56930536073">+56 9 3053 6073</a></p>
+                <p><strong>D'Fleur</strong> - Florería en Antofagasta, Región de Antofagasta, Chile</p>
+                <p>WhatsApp: <a href="https://wa.me/56936187973">+56 9 3618 7973</a></p>
                 <p>Entrega a domicilio en toda la ciudad</p>
             </div>
-            <p class="footer-copyright">&copy; 2026. Todos los derechos reservados.</p>
+            <p class="footer-copyright">&copy; 2026 D'Fleur. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -159,19 +166,17 @@
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Florería Antofagasta",
-        "image": "https://ansofagastafloreria.dondeseria.com/assets/logo.webp",
+        "name": "D'Fleur",
+        "image": "https://ansofagastafloreria.dondeseria.com/assets/webp/logo.webp",
         "description": "Florería especializada en ramos y arreglos de rosas a domicilio en Antofagasta, Región de Antofagasta.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Antofagasta",
-            "addressRegion": "Región de Antofagasta",
-            "addressCountry": "CL"
+        "areaServed": {
+            "@type": "City",
+            "name": "Antofagasta"
         },
-        "telephone": "+56930536073",
+        "telephone": "+56936187973",
         "url": "https://ansofagastafloreria.dondeseria.com",
         "priceRange": "$$",
-        "sameAs": "https://wa.me/56930536073"
+        "sameAs": "https://wa.me/56936187973"
     }
     </script>
 
